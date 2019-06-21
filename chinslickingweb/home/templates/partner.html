@@ -1,0 +1,166 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block header %}
+    {% include "header.html" with title="品牌合作" %}
+    {% block style_tag %}
+    <style>
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+<!--<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/slide1.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="slide-content">
+                            <h2>做美食，品美食，享美食我们更专业</h2>
+                            <p>Do food, taste food, enjoy food we more professional.</p>
+                            &lt;!&ndash;<div class="slide-btn">
+                                <a href="#" class="button">Learn More</a>
+                                <a href="#" class="button-2">Live Preview</a>
+                            </div>&ndash;&gt;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<!--滚动切换图片-->
+<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/banner_5.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                COOPERATION
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>品牌合作</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_6.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                COOPERATION
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>品牌合作</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="page-title sp" style="background-image: url({% static 'images/banner_5.jpg' %});">
+    <div class="container text-center">
+        <h2 class="banner-h2">
+            COOPERATION
+        </h2>
+        <h4 class="banner-h4">
+            <hr class="hr-1">
+            <span>品牌合作</span>
+            <hr class="hr-1">
+        </h4>
+    </div>
+</div>-->
+{% endblock %}
+
+{% block content %}
+<div class="faq-area-2 sp bg2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="faq-sidebar-wrap">
+                    <h3>{% trans "品牌合作" %}</h3>
+                    <div>COOPERATION</div>
+                    <ul class="faq-sidebar">
+                        <li class="faq-sidebar-li-hover" data-id="hzzc"><a href="javascript:void(0);">{% trans "合作政策" %}</a></li>
+                        <li data-id="xmys"><a href="javascript:void(0);">{% trans "项目优势" %}</a></li>
+                        <li data-id="jxswd"><a href="javascript:void(0);">{% trans "经销商问答" %}</a></li>
+                        <li data-id="sqbxz"><a href="javascript:void(0);">{% trans "申请表下载" %}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9 bg6">
+                <div id="hzzc" style="padding-top: 0;">
+                    {% for item in policy_list %}
+                    <div class="single-faq">
+                        <h2><span>{{ forloop.counter }}</span>{{item.title}}</h2>
+                        {{item.content|safe}}
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div id="xmys" style="display:none;padding-top: 0;">
+                    {% for item in superiority_list %}
+                    <div class="single-faq">
+                        <h2><span>{{ forloop.counter }}</span>{{item.title}}</h2>
+                        {{item.content|safe}}
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div id="jxswd" style="display:none;padding-top: 0;">
+                    {% for item in question_list %}
+                    <div class="single-faq">
+                        <h2><span>{{ forloop.counter }}</span>{{item.title}}</h2>
+                        {{item.content|safe}}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+            $('.faq-sidebar').on('click', 'li', function(){
+                if($(this).attr('data-id') != "sqbxz"){
+                    $('.faq-sidebar').find('li').each(function(){
+                        $('#' + $(this).attr('data-id')).css('display', 'none');
+                        $(this).removeClass('faq-sidebar-li-hover');
+                    });
+
+                    $('#' + $(this).attr('data-id')).css('display', 'block');
+                    $(this).addClass('faq-sidebar-li-hover');
+                }else{
+                    {#window.open("{% static 'apply_table.xls' %}");#}
+
+                    window.open("/uploads/{{ apply_table.file }}");
+                }
+            });
+        });
+    </script>
+    {% endblock %}
+{% endblock %}

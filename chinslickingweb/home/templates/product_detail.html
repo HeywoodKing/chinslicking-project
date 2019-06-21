@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load my_filter_tag %}
+{% load i18n %}
+
+{% block header %}
+    {% include "header.html" with title="品牌产品详情" %}
+    {% block style_tag %}
+    <style>
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+<!--<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/slide1.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="slide-content">
+                            <h2>做美食，品美食，享美食我们更专业</h2>
+                            <p>Do food, taste food, enjoy food we more professional.</p>
+                            &lt;!&ndash;<div class="slide-btn">
+                                <a href="#" class="button">Learn More</a>
+                                <a href="#" class="button-2">Live Preview</a>
+                            </div>&ndash;&gt;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="page-title sp" style="background-image: url({% static 'images/banner_4.jpg' %});height: 300px;">
+    <div class="container text-center">
+        <h3 class="banner-h3">
+            {% trans "纯粹" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯粮" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯手工" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯天然" %}
+        </h3>
+        <h3 class="banner-h3">
+            {% trans "秦韵" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦风" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦文化" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦饮食" %}
+        </h3>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="faq-area-2 sp bg2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="single-faq" style="background-color: #99cc67;padding: 20px 20px 20px 20px;">
+                    <h2>
+                        <!--<span class="icon">
+                            <i class="glyphicon glyphicon-heart-empty"></i>
+                        </span>&nbsp;&nbsp;-->
+                        {{ product.name }}
+                    </h2>
+                    <div>
+                        <span class="icon">
+                            <i class="glyphicon glyphicon-time"></i>
+                        </span>
+                        <span>{% trans "时间" %}：{{ product.create_time }}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="icon">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </span>
+                        <span>{% trans "浏览" %}：{{ product.read_count }}</span>
+                    </div>
+                    <hr>
+                    <div>{{ product.content|safe }}</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="faq-sidebar-wrap">
+                    <h3>{% trans "推荐产品" %}</h3>
+                    {% for item in product_command_list %}
+                    <div class="product-commend about-img">
+                        <a href="/king/product_detail/{{item.id}}">
+                            <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.name}}" title="{{item.name}}">
+                        </a>
+                        <div class="product-commend-title">{{item.name|truncate_point:'12'}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+        });
+    </script>
+    {% endblock %}
+{% endblock %}

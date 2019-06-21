@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load my_filter_tag %}
+{% load i18n %}
+
+{% block header %}
+    {% include "header.html" with title="品牌产品" %}
+    {% block style_tag %}
+    <style>
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+<!--<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/slide1.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="slide-content">
+                            <h2>做美食，品美食，享美食我们更专业</h2>
+                            <p>Do food, taste food, enjoy food we more professional.</p>
+                            &lt;!&ndash;<div class="slide-btn">
+                                <a href="#" class="button">更多产品</a>
+                                <a href="#" class="button-2">学习</a>
+                            </div>&ndash;&gt;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<!--滚动切换图片-->
+<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/banner_4.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                {% trans "纯粹" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯粮" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯手工" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯天然" %}<br>
+                                {% trans "秦韵" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦风" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦文化" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦饮食" %}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_5.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                {% trans "纯粹" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯粮" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯手工" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯天然" %}<br>
+                                {% trans "秦韵" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦风" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦文化" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦饮食" %}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="page-title sp" style="background-image: url({% static 'images/banner_4.jpg' %});">
+    <div class="container text-center">
+        <h2 class="banner-h3">
+            {% trans "纯粹" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯粮" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯手工" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯天然" %}<br>
+            {% trans "秦韵" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦风" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦文化" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦饮食" %}
+        </h2>
+    </div>
+</div>-->
+{% endblock %}
+
+{% block content %}
+<div class="portfolio-area sp bg2">
+    <div class="container">
+        <div class="section-title">
+            <h2>{% trans "秦食皇产品" %}</h2>
+            <div class="section-title-bg">
+                <div class="section-title-bg-box" style="width: 125px;"></div>
+            </div>
+            <div class="sub-title">
+                <hr class="hr-2">
+                <span>{% trans "一口国土味，入胃解乡愁" %}</span>
+                <hr class="hr-2">
+            </div>
+        </div>
+        <div class="row">
+            <ul class="isotope-menu">
+                {% for item in product_type_list %}
+                    {% if forloop.counter0 == 0 %}
+                    <li data-filter="{{item.data_filter_name}}" class="active">{% trans item.name %}</li>
+                    {% else %}
+                    <li data-filter=".{{item.data_filter_name}}">{% trans item.name %}</li>
+                    {% endif %}
+                {% endfor %}
+
+                <!--<li data-filter="*" class="active">全部</li>
+                <li data-filter=".ceramics">青春芽酱</li>
+                <li data-filter=".branding">怀旧零嘴</li>
+                <li data-filter=".design">养生素食</li>
+                <li data-filter=".magic">魔芋塑身</li>
+                <li data-filter=".photography">礼盒包装</li>-->
+            </ul>
+        </div>
+        <div class="row portfolio-isotope">
+            {% for item in product_list %}
+                <div class="single-portfolio col-md-4 {{item.product_type.data_filter_name}}">
+                    <div class="inner">
+                        <div class="portfolio-img-pro">
+                            <!--<img src="{% static 'images/portfolio1.jpg' %}" alt="portfolio-image">-->
+                            <img src="/uploads/{{item.cover_image_url}}" alt="{{item.name}}">
+                            <div class="hover-content">
+                                <div>
+                                    <a href="/king/product_detail/{{item.id}}" class="button">{% trans "查看详情" %}</a>
+                                    {% if item.mall_url %}
+                                        <a href="{{item.mall_url}}" class="button">{% trans "商城选购" %}</a>
+                                    {% else %}
+                                        <a href="/king/product_detail/{{item.id}}" class="button">{% trans "商城选购" %}</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="/king/product_detail/{{item.id}}"><h3>{{item.name|truncate_point:'15'}}</h3></a>
+                            <span>{{item.brief|truncate_point:'30'}}</span>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="single-portfolio col-md-4">还没有商品哦！赶快添加吧！</div>
+            {% endfor %}
+        </div>
+
+        {% include "pager.html" with page_list=product_list %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+        });
+    </script>
+    {% endblock %}
+{% endblock %}

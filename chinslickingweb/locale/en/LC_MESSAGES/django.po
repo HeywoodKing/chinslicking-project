@@ -1,0 +1,364 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-22 00:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\chinslickingweb\settings.py:163
+msgid "中文简体"
+msgstr ""
+
+#: .\chinslickingweb\settings.py:164
+msgid "English"
+msgstr ""
+
+#: .\dashboard.py:24
+msgid "支持列表"
+msgstr ""
+
+#: .\dashboard.py:27
+msgid "Django documentation"
+msgstr ""
+
+#: .\dashboard.py:32
+msgid "Django \"django-users\" mailing list"
+msgstr ""
+
+#: .\dashboard.py:37
+msgid "Django irc channel"
+msgstr ""
+
+#: .\dashboard.py:42
+msgid "Django irc channel2"
+msgstr ""
+
+#: .\dashboard.py:56
+msgid "快速操作"
+msgstr ""
+
+#: .\dashboard.py:62
+msgid "查看站点"
+msgstr ""
+
+#: .\dashboard.py:63
+msgid "修改密码"
+msgstr ""
+
+#: .\dashboard.py:65
+msgid "退出"
+msgstr ""
+
+#: .\dashboard.py:72
+msgid "应用"
+msgstr ""
+
+#: .\dashboard.py:79
+msgid "用户"
+msgstr ""
+
+#: .\dashboard.py:86
+msgid "模型"
+msgstr ""
+
+#: .\dashboard.py:93
+msgid "最近操作"
+msgstr ""
+
+#: .\dashboard.py:100
+msgid "django订阅信息"
+msgstr ""
+
+#: .\home\templates\about.html:44 .\home\templates\about.html:57
+#: .\home\templates\about.html:68
+msgid "华夏传统美食的国际级复刻者"
+msgstr ""
+
+#: .\home\templates\about.html:81
+msgid "年"
+msgstr ""
+
+#: .\home\templates\about.html:84
+msgid "公司正式成立"
+msgstr ""
+
+#: .\home\templates\about.html:94
+msgid "注册认证"
+msgstr ""
+
+#: .\home\templates\about.html:101
+msgid "个"
+msgstr ""
+
+#: .\home\templates\about.html:104
+msgid "系列产品"
+msgstr ""
+
+#: .\home\templates\about.html:112
+msgid "公司简介"
+msgstr ""
+
+#: .\home\templates\about.html:154
+msgid "企业文化"
+msgstr ""
+
+#: .\home\templates\about.html:181
+msgid "品牌荣誉"
+msgstr ""
+
+#: .\home\templates\about.html:212
+msgid "企业资质"
+msgstr ""
+
+#: .\home\templates\about.html:242
+msgid "发展历程"
+msgstr ""
+
+#: .\home\templates\about.html:291
+msgid "愿景规划"
+msgstr ""
+
+#: .\home\templates\about.html:298
+msgid ""
+"\"秦食皇\"希望把中国农副产品和民间特色美食，以品牌的形式展示到境外华人的视"
+"野，意图通过境外宣传与销售通道，改变海外华人对中国美食的认知。实现我们\"一口"
+"国土味，入胃解乡愁\"的夙愿，让老百姓\"送的安心，吃的放心\"。"
+msgstr ""
+
+#: .\home\templates\contact.html:169
+msgid "联系我们"
+msgstr ""
+
+#: .\home\templates\contact.html:186
+msgid "电话"
+msgstr ""
+
+#: .\home\templates\contact.html:199 .\home\templates\footer.html:19
+msgid "邮箱"
+msgstr ""
+
+#: .\home\templates\contact.html:212 .\home\templates\footer.html:23
+msgid "地址"
+msgstr ""
+
+#: .\home\templates\contact.html:215 .\home\templates\footer.html:24
+msgid "西安市高新区丈八二路31号"
+msgstr ""
+
+#: .\home\templates\contact.html:225
+msgid "公司地址"
+msgstr ""
+
+#: .\home\templates\contact.html:234
+msgid "如果，您是亲临秦食皇，有以下交通方式可供选择"
+msgstr ""
+
+#: .\home\templates\contact.html:235
+msgid ""
+"乘坐公交：251路、107路、高新2号线都可到达，自驾车：参考地图标示行驶高新六路，"
+"科技四路，团结南路前往双水磨公交站均可到达。"
+msgstr ""
+
+#: .\home\templates\duty_detail.html:61 .\home\templates\news_detail.html:105
+#: .\home\templates\product_detail.html:64
+msgid "时间"
+msgstr ""
+
+#: .\home\templates\duty_detail.html:66 .\home\templates\news_detail.html:110
+#: .\home\templates\product_detail.html:69
+msgid "浏览"
+msgstr ""
+
+#: .\home\templates\duty_detail.html:74 .\home\templates\duty_list.html:75
+#: .\home\templates\news_list.html:131
+msgid "最新动态"
+msgstr ""
+
+#: .\home\templates\footer.html:16
+msgid "西安秦食皇食品有限公司"
+msgstr ""
+
+#: .\home\templates\footer.html:38
+msgid "商务合作"
+msgstr ""
+
+#: .\home\templates\footer.html:53
+msgid "陕ICP备"
+msgstr ""
+
+#: .\home\templates\footer.html:53
+msgid "西安秦食皇食品有限公司版权所有"
+msgstr ""
+
+#: .\home\templates\footer.html:79
+msgid "中文"
+msgstr ""
+
+#: .\home\templates\footer.html:82
+msgid "英文"
+msgstr ""
+
+#: .\home\templates\footer.html:86
+msgid "在线<br>商城"
+msgstr ""
+
+#: .\home\templates\footer.html:91
+msgid "在线<br>客服"
+msgstr ""
+
+#: .\home\templates\header.html:72 .\home\templates\index.html:91
+msgid "首页"
+msgstr ""
+
+#: .\home\templates\header.html:73 .\home\templates\index.html:92
+msgid "品牌介绍"
+msgstr ""
+
+#: .\home\templates\header.html:74 .\home\templates\index.html:93
+msgid "在线商城"
+msgstr ""
+
+#: .\home\templates\header.html:75 .\home\templates\index.html:94
+msgid "合作共赢"
+msgstr ""
+
+#: .\home\templates\header.html:76 .\home\templates\index.html:95
+msgid "新闻动态"
+msgstr ""
+
+#: .\home\templates\header.html:77 .\home\templates\index.html:96
+msgid "静候伯乐"
+msgstr ""
+
+#: .\home\templates\header.html:78 .\home\templates\index.html:97
+msgid "为您服务"
+msgstr ""
+
+#: .\home\templates\job_list.html:98
+msgid "招贤纳士"
+msgstr ""
+
+#: .\home\templates\job_list.html:104
+msgid "我们期待您的加入"
+msgstr ""
+
+#: .\home\templates\job_list.html:116
+msgid "经验"
+msgstr ""
+
+#: .\home\templates\news_detail.html:118
+msgid "最新资讯"
+msgstr ""
+
+#: .\home\templates\news_list.html:98
+msgid "社会责任"
+msgstr ""
+
+#: .\home\templates\news_list.html:155
+msgid "新闻资讯"
+msgstr ""
+
+#: .\home\templates\news_list.html:188
+msgid "更多"
+msgstr ""
+
+#: .\home\templates\partner.html:99
+msgid "品牌合作"
+msgstr ""
+
+#: .\home\templates\partner.html:102
+msgid "合作政策"
+msgstr ""
+
+#: .\home\templates\partner.html:103
+msgid "项目优势"
+msgstr ""
+
+#: .\home\templates\partner.html:104
+msgid "经销商问答"
+msgstr ""
+
+#: .\home\templates\partner.html:105
+msgid "申请表下载"
+msgstr ""
+
+#: .\home\templates\product_detail.html:39
+#: .\home\templates\product_list.html:45 .\home\templates\product_list.html:61
+#: .\home\templates\product_list.html:75
+msgid "纯粹"
+msgstr ""
+
+#: .\home\templates\product_detail.html:39
+#: .\home\templates\product_list.html:45 .\home\templates\product_list.html:61
+#: .\home\templates\product_list.html:75
+msgid "纯粮"
+msgstr ""
+
+#: .\home\templates\product_detail.html:39
+#: .\home\templates\product_list.html:45 .\home\templates\product_list.html:61
+#: .\home\templates\product_list.html:75
+msgid "纯手工"
+msgstr ""
+
+#: .\home\templates\product_detail.html:39
+#: .\home\templates\product_list.html:45 .\home\templates\product_list.html:61
+#: .\home\templates\product_list.html:75
+msgid "纯天然"
+msgstr ""
+
+#: .\home\templates\product_detail.html:42
+#: .\home\templates\product_list.html:46 .\home\templates\product_list.html:62
+#: .\home\templates\product_list.html:76
+msgid "秦韵"
+msgstr ""
+
+#: .\home\templates\product_detail.html:42
+#: .\home\templates\product_list.html:46 .\home\templates\product_list.html:62
+#: .\home\templates\product_list.html:76
+msgid "秦风"
+msgstr ""
+
+#: .\home\templates\product_detail.html:42
+#: .\home\templates\product_list.html:46 .\home\templates\product_list.html:62
+#: .\home\templates\product_list.html:76
+msgid "秦文化"
+msgstr ""
+
+#: .\home\templates\product_detail.html:42
+#: .\home\templates\product_list.html:46 .\home\templates\product_list.html:62
+#: .\home\templates\product_list.html:76
+msgid "秦饮食"
+msgstr ""
+
+#: .\home\templates\product_detail.html:77
+msgid "推荐产品"
+msgstr ""
+
+#: .\home\templates\product_list.html:86
+msgid "秦食皇产品"
+msgstr ""
+
+#: .\home\templates\product_list.html:92
+msgid "一口国土味，入胃解乡愁"
+msgstr ""
+
+#: .\home\templates\product_list.html:123
+msgid "查看详情"
+msgstr ""
+
+#: .\home\templates\product_list.html:125
+#: .\home\templates\product_list.html:127
+msgid "商城选购"
+msgstr ""

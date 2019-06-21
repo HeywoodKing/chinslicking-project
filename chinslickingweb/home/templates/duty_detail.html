@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load my_filter_tag %}
+{% load i18n %}
+
+{% block header %}
+    {% include "header.html" with title="社会责任详情" %}
+    {% block style_tag %}
+    <style>
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+<!--<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/slide1.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="slide-content">
+                            <h2>做美食，品美食，享美食我们更专业</h2>
+                            <p>Do food, taste food, enjoy food we more professional.</p>
+                            &lt;!&ndash;<div class="slide-btn">
+                                <a href="#" class="button">Learn More</a>
+                                <a href="#" class="button-2">Live Preview</a>
+                            </div>&ndash;&gt;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="page-title sp" style="background-image: url({% static 'images/banner_2.jpg' %});height: 300px;">
+    <div class="container text-center">
+        <h3 class="banner-h3">
+            RESPONSIBILITY
+        </h3>
+        <h4 class="banner-h4">
+            <hr class="hr-1">
+            <span>社会责任</span>
+            <hr class="hr-1">
+        </h4>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="faq-area-2 sp bg2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="single-faq">
+                    <h2><span>1</span>{{ resp.title|truncate_point:'30' }}</h2>
+                    <div>
+                        <span class="icon">
+                            <i class="glyphicon glyphicon-time"></i>
+                        </span>
+                        <span>{% trans "时间" %}：{{ resp.create_time }}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="icon">
+                            <i class="glyphicon glyphicon-eye-open"></i>
+                        </span>
+                        <span>{% trans "浏览" %}：{{ resp.read_count }}</span>
+                    </div>
+                    <hr>
+                    <div>{{ resp.content|safe }}</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="faq-sidebar-wrap">
+                    <h3>{% trans "最新动态" %}</h3>
+                    <!--<ul class="faq-sidebar">
+                        {% for item in resp_lasted %}
+                        <li><a href="/king/resp_detail/{{item.id}}"><span>{{ forloop.counter }}.</span>&nbsp;{{item.title}}</a></li>
+                        {% endfor %}
+                    </ul>-->
+
+                    {% for item in resp_lasted %}
+                    <div class="product-commend">
+                        <a href="/king/resp_detail/{{item.id}}">
+                            <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.title}}" title="{{item.title}}">
+                        </a>
+                        <div class="product-commend-title">{{item.title|truncate_point:'12'}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+        });
+    </script>
+    {% endblock %}
+{% endblock %}

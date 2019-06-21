@@ -1,0 +1,210 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load my_filter_tag %}
+{% load i18n %}
+
+{% block header %}
+    {% include "header.html" with title="新闻资讯" %}
+    {% block style_tag %}
+    <style>
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+<!--<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/slide1.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="slide-content">
+                            <h2>做美食，品美食，享美食我们更专业</h2>
+                            <p>Do food, taste food, enjoy food we more professional.</p>
+                            &lt;!&ndash;<div class="slide-btn">
+                                <a href="#" class="button">Learn More</a>
+                                <a href="#" class="button-2">Live Preview</a>
+                            </div>&ndash;&gt;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<!--滚动切换图片-->
+<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/banner_6.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                NEWS
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>新闻资讯</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_7.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                NEWS
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>新闻资讯</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="page-title sp" style="background-image: url({% static 'images/banner_6.jpg' %});">
+    <div class="container text-center">
+        <h2 class="banner-h2">
+            NEWS
+        </h2>
+        <h4 class="banner-h4">
+            <hr class="hr-1">
+            <span>新闻资讯</span>
+            <hr class="hr-1">
+        </h4>
+    </div>
+</div>-->
+{% endblock %}
+
+{% block content %}
+<div class="faq-area-2 sp bg1">
+    <div class="container">
+        <div class="section-title">
+            <h2>{% trans "社会责任" %}
+            </h2>
+            <div class="section-title-bg">
+                <div class="section-title-bg-box" style=""></div>
+            </div>
+            <div class="sub-title">
+                <hr class="hr-2">
+                <span style="color: #000;">RESPONSIBILITY</span>
+                <hr class="hr-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                {% for item in resp_list %}
+                <div class="row bg2" style="padding: 25px 10px;margin-bottom: 10px;">
+                    <div class="col-md-4">
+                        <div class="about-img">
+                            <a href="/king/news_detail/{{item.id}}"><img src="/uploads/{{item.cover_image_url}}" alt="{{item.title}}"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="about-content" style="margin-top:0;">
+                            <h3 style="margin: 5px 0;"><a href="/king/news_detail/{{item.id}}">{{item.title|truncate_point:'12'}}</a></h3>
+                            <div>{{item.brief|truncate_point:'180'}}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                {% include "pager.html" with page_list=resp_list %}
+            </div>
+            <div class="col-md-3">
+                <div class="faq-sidebar-wrap">
+                    <h3>{% trans "最新动态" %}</h3>
+                    <!--<ul class="faq-sidebar">
+                        {% for item in resp_lasted %}
+                        <li><a href="/king/resp_detail/{{item.id}}"><span>{{ forloop.counter }}.</span>&nbsp;{{item.title}}</a></li>
+                        {% endfor %}
+                    </ul>-->
+
+                    {% for item in resp_lasted %}
+                    <div class="product-commend about-img">
+                        <a href="/king/news_detail/{{item.id}}">
+                            <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.title}}" title="{{item.title}}">
+                        </a>
+                        <div class="product-commend-title">{{item.title|truncate_point:'12'}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="faq-area-2 sp bg2">
+    <div class="container">
+        <div class="section-title">
+            <h2>{% trans "新闻资讯" %}
+            </h2>
+            <div class="section-title-bg">
+                <div class="section-title-bg-box" style=""></div>
+            </div>
+            <div class="sub-title">
+                <hr class="hr-2">
+                <span style="color: #000;">NEWS</span>
+                <hr class="hr-2">
+            </div>
+        </div>
+        <div class="row bg1">
+            {% for item in news_list %}
+            <div class="col-md-12 list-last-box">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="about-img">
+                            <a href="/king/news_detail/{{item.id}}"><img src="/uploads/{{item.cover_image_url}}" alt="{{item.title}}"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="about-content" style="margin-top:0;">
+                            <h3 style="margin: 5px 0;"><a href="/king/news_detail/{{item.id}}">{{item.title|truncate_point:'30'}}</a></h3>
+                            <div>{{item.brief|truncate_point:'300'}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="about-content" style="margin-top:0; text-align: center;">
+                            <h2 style="margin: 5px 0; font-size:35px; color: #fbdf51;">{{item.read_count}}</h2>
+                            <!--<div>{{item.create_time|date:'Y年m月d日 f'}}</div>-->
+                            <div>{{item.create_time|date:'Y年m月d日 H:i:s'}}</div>
+                        </div>
+                        <div class="about-content" style="text-align: center;">
+                            <a class="btn btn-default" style="width: 120px; background-color: #fbdf50; color: #fff;" href="/king/news_detail/{{item.id}}">{% trans "更多" %}>></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% include "./pager.html" with page_list=news_list %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+        });
+    </script>
+    {% endblock %}
+{% endblock %}
