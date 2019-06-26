@@ -459,6 +459,7 @@ SIMPLEUI_CONFIG = {
                 {
                     'name': '登录日志',
                     'icon': 'fa fa-cat',
+                    'url': '/auth/log/'
                 },
                 {
                     'name': '数据库备份',
@@ -744,5 +745,10 @@ LOGGING = {
         #     'level': 'INFO',
         #     'filters': ['special'],
         # }
+        'django.db.backends': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'DEBUG',
+        },
     },
 }

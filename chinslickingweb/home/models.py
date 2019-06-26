@@ -569,10 +569,10 @@ class ChinCooperation(BaseModel):
 # 社会责任
 # 新闻资讯
 class ChinNews(BaseModel):
-    title = models.CharField('标题', max_length=255)
+    title = models.CharField('标题', max_length=64)
     slug = models.SlugField('Slug', max_length=255, unique=True, null=True, blank=True,
                             help_text='根据title生成的，用于生成页面URL，必须唯一')
-    brief = models.CharField('摘要', max_length=50)
+    brief = models.CharField('摘要', max_length=120)
     content = models.TextField('内容', default=None, null=True, blank=True)
     read_count = models.IntegerField('浏览量', default=0)
     cover_image_url = models.ImageField('图片', max_length=255, null=True, blank=True, upload_to='news/%Y/%m')

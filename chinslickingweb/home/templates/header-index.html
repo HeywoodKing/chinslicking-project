@@ -28,48 +28,56 @@
     <style>
         .cloud-01{
             position: absolute;
-            top: 140px;
-            right: 345px;
-            width: 216px;
+            top: 10%;
+            width: 100%;
             height: 56px;
             background-image: url({% static 'images/cloud_01.png' %});
-            z-index: 1;
+            background-size: 15%;
             background-position: 0 0;
             background-repeat: no-repeat;
+            z-index: 1;
             animation-name: animated-cloud-01;
             animation-duration: 20s;
             animation-iteration-count: infinite;
             animation-timing-function: linear;
-            animation-direction: alternate;
+            animation-direction: normal;
+            animation-delay: 0s;
+            animation-fill-mode: none;
+            animation-play-state: running;
         }
         .cloud-02{
             position: absolute;
-            top: 148px;
-            right: 420px;
-            width: 216px;
+            top: 18%;
+            width: 100%;
             height: 56px;
             background: url({% static 'images/cloud_02.png' %}) no-repeat;
-            background-size: 130px 33px;
+            background-size: 5%;
             z-index: 1;
             animation-name: animated-cloud-02;
-            animation-duration: 10s;
+            animation-duration: 150s;
             animation-iteration-count: infinite;
             animation-timing-function: linear;
-            animation-direction: alternate;
+            animation-direction: normal;
+            animation-delay: 0s;
+            animation-fill-mode: none;
+            animation-play-state: running;
         }
         .cloud-03{
             position: absolute;
-            top: 200px;
-            left: 438px;
-            width: 261px;
+            top: 25%;
+            width: 100%;
             height: 67px;
             background: url({% static 'images/cloud_03.png' %}) no-repeat;
+            background-size: 10%;
             z-index: 1;
             animation-name: animated-cloud-03;
-            animation-duration: 45s;
+            animation-duration: 50s;
             animation-iteration-count: infinite;
             animation-timing-function: linear;
-            animation-direction: alternate;
+            animation-direction: normal;
+            animation-delay: 0s;
+            animation-fill-mode: none;
+            animation-play-state: running;
         }
         /*.cloud-03:after{
             content: '';
@@ -86,56 +94,64 @@
         }*/
         .cloud-04{
             position: absolute;
-            top: 170px;
-            left: 380px;
-            width: 216px;
+            top: 24%;
+            width: 100%;
             height: 56px;
             background: url({% static 'images/cloud_04.png' %}) no-repeat;
-            background-size: 165px 40px;
+            background-size: 8%;
             z-index: 1;
             animation-name: animated-cloud-04;
             animation-duration: 80s;
             animation-iteration-count: infinite;
             animation-timing-function: linear;
-            animation-direction: alternate;
+            animation-direction: normal;
+            animation-delay: 0s;
+            animation-fill-mode: none;
+            animation-play-state: running;
         }
         .cloud-05{
             position: absolute;
-            top: 180px;
-            left: 220px;
-            width: 261px;
+            top: 18%;
+            width: 100%;
             height: 67px;
             background: url({% static 'images/cloud_05.png' %}) no-repeat;
-            background-size: 200px 50px;
+            background-size: 12%;
             z-index: 1;
             animation-name: animated-cloud-05;
             animation-duration: 40s;
             animation-iteration-count: infinite;
             animation-timing-function: linear;
-            animation-direction: alternate;
+            animation-direction: normal;
+            animation-delay: 0s;
+            animation-fill-mode: none;
+            animation-play-state: running;
         }
         .cloud-06{
             position: absolute;
-            top: 400px;
-            right: 380px;
-            width: 216px;
+            top: 40%;
+            width: 100%;
             height: 56px;
             background: url({% static 'images/cloud_02.png' %}) no-repeat;
+            background-size: 4%;
             z-index: 1;
             animation-name: animated-cloud-06;
-            animation-duration: 40s;
+            animation-duration: 200s;
             animation-iteration-count: infinite;
             animation-timing-function: linear;
-            animation-direction: alternate;
+            animation-direction: normal;
+            animation-delay: 0s;
+            animation-fill-mode: none;
+            animation-play-state: running;
         }
 
         .water-btn{
             position: absolute;
-            top: 250px;
-            right: 30px;
-            width: 80px;
-            height: 86px;
-            background: url({% static 'images/water_btn.png' %}) no-repeat;
+            top: 15%;
+            right: 0;
+            width: 65px;
+            height: 43px;
+            background: url(/static/images/water_btn.png) no-repeat;
+            background-size: 58%;
             z-index: 1;
         }
         .water-btn:hover{
@@ -143,17 +159,20 @@
         }
         .bird{
             position: absolute;
-            top: 215px;
-            right: 1050px;
-            width: 96px;
-            height: 141px;
+            top: 32%;
+            width: 100%;
+            height: 52px;
             background: url({% static 'images/bird.gif' %}) no-repeat;
+            background-size: 4%;
             z-index: 1;
             animation-name: animated-bird;
-            animation-duration: 60s;
+            animation-duration: 90s;
             animation-iteration-count: infinite;
             animation-timing-function: linear;
             animation-direction: normal;
+            animation-delay: 0s;
+            animation-fill-mode: none;
+            animation-play-state: running;
         }
 
 
@@ -164,6 +183,7 @@
             animation-name:animated-bottle;
             animation-duration: 1s;
         }
+
         .rain-fadeIn{
             -webkit-animation-name:animated-rain;
             -moz-animation-name:animated-rain;
@@ -171,51 +191,54 @@
             animation-name:animated-rain;
             animation-duration: 1.5s;
         }
-        .soil{
-            position: absolute;
-            top: 895px;
-            left: 860px;
-            width: 120px;
-            height: 35px;
-            background: url({% static 'images/soil.png' %}) no-repeat;
-            background-size: 120px 35px;
-            z-index: 10;
-        }
 
 
         /*小树苗*/
-        .tree-01{
+        .watering-box-01{
             position: absolute;
-            top: 770px;
-            left: 886px;
-            width: 96px;
-            height: 141px;
-            background: url({% static 'images/tree_01.png' %}) no-repeat;
+            bottom: 12%;
+            left: 41%;
+            width: 22%;
+        }
+        .tree-01{
+            text-align: center;
             z-index: 1;
+        }
+        .tree-01 img{
+            width: 30%;
         }
         .bottle-01{
             position: absolute;
-            top: 550px;
-            left: 1030px;
-            width: 131px;
-            height: 78px;
-            background: url({% static 'images/bottle.png' %}) no-repeat;
+            top: -30px;
+            left: 185px;
+            text-align: center;
             z-index: 1;
             transform: rotate(-60deg);
         }
+        .bottle-01 img{
+            width: 40%;
+        }
         .rain-01{
             position: absolute;
-            top: 630px;
-            left: 970px;
-            width: 53px;
-            height: 75px;
-            background: url({% static 'images/rain_02.png' %}) no-repeat;
+            top: 0;
+            left: 180px;
+            text-align: center;
             z-index: 1;
+        }
+        .rain-01 img{
+            width: 50%;
+        }
+        .soil-01{
+            text-align: center;
+            z-index: 10;
+            margin-top: -17px;
+        }
+        .soil-01 img{
+            width: 40%;
         }
         .waternumber-01{
             position: absolute;
-            top: 600px;
-            left: 800px;
+            top: 50px;
             color: #99cc67;
             font-weight: 500;
             font-size: 22px;
@@ -232,38 +255,51 @@
 
 
         /*中树苗*/
-        .tree-02{
+        .watering-box-02{
             position: absolute;
-            top: 673px;
-            left: 822px;
-            width: 189px;
-            height: 244px;
-            background: url({% static 'images/tree_02.png' %}) no-repeat;
+            bottom: 12%;
+            left: 41%;
+            width: 22%;
+        }
+        .tree-02{
+            text-align: center;
             z-index: 2;
+        }
+        .tree-02 img{
+            width: 70%;
         }
         .bottle-02{
             position: absolute;
-            top: 550px;
-            left: 1030px;
-            width: 131px;
-            height: 78px;
-            background: url({% static 'images/bottle.png' %}) no-repeat;
+            top: -30px;
+            left: 185px;
+            text-align: center;
             z-index: 1;
             transform: rotate(-60deg);
         }
+        .bottle-02 img{
+            width: 40%;
+        }
         .rain-02{
             position: absolute;
-            top: 630px;
-            left: 970px;
-            width: 53px;
-            height: 75px;
-            background: url({% static 'images/rain_02.png' %}) no-repeat;
+            top: 0;
+            left: 180px;
+            text-align: center;
             z-index: 1;
+        }
+        .rain-02 img{
+            width: 50%;
+        }
+        .soil-02{
+            text-align: center;
+            z-index: 10;
+            margin-top: -17px;
+        }
+        .soil-02 img{
+            width: 40%;
         }
         .waternumber-02{
             position: absolute;
-            top: 600px;
-            left: 800px;
+            top: 50px;
             color: #99cc67;
             font-weight: 500;
             font-size: 22px;
@@ -279,38 +315,44 @@
         }
 
 
-        .tree-03{
+        /*大树苗*/
+        .watering-box-03{
             position: absolute;
-            top: 533px;
-            left: 745px;
-            width: 320px;
-            height: 397px;
-            background: url({% static 'images/tree_03.png' %}) no-repeat;
+            bottom: 12%;
+            left: 41%;
+            width: 22%;
+        }
+        .tree-03{
+            text-align: center;
             z-index: 3;
+        }
+        .tree-03 img{
+            width: 70%;
         }
         .bottle-03{
             position: absolute;
-            top: 400px;
-            left: 1080px;
-            width: 131px;
-            height: 78px;
-            background: url({% static 'images/bottle.png' %}) no-repeat;
+            top: -30px;
+            left: 185px;
+            text-align: center;
             z-index: 1;
             transform: rotate(-60deg);
         }
+        .bottle-03 img{
+            width: 40%;
+        }
         .rain-03{
             position: absolute;
-            top: 480px;
-            left: 1020px;
-            width: 53px;
-            height: 75px;
-            background: url({% static 'images/rain_02.png' %}) no-repeat;
+            top: 0;
+            left: 180px;
+            text-align: center;
             z-index: 1;
+        }
+        .rain-03 img{
+            width: 50%;
         }
         .waternumber-03{
             position: absolute;
-            top: 450px;
-            left: 800px;
+            top: 50px;
             color: #99cc67;
             font-weight: 500;
             font-size: 22px;
@@ -326,39 +368,45 @@
         }
 
 
-        .tree-04{
+        /*结果实树苗*/
+        .watering-box-04{
             position: absolute;
-            top: 533px;
-            left: 745px;
-            width: 320px;
-            height: 397px;
-            background: url({% static 'images/tree_04.png' %}) no-repeat;
+            bottom: 12%;
+            left: 41%;
+            width: 22%;
+        }
+        .tree-04{
+            text-align: center;
             z-index: 4;
             cursor: pointer;
         }
+        .tree-04 img{
+            width: 70%;
+        }
         .bottle-04{
             position: absolute;
-            top: 400px;
-            left: 1080px;
-            width: 131px;
-            height: 78px;
-            background: url({% static 'images/bottle.png' %}) no-repeat;
+            top: -30px;
+            left: 185px;
+            text-align: center;
             z-index: 1;
             transform: rotate(-60deg);
         }
+        .bottle-04 img{
+            width: 40%;
+        }
         .rain-04{
             position: absolute;
-            top: 480px;
-            left: 1020px;
-            width: 53px;
-            height: 75px;
-            background: url({% static 'images/rain_02.png' %}) no-repeat;
+            top: 0;
+            left: 180px;
+            text-align: center;
             z-index: 1;
+        }
+        .rain-04 img{
+            width: 50%;
         }
         .waternumber-04{
             position: absolute;
-            top: 450px;
-            left: 800px;
+            top: 50px;
             color: #99cc67;
             font-weight: 500;
             font-size: 22px;
@@ -377,65 +425,60 @@
 
         @keyframes animated-cloud-01 {
             from{
-                right: 345px;
+                background-position: -20% 0;
             }
             to{
-                right: 400px;
+                background-position: 120% 0;
             }
         }
 
         @keyframes animated-cloud-02 {
             from{
-                right: 420px;
+                background-position: -5% 0;
             }
             to{
-                right: 400px;
-                opacity: 0.2;
+                background-position: 120% 0;
             }
         }
 
         @keyframes animated-cloud-03 {
             from{
-                left: 438px;
+                background-position: -15% 0;
             }
             to{
-                left: 538px;
-                opacity: 0.1
+                background-position: 115% 0;
             }
         }
 
         @keyframes animated-cloud-04 {
             from{
-                left: 380px;
+                background-position: -10% 0;
             }
             to{
-                left: 450px;
-                opacity: 0;
+                background-position: 110% 0;
             }
         }
 
         @keyframes animated-cloud-05 {
             from{
-                left: 220px;
+                background-position: -15% 0;
             }
             to{
-                left: 300px;
-                opacity: 0.7;
+                background-position: 115% 0;
             }
         }
 
         @keyframes animated-cloud-06 {
             from{
-                right: 380px;
+                background-position: -1% 0;
             }
             to{
-                right: 480px;
-                opacity: 0.2;
+                background-position: 101% 0;
             }
         }
 
         @keyframes animated-bird {
-            0%{
+            {% comment %}0%{
                 right: 1050px;
                 opacity: 0;
             }
@@ -478,6 +521,13 @@
             100%{
                 right: 550px;
                 opacity: 0;
+            }{% endcomment %}
+
+            from{
+                background-position: -3% 0;
+            }
+            to{
+                background-position: 105% 0;
             }
         }
 
@@ -533,68 +583,60 @@
         /*加水量刻度动画*/
         @keyframes animated-waternumber-01 {
             0%{
-                top: 650px;
+                top: 50px;
                 opacity: 0;
             }
             50%{
-                top: 625px;
+                top: 25px;
                 opacity: 1;
             }
             100%{
-                top: 600px;
+                top: 0px;
                 opacity: 0;
             }
-            /*from{*/
-                /*top: 650px;*/
-                /*opacity: 0;*/
-            /*}*/
-            /*to{*/
-                /*top: 600px;*/
-                /*opacity: 1;*/
-            /*}*/
         }
 
         @keyframes animated-waternumber-02 {
             0%{
-                top: 650px;
+                top: 50px;
                 opacity: 0;
             }
             50%{
-                top: 625px;
+                top: 25px;
                 opacity: 1;
             }
             100%{
-                top: 600px;
+                top: 0px;
                 opacity: 0;
             }
         }
 
         @keyframes animated-waternumber-03 {
             0%{
-                top: 500px;
+                top: 50px;
                 opacity: 0;
             }
             50%{
-                top: 475px;
+                top: 25px;
                 opacity: 1;
             }
             100%{
-                top: 450px;
+                top: 0px;
                 opacity: 0;
             }
         }
 
         @keyframes animated-waternumber-04 {
             0%{
-                top: 500px;
+                top: 50px;
                 opacity: 0;
             }
             50%{
-                top: 475px;
+                top: 25px;
                 opacity: 1;
             }
             100%{
-                top: 450px;
+                top: 0px;
                 opacity: 0;
             }
         }
@@ -613,112 +655,86 @@
 <div class="site">
 
     <div class="container-fluid">
-        {% csrf_token %}
         <div class="row">
-            <!--小树苗-->
-            <div class="watering-box-01">
-                <div class="waternumber-01 animated hidden">+20</div>
-                <div class="bottle-01 animated hidden"></div>
-                <div class="tree-01 animated"></div>
-                <div class="rain-01 animated hidden"></div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div style="margin-right: -15px; margin-left: -15px;">
+                    {% csrf_token %}
+                    <img src="{% static 'images/index_top_bg.jpg' %}">
+                    <!--小树苗-->
+                    <div class="watering-box-01">
+                        <div class="waternumber-01 animated hidden">+20</div>
+                        <div class="bottle-01 animated hidden">
+                            <img src="{% static 'images/bottle.png' %}">
+                        </div>
+                        <div class="rain-01 animated hidden">
+                            <img src="{% static 'images/rain_02.png' %}">
+                        </div>
+                        <div class="tree-01 animated">
+                            <img src="{% static 'images/tree_01.png' %}">
+                            <div class="soil-01">
+                                <img src="{% static 'images/soil.png' %}">
+                            </div>
+                        </div>
+                    </div>
+                    <!--中树苗-->
+                    <div class="watering-box-02">
+                        <div class="waternumber-02 animated hidden">+20</div>
+                        <div class="bottle-02 animated hidden">
+                            <img src="{% static 'images/bottle.png' %}">
+                        </div>
+                        <div class="rain-02 animated hidden">
+                            <img src="{% static 'images/rain_02.png' %}">
+                        </div>
+                        <div class="tree-02 animated">
+                            <img src="{% static 'images/tree_02.png' %}">
+
+                            <div class="soil-02">
+                                <img src="{% static 'images/soil.png' %}">
+                            </div>
+                        </div>
+                    </div>
+                    <!--大树苗-->
+                    <div class="watering-box-03">
+                        <div class="waternumber-03 animated hidden">+20</div>
+                        <div class="bottle-03 animated hidden">
+                            <img src="{% static 'images/bottle.png' %}">
+                        </div>
+                        <div class="rain-03 animated hidden">
+                            <img src="{% static 'images/rain_02.png' %}">
+                        </div>
+                        <div class="tree-03 animated">
+                            <img src="{% static 'images/tree_03.png' %}">
+                        </div>
+                    </div>
+                    <!--长果实的树-->
+                    <div class="watering-box-04">
+                        <div class="waternumber-04 animated hidden">+20</div>
+                        <div class="bottle-04 animated hidden">
+                            <img src="{% static 'images/bottle.png' %}">
+                        </div>
+                        <div class="rain-04 animated hidden">
+                            <img src="{% static 'images/rain_02.png' %}">
+                        </div>
+                        <div class="tree-04 animated">
+                            <img src="{% static 'images/tree_04.png' %}">
+                        </div>
+                    </div>
+                    <div class="bird"></div>
+                    <div class="cloud-01">
+                    </div>
+                    <div class="cloud-02">
+                    </div>
+                    <div class="cloud-03">
+                    </div>
+                    <div class="cloud-04">
+                    </div>
+                    <div class="cloud-05">
+                    </div>
+                    <div class="cloud-06">
+                    </div>
+                    <div class="water-btn"></div>
+                </div>
             </div>
-            <!--中树苗-->
-            <div class="watering-box-02">
-                <div class="waternumber-02 animated hidden">+20</div>
-                <div class="bottle-02 animated hidden"></div>
-                <div class="tree-02 animated"></div>
-                <div class="rain-02 animated hidden"></div>
-            </div>
-            <!--大树苗-->
-            <div class="watering-box-03">
-                <div class="waternumber-03 animated hidden">+20</div>
-                <div class="bottle-03 animated hidden"></div>
-                <div class="tree-03 animated"></div>
-                <div class="rain-03 animated hidden"></div>
-            </div>
-            <!--长果实的树-->
-            <div class="watering-box-04">
-                <div class="waternumber-04 animated hidden">+20</div>
-                <div class="bottle-04 animated hidden"></div>
-                <div class="tree-04 animated"></div>
-                <div class="rain-04 animated hidden"></div>
-            </div>
-            <div class="soil"></div>
-            <div class="bird"></div>
-            <div class="cloud-01"></div>
-            <div class="cloud-02"></div>
-            <div class="cloud-03"></div>
-            <div class="cloud-04"></div>
-            <div class="cloud-05"></div>
-            <div class="cloud-06"></div>
-            <div class="water-btn"></div>
-            <div style="min-height:1080px; background-image: url({% static 'images/index_top_bg.jpg' %})"></div>
         </div>
     </div>
-    <!--<div class="hero-slider">-->
-        <!--<div class="single-slide" style="background-image: url({% static 'images/index_top.jpg' %})">
-            <div class="inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="slide-content">
-                                <h2>做美食，品美食，享美食我们更专业</h2>
-                                <p>Do food, taste food, enjoy food we more professional.</p>
-                                <div class="slide-btn">
-                                    <a href="#" class="button">Learn More</a>
-                                    <a href="#" class="button-2">Live Preview</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-
-        <!--<div class="single-slide" style="background-image: url({% static 'images/slide2.jpg' %})">
-            <div class="inner">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-6 text-center">
-                            <div class="slide-content">
-                                <h2>We Are Digital Product Design Agency.</h2>
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                <div class="slide-btn">
-                                    <a href="#" class="button">Learn More</a>
-                                    <a href="#" class="button-2">Live Preview</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="single-slide" style="background-image: url({% static 'images/slide3.jpg' %})">
-            <div class="inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="slide-content">
-                                <h2>We Are Digital Product Design Agency.</h2>
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                                <div class="slide-btn">
-                                    <a href="#" class="button">Learn More</a>
-                                    <a href="#" class="button-2">Live Preview</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 text-center">
-                            <div class="inner embed-responsive embed-responsive-16by9" data-margin="25px 0 0">
-                                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-    <!--</div>-->
-
-
-
-
 

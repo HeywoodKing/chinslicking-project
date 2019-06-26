@@ -295,6 +295,7 @@
                                     clearTimeout(rainTimeout);
                                 }, 500);
                                 $('.tree-01').removeClass('tada');
+                                $(".waternumber-01").html('+' + data.data.amount);
                                 $(".waternumber-01").addClass('hidden').removeClass("waternumber-01-fadeIn")
                             }else if(rainNumber > 200 && rainNumber <= 400) {
                                 //02
@@ -304,6 +305,7 @@
                                     clearTimeout(rainTimeout);
                                 }, 500);
                                 $('.tree-02').removeClass('tada');
+                                $(".waternumber-02").html('+' + data.data.amount);
                                 $(".waternumber-02").addClass('hidden').removeClass("waternumber-02-fadeIn")
                             }else if(rainNumber > 400 && rainNumber < 888) {
                                 //03
@@ -313,6 +315,7 @@
                                     clearTimeout(rainTimeout);
                                 }, 500);
                                 $('.tree-03').removeClass('tada');
+                                $(".waternumber-03").html('+' + data.data.amount);
                                 $(".waternumber-03").addClass('hidden').removeClass("waternumber-03-fadeIn")
                             }else if(rainNumber >= 888) {
                                 //04
@@ -322,12 +325,13 @@
                                     clearTimeout(rainTimeout);
                                 }, 500);
                                 $('.tree-04').removeClass('tada');
+                                $(".waternumber-04").html('+' + data.data.amount);
                                 $(".waternumber-04").addClass('hidden').removeClass("waternumber-04-fadeIn")
                             }
 
-                            rainNumber = data.data;
+                            rainNumber = data.data.end_amount;
+
                             rainMsg = data.msg;
-                            console.log(rainNumber);
 
                             /*layer.msg(data.msg, {
                                 icon: 1,
@@ -367,21 +371,24 @@
                 $(this).removeClass('bottle-fadeIn').addClass('zoomOut');
                 var rainTimeout = setTimeout(function(){
                     $('.rain-01').removeClass('rain-fadeIn').addClass('hidden');
+
+                    $('.tree-01').addClass('tada');
+                    $('.waternumber-01').removeClass('hidden').addClass('waternumber-01-fadeIn');
                     clearTimeout(rainTimeout);
                 }, 500);
-                $('.tree-01').addClass('tada');
-                $('.waternumber-01').removeClass('hidden').addClass('waternumber-01-fadeIn');
+
             });
 
             //02
             $('.bottle-02').on('webkitAnimationEnd',function(){
                 $(this).removeClass('bottle-fadeIn').addClass('zoomOut');
                 var rainTimeout = setTimeout(function(){
-                    $('.rain-02').removeClass('rain-fadeIn').addClass('hidden');
+                    $('.rain-02').removeClass('rain-fadeIn').addClass('zoomOut hidden');
+
+                    $('.tree-02').addClass('tada');
+                    $('.waternumber-02').removeClass('hidden').addClass('waternumber-02-fadeIn');
                     clearTimeout(rainTimeout);
                 }, 500);
-                $('.tree-02').addClass('tada');
-                $('.waternumber-02').removeClass('hidden').addClass('waternumber-02-fadeIn');
             });
 
             //03
@@ -389,10 +396,11 @@
                 $(this).removeClass('bottle-fadeIn').addClass('zoomOut');
                 var rainTimeout = setTimeout(function(){
                     $('.rain-03').removeClass('rain-fadeIn').addClass('hidden');
+
+                    $('.tree-03').addClass('tada');
+                    $('.waternumber-03').removeClass('hidden').addClass('waternumber-03-fadeIn');
                     clearTimeout(rainTimeout);
                 }, 500);
-                $('.tree-03').addClass('tada');
-                $('.waternumber-03').removeClass('hidden').addClass('waternumber-03-fadeIn');
             });
 
             //04
@@ -400,10 +408,11 @@
                 $(this).removeClass('bottle-fadeIn').addClass('zoomOut');
                 var rainTimeout = setTimeout(function(){
                     $('.rain-04').removeClass('rain-fadeIn').addClass('hidden');
+
+                    $('.tree-04').addClass('tada');
+                    $('.waternumber-04').removeClass('hidden').addClass('waternumber-04-fadeIn');
                     clearTimeout(rainTimeout);
                 }, 500);
-                $('.tree-04').addClass('tada');
-                $('.waternumber-04').removeClass('hidden').addClass('waternumber-04-fadeIn');
             });
 
             //水滴数量增加效果结束触发
@@ -426,13 +435,16 @@
 
             //苹果长成触发方法
             $('.tree-04').on('click', function(){
-                layer.open({
+                top.layer.open({
                     type: 2,
                     title: "优惠券抢购",
                     area: ['500px', '330px'],
                     // area: ['25%', '35%'],
                     content: "/king/layer_coupon_form",
                     zIndex: layer.zIndex,
+                    closeBtn: 1,
+                    shadeClose: false,
+			        shade: 0.75,
                     /*success: function(o, index){
                         // layer.close(index);
                         console.log('layer.open success');

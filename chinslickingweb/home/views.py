@@ -229,11 +229,16 @@ def add_watering_qty(req):
         water_qty.total_amount = water_qty.total_amount + amount
         water_qty.save()
 
+        qty = {
+            'amount': amount,
+            'end_amount': end_amount
+        }
+
         # 返回结果
         res['code'] = 0
         res['flag'] = 'success'
         res['msg'] = '浇水成功'
-        res['data'] = end_amount
+        res['data'] = qty
     else:
         res['code'] = 2
         res['flag'] = 'fail'

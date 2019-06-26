@@ -3,10 +3,12 @@ from django.contrib.auth.admin import UserAdmin
 from home import models
 from django.contrib.admin import SimpleListFilter
 # from jet.filters import DateRangeFilter
+from django.contrib.admin.models import LogEntry
 
 # Register your models here.
-admin.site.site_header = '秦食皇后台管理系统'
+admin.site.index_title = '欢迎使用秦食皇后台管理系统'
 admin.site.site_title = '后台管理系统'
+admin.site.site_header = '秦食皇后台管理系统'
 
 
 # 是否启用过滤
@@ -130,6 +132,12 @@ class ChinUserProfileAdmin(UserAdmin):
     ordering = ('username',)
     filter_horizontal = ('groups', 'user_permissions',)
     exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username', )
+
+
+# 用户日志
+@admin.register(LogEntry)
+class LogEntryAdmin(admin.ModelAdmin):
+    list_display = ('object_type', 'object_id', 'action_flag', 'user', 'change_message', )
 
 
 # 产品列表
