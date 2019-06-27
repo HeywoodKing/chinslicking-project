@@ -134,10 +134,22 @@ class ChinUserProfileAdmin(UserAdmin):
     exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username', )
 
 
+# 导航菜单管理
+@admin.register(models.SysNav)
+class SysNavAdmin(admin.ModelAdmin):
+    list_display = ('id', 'code', 'name', 'url', 'parent', 'sort', 'is_root', 'is_enable', 'is_delete')
+    list_display_links = ('id', 'name', 'url',)
+    list_editable = ('code', 'sort', 'is_enable',)
+    list_filter = (IsEnableFilter, )
+    list_per_page = 30
+    exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username', )
+    search_fields = ('name', 'url', )
+
+
 # 用户日志
 @admin.register(LogEntry)
 class LogEntryAdmin(admin.ModelAdmin):
-    list_display = ('object_type', 'object_id', 'action_flag', 'user', 'change_message', )
+    list_display = ('object_id', 'object_repr', 'action_flag', 'user', 'change_message', )
 
 
 # 产品列表

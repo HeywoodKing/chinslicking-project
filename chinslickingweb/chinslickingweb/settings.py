@@ -473,6 +473,11 @@ SIMPLEUI_CONFIG = {
                     'name': '动画类型',
                     'icon': 'fa fa-allergies',
                     'url': 'home/chinanimatetype/'
+                },
+                {
+                    'name': '导航菜单',
+                    'icon': 'fa fa-book-open',
+                    'url': 'home/sysnav/'
                 }
             ]
         },

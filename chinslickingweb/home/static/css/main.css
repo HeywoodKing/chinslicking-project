@@ -722,12 +722,17 @@ iframe {
  ***************************** */
 header {
   /*background-color: #222538;*/
-  background-color: #99cc67;
-  padding: 18px 0; }
+    background-color: #99cc67;
+    padding: 0;
+    display: flex;
+    vertical-align: middle;
+    justify-items: center;
+    align-items: center;
+}
 
 .logo-column a.logo {
-  height: 60px;
-  padding: 5px 0;
+  /*height: 60px;
+  padding: 5px 0;*/
 }
 .logo-column a.logo img {
     max-height: 100%;
@@ -735,7 +740,7 @@ header {
 
 @media only screen and (min-width: 991px) {
     .nav-column {
-        padding: 20px 0;
+        /*padding: 20px 0;*/
         font-size: 16px;
     }
 }
@@ -805,35 +810,50 @@ form.search-form button {
 
 #menu ul {
   text-align: right;
-  margin: 0; }
-  #menu ul li.has-child > a::after {
+  margin: 0;
+}
+#menu ul li.has-child > a::after {
     content: "";
     font-family: "fontawesome";
-    margin-left: 4px; }
-  #menu ul > li {
+    /*margin-left: 4px;*/
+  }
+#menu ul > li {
     display: inline-block;
-    position: relative; }
-    #menu ul > li > a {
-      padding: 0 15px;
-      font-weight: 500;
-      line-height: 25px;
-      color: #330000;
-      }
-      #menu ul > li > a:hover {
-        color: #fbdf50; }
+    position: relative;
+    padding: 20px 0px;
+    margin: 0;
+    width: 85px;
+    text-align: center;
+}
+#menu ul > li > a {
+    /*padding: 0 15px;*/
+    font-weight: 500;
+    line-height: 25px;
+    color: #330000;
+}
+#menu ul > li:hover {
+    background-color: #a7d676;
+}
+#menu ul > li > a:hover {
+    color: #fdef50;
+}
+#menu ul > li.current-menu-item {
+    background-color: #a7d676;
+}
 #menu ul > li.current-menu-item > a {
-      color: #5d9c1e;
+    color: #fdef50;
 }
 
 #menu ul ul {
   position: absolute;
   background-color: #fff;
   left: 0;
-  top: calc(100% + 23px);
+  top: calc(100% + 0px);
   z-index: 2;
   width: 220px;
   text-align: left;
-  padding: 15px 20px;
+  padding: 0;
+    margin: 10px 0;
   opacity: 0;
   visibility: hidden;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15); }
@@ -852,14 +872,19 @@ form.search-form button {
     left: 0;
     top: -20px; }
   #menu ul ul li {
-    display: block; }
+    display: block;
+      padding: 10px;
+    width: 100%;
+    text-align: left;
+  }
     #menu ul ul li a {
       display: block;
       font-weight: 300;
       color: #222538;
       font-size: 13px;
       padding: 0;
-      margin: 5px 0; }
+      /*margin: 5px 0; */
+    }
 
 #menu ul li:hover > ul {
   opacity: 1;

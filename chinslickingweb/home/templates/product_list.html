@@ -12,27 +12,6 @@
 {% endblock %}
 
 {% block banner %}
-<!--<div class="hero-slider">
-    <div class="single-slide" style="background-image: url({% static 'images/slide1.jpg' %})">
-        <div class="inner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="slide-content">
-                            <h2>做美食，品美食，享美食我们更专业</h2>
-                            <p>Do food, taste food, enjoy food we more professional.</p>
-                            &lt;!&ndash;<div class="slide-btn">
-                                <a href="#" class="button">更多产品</a>
-                                <a href="#" class="button-2">学习</a>
-                            </div>&ndash;&gt;
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-
 <!--滚动切换图片-->
 <div class="hero-slider">
     <div class="single-slide" style="background-image: url({% static 'images/banner_4.jpg' %})">
@@ -68,15 +47,6 @@
         </div>
     </div>
 </div>
-
-<!--<div class="page-title sp" style="background-image: url({% static 'images/banner_4.jpg' %});">
-    <div class="container text-center">
-        <h2 class="banner-h3">
-            {% trans "纯粹" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯粮" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯手工" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯天然" %}<br>
-            {% trans "秦韵" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦风" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦文化" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦饮食" %}
-        </h2>
-    </div>
-</div>-->
 {% endblock %}
 
 {% block content %}
@@ -120,23 +90,23 @@
                             <img src="/uploads/{{item.cover_image_url}}" alt="{{item.name}}">
                             <div class="hover-content">
                                 <div>
-                                    <a href="/king/product_detail/{{item.id}}" class="button">{% trans "查看详情" %}</a>
+                                    <a href="/king/product_detail/{{item.id}}" class="button" target="_blank">{% trans "查看详情" %}</a>
                                     {% if item.mall_url %}
-                                        <a href="{{item.mall_url}}" class="button">{% trans "商城选购" %}</a>
+                                        <a href="{{item.mall_url}}" class="button" target="_blank">{% trans "商城选购" %}</a>
                                     {% else %}
-                                        <a href="/king/product_detail/{{item.id}}" class="button">{% trans "商城选购" %}</a>
+                                        <a href="/king/product_detail/{{item.id}}" class="button" target="_blank">{% trans "商城选购" %}</a>
                                     {% endif %}
                                 </div>
                             </div>
                         </div>
                         <div class="portfolio-content">
-                            <a href="/king/product_detail/{{item.id}}"><h3>{{item.name|truncate_point:'15'}}</h3></a>
+                            <a href="/king/product_detail/{{item.id}}" target="_blank"><h3>{{item.name|truncate_point:'15'}}</h3></a>
                             <span>{{item.brief|truncate_point:'30'}}</span>
                         </div>
                     </div>
                 </div>
             {% empty %}
-                <div class="single-portfolio col-md-4">还没有商品哦！赶快添加吧！</div>
+                <div class="single-portfolio col-xs-12 col-sm-12 col-md-12 text-center">还没有商品哦！赶快添加吧！</div>
             {% endfor %}
         </div>
 

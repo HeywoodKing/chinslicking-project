@@ -12,35 +12,40 @@
 {% endblock %}
 
 {% block banner %}
-<!--<div class="hero-slider">
-    <div class="single-slide" style="background-image: url({% static 'images/slide1.jpg' %})">
+
+<!--滚动切换图片-->
+<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/banner_4.jpg' %})">
         <div class="inner">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12 text-center">
                         <div class="slide-content">
-                            <h2>做美食，品美食，享美食我们更专业</h2>
-                            <p>Do food, taste food, enjoy food we more professional.</p>
-                            &lt;!&ndash;<div class="slide-btn">
-                                <a href="#" class="button">Learn More</a>
-                                <a href="#" class="button-2">Live Preview</a>
-                            </div>&ndash;&gt;
+                            <h2 class="banner-h2">
+                                {% trans "纯粹" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯粮" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯手工" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯天然" %}<br>
+                                {% trans "秦韵" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦风" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦文化" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦饮食" %}
+                            </h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>-->
-
-<div class="page-title sp" style="background-image: url({% static 'images/banner_4.jpg' %});height: 300px;">
-    <div class="container text-center">
-        <h3 class="banner-h3">
-            {% trans "纯粹" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯粮" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯手工" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯天然" %}
-        </h3>
-        <h3 class="banner-h3">
-            {% trans "秦韵" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦风" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦文化" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦饮食" %}
-        </h3>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_5.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                {% trans "纯粹" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯粮" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯手工" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "纯天然" %}<br>
+                                {% trans "秦韵" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦风" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦文化" %}&nbsp;&nbsp;&sdot;&nbsp;&nbsp;{% trans "秦饮食" %}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

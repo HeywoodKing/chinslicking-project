@@ -18,10 +18,16 @@ logger = logging.getLogger("me")
 
 
 def global_setting(req):
+    # 网站头部公共信息
     SITE_NAME = settings.SITE_NAME
     SITE_DESC = settings.SITE_DESC
     SITE_AUTHOR = settings.SITE_AUTHOR
     MEDIA_URL = settings.MEDIA_URL
+
+    # 菜单
+    nav_list = models.SysNav.objects.filter(is_enable=True)
+
+    # 网站底部公共信息
 
     return locals()
 

@@ -155,6 +155,31 @@ class SysConfig(BaseModel):
     def __str__(self):
         return self.site_name
 
+
+# 导航菜单管理
+class SysNav(BaseModel):
+    code = models.CharField('标识', max_length=20, default=None)
+    name = models.CharField('名称', max_length=50)
+    url = models.CharField('链接', max_length=200)
+    remark = models.CharField('描述', max_length=300, blank=True)
+    parent = models.ForeignKey(to='self', default=0, null=True, blank=True, related_name='children',
+                               verbose_name='父级', limit_choices_to={'is_delete': False, 'is_root': True},
+                               on_delete=models.CASCADE)
+    is_root = models.BooleanField('是否一级菜单', default=True)
+    is_delete = models.BooleanField('是否删除', default=False)
+    sort = models.IntegerField('排序', default=0)
+    is_enable = models.BooleanField('是否启用', default=True)
+
+    class Meta:
+        db_table = "sys_nav"
+        ordering = ['sort', '-create_time']
+        verbose_name = '导航菜单管理'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
+
+
 # # 广告位
 # class SysAdPosition(BaseModel):
 #     name = models.CharField('广告位名称', max_length=50)
