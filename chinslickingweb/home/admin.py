@@ -7,7 +7,7 @@ from django.contrib.admin.models import LogEntry
 
 # Register your models here.
 admin.site.index_title = '欢迎使用秦食皇后台管理系统'
-admin.site.site_title = '后台管理系统'
+admin.site.site_title = '秦食皇后台管理系统'
 admin.site.site_header = '秦食皇后台管理系统'
 
 

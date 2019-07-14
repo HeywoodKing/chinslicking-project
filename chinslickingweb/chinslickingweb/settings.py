@@ -457,9 +457,9 @@ SIMPLEUI_CONFIG = {
                     'icon': 'fa fa-broom',
                 },
                 {
-                    'name': '登录日志',
+                    'name': '系统日志',
                     'icon': 'fa fa-cat',
-                    'url': '/auth/log/'
+                    'url': 'admin/logentry/',
                 },
                 {
                     'name': '数据库备份',
@@ -530,16 +530,6 @@ SIMPLEUI_CONFIG = {
                     'icon': 'fa fa-glass-cheers',
                     'url': 'home/chincooperation/'
                 },
-                # {
-                #     'name': '项目优势',
-                #     'icon': 'fa fa-glass-cheers',
-                #     'url': 'home/chincooperationsuperiority/'
-                # },
-                # {
-                #     'name': '经销商问答',
-                #     'icon': 'fa fa-glass-cheers',
-                #     'url': 'home/chincooperationquestion/'
-                # },
                 {
                     'name': '申请表管理',
                     'icon': 'fa fa-allergies',

@@ -510,11 +510,12 @@
             // map.add(polyline);
 
             //实例化信息窗体
-            var title = '秦食皇品牌展示中心',
+            var title = '{% tran "秦食皇品牌展示中心" %}',
                 content = [];
-            content.push("<img src='http://aos-cdn-image.amap.com/sns/ugccomment/15cc7aa1-8efd-4960-a497-22917d85e620.jpg?type=pic' style='width:100px;height:80px;'>地址：西安市雁塔区唐延南路i都会12号楼10105");
+            content.push("<img src='http://aos-cdn-image.amap.com/sns/ugccomment/15cc7aa1-8efd-4960-a497-22917d85e620.jpg?type=pic' style='width:100px;height:80px;'>{% trans '地址：西安市雁塔区唐延南路i都会12号楼10105' %}");
             content.push("电话：029-8918 9518");
-            content.push("<a href='https://www.gaode.com/detail/B0FFJIYCYE?citycode=610100' target='_blank'>详细信息</a>");
+            content.push("<a href='https://www.gaode.com/detail/B0FFJIYCYE?citycode=610100' target='_blank'>{% trans '详细信息' %}</a>");
+
 
             // 创建信息窗体
             var infoWindow = new AMap.InfoWindow({

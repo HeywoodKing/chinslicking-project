@@ -493,9 +493,10 @@ iframe {
 
 @media screen and (max-width: 768px) {
     .outer{
-        margin: 225px auto;
-        height: 300px;
-        display: flex;
+        position: relative;
+        margin: 0px auto;
+        height: 465px;
+        /*display: flex;*/
         justify-content: center;
         align-items: center;
     }
@@ -505,7 +506,7 @@ iframe {
         top: 0px;
         left: 0px;
         width: 100%;
-        padding: 30px 30px 30px 30px;
+        padding: 100px 30px 30px 30px;
         text-align:center;
         color: #fff;
     }
@@ -853,6 +854,12 @@ header {
     vertical-align: middle;
     justify-items: center;
     align-items: center;
+}
+
+@media only screen and (max-width: 767px){
+    .logo-column{
+        margin: 25px auto;
+    }
 }
 
 .logo-column a.logo {
