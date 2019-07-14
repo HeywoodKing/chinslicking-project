@@ -152,6 +152,18 @@ class LogEntryAdmin(admin.ModelAdmin):
     list_display = ('object_id', 'object_repr', 'action_flag', 'user', 'change_message', )
 
 
+# Banner管理
+@admin.register(models.ChinBanner)
+class ChinBannerAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nav', 'image_url', 'sort', 'is_enable')
+    list_display_links = ('id', )
+    list_editable = ('nav', 'sort', 'is_enable', )
+    list_filter = (IsEnableFilter, )
+    list_per_page = 30
+    exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username', )
+    search_fields = ('nav', )
+
+
 # 产品列表
 @admin.register(models.ChinProduct)
 class ChinProductAdmin(admin.ModelAdmin):
@@ -218,7 +230,7 @@ class ChinPartnerAdmin(admin.ModelAdmin):
     exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username', )
 
 
-# 合作共赢 品牌合作-0:合作政策 1:项目优势 2:经销商问答
+# 合作共赢 品牌合作-0:合作政策 1:项目优势 2:经销商问答 3:支持与服务
 @admin.register(models.ChinCooperation)
 class ChinCooperationAdmin(admin.ModelAdmin):
     list_display = ('title', 'profile', 'type', 'sort', 'is_enable')
@@ -480,3 +492,21 @@ class ChinTableTemplateAdmin(admin.ModelAdmin):
     search_fields = ('name', 'is_enable',)
     exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
 
+
+# 问题列表
+@admin.register(models.ChinQuestion)
+class ChinQuestionAdmin(admin.ModelAdmin):
+    list_display = ('name', 'profile', 'type', 'state', 'operate_time')
+    list_display_links = ('name', 'profile', )
+    list_editable = ('type', 'state', )
+    list_filter = ('type', 'state', )
+    list_per_page = 30
+    search_fields = ('name', 'type', 'state')
+    exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
+
+    class Media:
+        js = (
+            '/static/plugins/kindeditor-4.1.10/kindeditor-all-min.js',
+            '/static/plugins/kindeditor-4.1.10/lang/zh_CN.js',
+            '/static/plugins/kindeditor-4.1.10/config.js',
+        )

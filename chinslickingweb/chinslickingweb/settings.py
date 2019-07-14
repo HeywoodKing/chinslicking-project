@@ -478,6 +478,11 @@ SIMPLEUI_CONFIG = {
                     'name': '导航菜单',
                     'icon': 'fa fa-book-open',
                     'url': 'home/sysnav/'
+                },
+                {
+                    'name': '问题列表',
+                    'icon': 'fa fa-book-open',
+                    'url': 'home/chinquestion/'
                 }
             ]
         },
@@ -489,6 +494,11 @@ SIMPLEUI_CONFIG = {
                     'name': '首页模块',
                     'icon': 'fa fa-info',
                     'url': 'home/chinindexplate/'
+                },
+                {
+                    'name': 'Banner图',
+                    'icon': 'fa fa-book-open',
+                    'url': 'home/chinbanner/'
                 },
                 {
                     'name': '用户浇水记录',

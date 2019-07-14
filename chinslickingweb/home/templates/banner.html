@@ -1,4 +1,23 @@
+{% load i18n %}
+
 <div class="banner">
-    {% block banner %}
-    {% endblock %}
+    <!--滚动切换图片-->
+    <div class="hero-slider">
+        {% for item in banners %}
+        <div class="single-slide" style="background-image: url(/uploads/{{ item.image_url }})">
+            <div class="inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                            <div class="slide-content">
+                                <h2>{% trans item.text %}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="slider-counter"></div>
 </div>

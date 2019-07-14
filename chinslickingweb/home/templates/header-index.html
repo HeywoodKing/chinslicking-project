@@ -26,6 +26,12 @@
 
     {% block style_tag %}
     <style>
+        .sun{
+            position: absolute;
+            top: 6%;
+            right: 15%;
+            width: 6%;
+        }
         .cloud-01{
             position: absolute;
             top: 10%;
@@ -659,7 +665,10 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div style="margin-right: -15px; margin-left: -15px;">
                     {% csrf_token %}
-                    <img src="{% static 'images/index_top_bg.jpg' %}">
+                    <img src="{% static 'images/index_top_bg2.jpg' %}">
+                    <div class="sun">
+                        <img src="{% static 'images/sun.png' %}">
+                    </div>
                     <!--小树苗-->
                     <div class="watering-box-01">
                         <div class="waternumber-01 animated hidden">+20</div>

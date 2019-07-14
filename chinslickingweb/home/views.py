@@ -27,6 +27,28 @@ def global_setting(req):
     # 菜单
     nav_list = models.SysNav.objects.filter(is_enable=True)
 
+    # 查询banner
+    banner = req.GET.get('banner', None)
+    if banner:
+        nav = models.SysNav.objects.get(code=banner)
+
+        # 方式一:主表.子表_set()
+        # Django默认每个主表对象都有一个外键的属性
+        # 可以通过它来查询所有属于主表的子表信息
+        # 返回值为一个queryset对象
+        # banner_list = nav.ChfBanner_set.all()
+
+        # 方式二：
+        # 通过在外键中设置related_name属性值既可
+        banner_list = nav.navs.all()
+
+        # 方式三：
+        # 通过@property装饰器在model中预定义方法实现
+        # banner_list = nav.all_navs
+
+        # 方式四：
+        # banner_list = models.ChfBanner.objects.filter(nav=nav)
+
     # 网站底部公共信息
 
     return locals()
@@ -257,9 +279,14 @@ def add_watering_qty(req):
 # 品牌产品 => 在线商城
 def product_list(req):
     index = 2
+
     # 获取产品类型
     product_type_list = models.ChinProductType.objects.filter(is_enable=True)
-    product_lists = models.ChinProduct.objects.filter(is_enable=True)
+    product_type_id = req.GET.get('product_type', None)
+    if product_type_id == '1' or product_type_id is None:
+        product_lists = models.ChinProduct.objects.filter(is_enable=True)
+    else:
+        product_lists = models.ChinProduct.objects.filter(is_enable=True, product_type=product_type_id)
 
     paginator = Paginator(product_lists, 6)  # 每页显示6条，第三个参数2: 少于2条则合并到上一页
     page = req.GET.get('page')
@@ -306,6 +333,7 @@ def partner(req):
         policy_list = cooperation_list.filter(type=0)
         superiority_list = cooperation_list.filter(type=1)
         question_list = cooperation_list.filter(type=2)
+        support_list = cooperation_list.filter(type=3)
 
         apply_table_list = models.ChinTableTemplate.objects.filter(is_enable=True)
         if apply_table_list:
@@ -316,6 +344,7 @@ def partner(req):
         policy_list = []
         superiority_list = []
         question_list = []
+        support_list = []
         logger.error(e)
 
     return render(req, 'partner.html', locals())

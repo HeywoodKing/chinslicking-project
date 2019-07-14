@@ -676,7 +676,7 @@ iframe {
 #change_language_form .bootstrap-select .dropdown-menu>.active>a,
 #change_language_form .bootstrap-select .dropdown-menu>.active>a:focus,
 #change_language_form .bootstrap-select .dropdown-menui>.active>a:hover {
-    background-color: #80bf17;
+    background-color: #99cc67;
     color: #000;
     font-size: 16px;
 }
@@ -709,6 +709,131 @@ iframe {
     background-repeat: no-repeat;
 }
 
+
+/*图片鼠标悬浮动画start*/
+.animated-box-img{
+    overflow: hidden;
+    position: relative;
+    margin: 15px;
+}
+.animated-box-img:before{
+    content: "";
+    display: block;
+    border: 30px solid rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    opacity: 1;
+    z-index: 2;
+    transition: all 1s ease 0s;
+}
+.animated-box-img:hover:before{ border: 1px solid rgba(255, 255, 255, 0.18); }
+.animated-box-img:after{
+    content: "";
+    display: block;
+    border: 10px solid #fff;
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    bottom: 35px;
+    right: 35px;
+    opacity: 1;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+.animated-box-img:hover:after{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+}
+.animated-box-img img{
+    width: 100%;
+    height: auto;
+    transform: scale(1.1);
+    transition: all 1s ease 0s;
+}
+.animated-box-img:hover img{ transform: scale(1); }
+.animated-box-img .animated-box-img-content{
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 45px;
+    left: 45px;
+    bottom: 45px;
+    right: 45px;
+    opacity: 1;
+    z-index: 2;
+    transition: all 0.3s ease 0s;
+}
+.animated-box-img:hover .animated-box-img-content{
+    top: 6px;
+    left: 6px;
+    bottom: 6px;
+    right: 6px;
+}
+.animated-box-img .animated-box-img-inner-content{
+    width: 100%;
+    padding-bottom: 20px;
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 0.3s ease 0s;
+}
+.animated-box-img:hover .animated-box-img-inner-content{ opacity: 1; }
+.animated-box-img .title{
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+}
+.animated-box-img .post{
+    display: block;
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+.animated-box-img .icon{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.animated-box-img .icon li{ display: inline-block; }
+.animated-box-img .icon li a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    margin-right: 10px;
+    font-size: 18px;
+    color: #000;
+    transition: all 0.3s ease 0s;
+}
+.animated-box-img .icon li a:hover{
+    background: #000;
+    color: #fff;
+}
+@media only screen and (max-width:990px){
+    .animated-box-img{ margin-bottom: 30px; }
+}
+/*图片鼠标悬浮动画end*/
+
+/*鼠标移动上图片只放大，没有模糊图层效果*/
+.inner-hover img, .outter-hover img{
+    transition: all .5s;
+}
+.inner-hover img:hover{
+    transform: scale(1.1);
+}
+.outter-hover img:hover{
+    transform: scale(.98);
+}
 
 /*****************************
  *  end my customer css
@@ -832,16 +957,16 @@ form.search-form button {
     color: #330000;
 }
 #menu ul > li:hover {
-    background-color: #a7d676;
+    background-color: #fbdf51;
 }
 #menu ul > li > a:hover {
     color: #fdef50;
 }
 #menu ul > li.current-menu-item {
-    background-color: #a7d676;
+    background-color: #fbdf51;
 }
 #menu ul > li.current-menu-item > a {
-    color: #fdef50;
+    color: #ffffff;
 }
 
 #menu ul ul {
@@ -999,8 +1124,11 @@ form.search-form button {
 /*****************************
  *   04. service-area
  ***************************** */
-.single-service, .single-service-2, .single-service-3 {
-  margin: 50px 0;
+/*.single-service {
+    padding: 50px 0;
+}*/
+.single-service-2, .single-service-3 {
+    padding: 50px 0;
 }
 
 .single-service-row{
@@ -1427,8 +1555,12 @@ form.search-form button {
     padding-top: 5px;
     padding-bottom: 5px;
     }
-    .faq-sidebar-li-hover, .faq-sidebar li:hover {
+    .faq-sidebar-li-hover {
       background-color: #fbdf50;
+        border-radius: 30px;
+    }
+    .faq-sidebar li:hover {
+      background-color: #99cc67;
         border-radius: 30px;
     }
     .faq-sidebar li a:hover {

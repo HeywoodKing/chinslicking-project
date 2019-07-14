@@ -11,7 +11,7 @@
     {% endblock %}
 {% endblock %}
 
-{% block banner %}
+{% comment %}{% block banner %}
 <!--滚动切换图片-->
 <div class="hero-slider">
     <div class="single-slide" style="background-image: url({% static 'images/banner_4.jpg' %})">
@@ -47,12 +47,12 @@
         </div>
     </div>
 </div>
-{% endblock %}
+{% endblock %}{% endcomment %}
 
 {% block content %}
 <div class="portfolio-area sp bg2">
     <div class="container">
-        <div class="section-title">
+        <div class="section-title" id="section-title">
             <h2>{% trans "秦食皇产品" %}</h2>
             <div class="section-title-bg">
                 <div class="section-title-bg-box" style="width: 125px;"></div>
@@ -67,9 +67,9 @@
             <ul class="isotope-menu">
                 {% for item in product_type_list %}
                     {% if forloop.counter0 == 0 %}
-                    <li data-filter="{{item.data_filter_name}}" class="active">{% trans item.name %}</li>
+                    <li data-id="{{ item.id }}" data-filter="{{item.data_filter_name}}" class="active">{% trans item.name %}</li>
                     {% else %}
-                    <li data-filter=".{{item.data_filter_name}}">{% trans item.name %}</li>
+                    <li data-id="{{ item.id }}" data-filter=".{{item.data_filter_name}}">{% trans item.name %}</li>
                     {% endif %}
                 {% endfor %}
 
@@ -90,27 +90,83 @@
                             <img src="/uploads/{{item.cover_image_url}}" alt="{{item.name}}">
                             <div class="hover-content">
                                 <div>
-                                    <a href="/king/product_detail/{{item.id}}" class="button" target="_blank">{% trans "查看详情" %}</a>
+                                    <a href="/king/product_detail/{{item.id}}?banner={{ banner }}" class="button" target="_blank">{% trans "查看详情" %}</a>
                                     {% if item.mall_url %}
                                         <a href="{{item.mall_url}}" class="button" target="_blank">{% trans "商城选购" %}</a>
                                     {% else %}
-                                        <a href="/king/product_detail/{{item.id}}" class="button" target="_blank">{% trans "商城选购" %}</a>
+                                        <a href="/king/product_detail/{{item.id}}?banner={{ banner }}" class="button" target="_blank">{% trans "商城选购" %}</a>
                                     {% endif %}
                                 </div>
                             </div>
                         </div>
                         <div class="portfolio-content">
-                            <a href="/king/product_detail/{{item.id}}" target="_blank"><h3>{{item.name|truncate_point:'15'}}</h3></a>
-                            <span>{{item.brief|truncate_point:'30'}}</span>
+                            <a href="/king/product_detail/{{item.id}}?banner={{ banner }}" target="_blank"><h3>{{item.name|truncate_point:'15'}}</h3></a>
+                            <span>{{item.brief|truncate_point:'24'}}</span>
                         </div>
                     </div>
                 </div>
             {% empty %}
-                <div class="single-portfolio col-xs-12 col-sm-12 col-md-12 text-center">还没有商品哦！赶快添加吧！</div>
+                <div class="single-portfolio col-xs-12 col-sm-12 col-md-12 text-center">{% trans "还没有商品哦！赶快添加吧！" %}</div>
             {% endfor %}
         </div>
 
-        {% include "pager.html" with page_list=product_list %}
+{#        {% include "pager.html" with page_list=product_list %}#}
+
+        {% with page_list=product_list %}
+        {% if page_list.paginator.num_pages > 1 %}
+        <div class="row">
+            <div class="col-12 text-center" data-margin="0 0 0 0">
+                <!--<a href="#" class="button">More Works</a>-->
+                <nav aria-label="Page navigation">
+                    <!--<span>
+                        当前第 {{ page_list.number }} 页&nbsp;&nbsp;&nbsp;&nbsp;共{{ page_list.paginator.num_pages }}页
+                    </span>-->
+                    <ul class="pager">
+
+                        {% if page_list.has_previous %}
+                            <li>
+                                <a href="?page={{ page_list.previous_page_number }}&banner={{ banner }}" aria-label="Previous">
+                                    <span aria-hidden="true">&lsaquo;</span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="disabled">
+                                <a href="javascript:void(0);" aria-label="Previous">
+                                    <span aria-hidden="true">&lsaquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% for pg in page_list.paginator.page_range %}
+                            {% comment %}{% if page_list.number == pg %}
+                                <li class="active"><a href="?page={{ pg }}&banner={{ banner }}">{{ pg }}</a></li>
+                            {% else %}
+                                <li><a href="?page={{ pg }}&banner={{ banner }}">{{ pg }}</a></li>
+                            {% endif %}{% endcomment %}
+
+                            {% circle_page page_list.number pg banner %}
+                        {% endfor %}
+
+                        {% if page_list.has_next %}
+                            <li>
+                                <a href="?page={{ page_list.next_page_number }}&banner={{ banner }}" aria-label="Next">
+                                    <span aria-hidden="true">&rsaquo;</span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="disabled">
+                                <a href="javascript:void(0);" aria-label="Next">
+                                    <span aria-hidden="true">&rsaquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        {% endif %}
+        {% endwith %}
+
     </div>
 </div>
 

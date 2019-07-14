@@ -69,16 +69,16 @@
                         {% for item in nav_list %}
                             {% if item.children.all %}
                                 <li class="has-child">
-                                    <a href="{{ item.url }}">{% trans item.name %}</a>
+                                    <a href="{{ item.url }}?banner={{ item.code }}">{% trans item.name %}</a>
                                     <ul class="sub-menu">
                                         {% for child in item.children.all %}
-                                            <li><a href="{{ child.url }}">{% trans child.name %}</a></li>
+                                            <li><a href="{{ child.url }}?banner={{ item.code }}">{% trans child.name %}</a></li>
                                         {% endfor %}
                                     </ul>
                                 </li>
                             {% else %}
                                 {% if item.is_root %}
-                                    <li><a href="{{ item.url }}">{% trans item.name %}</a></li>
+                                    <li><a href="{{ item.url }}?banner={{ item.code }}">{% trans item.name %}</a></li>
                                 {% endif %}
                             {% endif %}
                         {% endfor %}

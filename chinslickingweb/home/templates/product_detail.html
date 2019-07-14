@@ -11,8 +11,7 @@
     {% endblock %}
 {% endblock %}
 
-{% block banner %}
-
+{% comment %}{% block banner %}
 <!--滚动切换图片-->
 <div class="hero-slider">
     <div class="single-slide" style="background-image: url({% static 'images/banner_4.jpg' %})">
@@ -48,7 +47,7 @@
         </div>
     </div>
 </div>
-{% endblock %}
+{% endblock %}{% endcomment %}
 
 {% block content %}
 <div class="faq-area-2 sp bg2">
@@ -82,7 +81,7 @@
                     <h3>{% trans "推荐产品" %}</h3>
                     {% for item in product_command_list %}
                     <div class="product-commend about-img">
-                        <a href="/king/product_detail/{{item.id}}">
+                        <a href="/king/product_detail/{{item.id}}?banner={{ banner }}">
                             <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.name}}" title="{{item.name}}">
                         </a>
                         <div class="product-commend-title">{{item.name|truncate_point:'12'}}</div>

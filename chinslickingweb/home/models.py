@@ -220,6 +220,28 @@ class SysNav(BaseModel):
 #         return reverse('sys_adrecord', args=(self.slug, ))
 
 
+# banner图管理
+class ChinBanner(BaseModel):
+    """
+    nav:
+    """
+    nav = models.ForeignKey(to='SysNav', default=None, null=True, blank=True, related_name='navs',
+                              related_query_name='nav_query', on_delete=models.CASCADE, verbose_name='Banner页面')
+    image_url = models.ImageField('图片', default=None, null=True, blank=True, upload_to='banner/%Y/%m')
+    text = models.CharField('Banner上文本描述', max_length=150, default=None)
+    sort = models.IntegerField('排序', default=0)
+    is_enable = models.BooleanField('是否启用', default=True)
+
+    class Meta:
+        db_table = 'chin_banner'
+        ordering = ['nav', 'sort', '-create_time']
+        verbose_name = 'Banner管理'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.nav.name
+
+
 # 品牌介绍图片资源
 class ChinAboutResource(BaseModel):
     """
@@ -493,7 +515,8 @@ class ChinPartner(BaseModel):
 class ChinCooperation(BaseModel):
     title = models.CharField('名称', max_length=100)
     content = models.TextField('内容', default=None, null=True, blank=True)
-    type = models.CharField('类型', max_length=10, choices=(('0', '合作政策'), ('1', '项目优势'), ('2', '经销商问答')), default=0)
+    type = models.CharField('类型', max_length=10, choices=(('0', '合作政策'), ('1', '项目优势'), ('2', '经销商问答'),
+                                                          ('3', '支持与服务')), default=0)
     sort = models.IntegerField('排序', default=0)
     is_enable = models.BooleanField('是否启用', default=True)
 
@@ -797,3 +820,43 @@ class ChinTableTemplate(BaseModel):
 
     profile.allow_tags = True
     profile.short_description = u'文件'
+
+
+# 问题汇总列表
+class ChinQuestion(BaseModel):
+    name = models.CharField('问题标题', max_length=200)
+    content = models.TextField('问题描述',  default=None, null=True, blank=True)
+    type = models.SmallIntegerField('问题类型', default=-1,
+                                    choices=(
+                                         (-1, '不是问题'),
+                                         (0, '浏览器问题'),
+                                         (1, '操作系统问题'),
+                                         (2, '真bug'),
+                                         (3, '其他问题'),
+                                    ))
+    state = models.SmallIntegerField('问题状态', default=-1,
+                                     choices=(
+                                         (-1, '待解决'),
+                                         (0, '未解决'),
+                                         (1, '已解决'),
+                                         (2, '延期处理'),
+                                     ))
+
+    class Meta:
+        db_table = "chin_question"
+        ordering = ['-create_time']
+        verbose_name = '问题汇总列表'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return str(self.name)
+
+    def profile(self):
+        if len(str(self.content)) > 60:
+            return '{}...'.format(str(self.content)[0:60])
+        else:
+            return str(self.content)
+
+    profile.allow_tags = True
+    profile.short_description = u'问题描述'
+

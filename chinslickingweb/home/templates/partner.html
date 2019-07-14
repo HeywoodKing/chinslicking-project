@@ -10,7 +10,7 @@
     {% endblock %}
 {% endblock %}
 
-{% block banner %}
+{% comment %}{% block banner %}
 <!--滚动切换图片-->
 <div class="hero-slider">
     <div class="single-slide" style="background-image: url({% static 'images/banner_5.jpg' %})">
@@ -54,7 +54,7 @@
         </div>
     </div>
 </div>
-{% endblock %}
+{% endblock %}{% endcomment %}
 
 {% block content %}
 <div class="faq-area-2 sp bg2">
@@ -67,6 +67,7 @@
                     <ul class="faq-sidebar">
                         <li class="faq-sidebar-li-hover" data-id="hzzc"><a href="javascript:void(0);">{% trans "合作政策" %}</a></li>
                         <li data-id="xmys"><a href="javascript:void(0);">{% trans "项目优势" %}</a></li>
+                        <li data-id="zcyfw"><a href="javascript:void(0);">{% trans "支持与服务" %}</a></li>
                         <li data-id="jxswd"><a href="javascript:void(0);">{% trans "经销商问答" %}</a></li>
                         <li data-id="sqbxz"><a href="javascript:void(0);">{% trans "申请表下载" %}</a></li>
                     </ul>
@@ -84,6 +85,15 @@
 
                 <div id="xmys" style="display:none;padding-top: 0;">
                     {% for item in superiority_list %}
+                    <div class="single-faq">
+                        <h2><span>{{ forloop.counter }}</span>{{item.title}}</h2>
+                        {{item.content|safe}}
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div id="zcyfw" style="display:none;padding-top: 0;">
+                    {% for item in support_list %}
                     <div class="single-faq">
                         <h2><span>{{ forloop.counter }}</span>{{item.title}}</h2>
                         {{item.content|safe}}

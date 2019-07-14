@@ -1,5 +1,6 @@
 {% load my_filter_tag %}
 
+
 {% if page_list.paginator.num_pages > 1 %}
 <div class="row">
     <div class="col-12 text-center" data-margin="0 0 0 0">
@@ -12,7 +13,7 @@
 
                 {% if page_list.has_previous %}
                     <li>
-                        <a href="?page={{ page_list.previous_page_number }}" aria-label="Previous">
+                        <a href="?page={{ page_list.previous_page_number }}&banner={{ banner }}" aria-label="Previous">
                             <span aria-hidden="true">&lsaquo;</span>
                         </a>
                     </li>
@@ -25,18 +26,18 @@
                 {% endif %}
 
                 {% for pg in page_list.paginator.page_range %}
-                    <!--{% if page_list.number == pg %}
-                        <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+                    {% comment %}{% if page_list.number == pg %}
+                        <li class="active"><a href="?page={{ pg }}&banner={{ banner }}">{{ pg }}</a></li>
                     {% else %}
-                        <li><a href="?page={{ pg }}">{{ pg }}</a></li>
-                    {% endif %}-->
+                        <li><a href="?page={{ pg }}&banner={{ banner }}">{{ pg }}</a></li>
+                    {% endif %}{% endcomment %}
 
-                    {% circle_page page_list.number pg %}
+                    {% circle_page page_list.number pg banner %}
                 {% endfor %}
 
                 {% if page_list.has_next %}
                     <li>
-                        <a href="?page={{ page_list.next_page_number }}" aria-label="Next">
+                        <a href="?page={{ page_list.next_page_number }}&banner={{ banner }}" aria-label="Next">
                             <span aria-hidden="true">&rsaquo;</span>
                         </a>
                     </li>

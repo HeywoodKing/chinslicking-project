@@ -82,51 +82,26 @@
     {% endblock %}
 {% endblock %}
 
-{% block banner %}
+{% comment %}{% block banner %}
 <!--滚动切换图片-->
 <div class="hero-slider">
-    <div class="single-slide" style="background-image: url({% static 'images/banner_5.jpg' %})">
+    {% for item in banner_list %}
+    <div class="single-slide" style="background-image: url(/uploads/{{ item.image_url }})">
         <div class="inner">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 text-center">
+                    <div class="col-sm-12 col-sm-12 col-md-12 col-lg-12 text-center">
                         <div class="slide-content">
-                            <h2 class="banner-h2">
-                                CONTACT US
-                            </h2>
-                            <h4 class="banner-h4">
-                                <hr class="hr-1">
-                                <span>联系我们</span>
-                                <hr class="hr-1">
-                            </h4>
+                            <h2>{% trans item.text %}</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="single-slide" style="background-image: url({% static 'images/banner_6.jpg' %})">
-        <div class="inner">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12 text-center">
-                        <div class="slide-content">
-                            <h2 class="banner-h2">
-                                CONTACT US
-                            </h2>
-                            <h4 class="banner-h4">
-                                <hr class="hr-1">
-                                <span>联系我们</span>
-                                <hr class="hr-1">
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
-{% endblock %}
+{% endblock %}{% endcomment %}
 
 {% block content %}
 <div class="service-area sp bg1">
@@ -197,8 +172,14 @@
                 <span>COMPANY ADDRESS</span>
                 <hr class="hr-2">
             </div>
-            <div>{% trans "如果，您是亲临秦食皇，有以下交通方式可供选择" %}：</div>
-            <div>{% trans "乘坐公交：251路、107路、高新2号线都可到达，自驾车：参考地图标示行驶高新六路，科技四路，团结南路前往双水磨公交站均可到达。" %}</div>
+            <div class="text-left">
+                <div>{% trans "如果，您是亲临秦食皇，有以下交通方式可供选择" %}：</div>
+                <div>{% trans "乘坐公交" %}：</div>
+                <div>{% trans "唐延南路傅村东路口（中兴通讯）站  乘坐324路、411路、6路、902路、高新1号线、高新2号线可达，公交车站东侧步行100米即到" %}</div>
+                <div>{% trans "高家堡站  乘坐150路、173路、204路、220路、260路、311路、313路、322路、333路、4-18路、902路、916路、922路可达，公交车站西侧步行150米即到" %}</div>
+                <div>{% trans "自驾车" %}：</div>
+                <div>{% trans "导航至“秦食皇品牌展示中心”或“逸翠园i都会-停车场”，步行50米即到" %}</div>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12">
@@ -235,7 +216,7 @@
                 zoom: 17,
                 zooms: [4, 25], //设置地图级别范围
                 // center: [116.397428, 39.90923]
-                center: [108.886135,34.185397],
+                center: [108.88516,34.184359],
                 viewMode: '3D',
                 resizeEnable: true,
                 //layers: [//使用多个图层
@@ -405,7 +386,7 @@
                 map.render();
                 AMap.Util.requestAnimFrame(changeLightDirection);
             }
-            changeLightDirection();
+            {#changeLightDirection();#}
 
 
             // 3D层
@@ -482,7 +463,7 @@
             // addRegularPrism(center_3d.add(new AMap.Pixel(-770, 3200)), 32, 1600, 500) //圆柱
 
             // addRegularPrism(center_3d.add(new AMap.Pixel(-1500, 0)), 3, 800, 500, [1, 0, 0, 1]) //三棱柱
-            addRegularPrism(center_3d.add(new AMap.Pixel(-50, 350)), 5, 1500, 400, [0, 1, 0, 1])//五棱柱
+            {#addRegularPrism(center_3d.add(new AMap.Pixel(-50, 350)), 5, 1500, 400, [0, 1, 0, 1])//五棱柱#}
             // addRegularPrism(center_3d.add(new AMap.Pixel(-770, 3200)), 32, 1600, 500, [0, 0, 1, 1])//圆柱
 
 
@@ -529,11 +510,11 @@
             // map.add(polyline);
 
             //实例化信息窗体
-            var title = '方恒假日酒店<span style="font-size:11px;color:#F00;">价格:318</span>',
+            var title = '秦食皇品牌展示中心',
                 content = [];
-            content.push("<img src='http://tpc.googlesyndication.com/simgad/5843493769827749134'>地址：北京市朝阳区阜通东大街6号院3号楼东北8.3公里");
-            content.push("电话：010-64733333");
-            content.push("<a href='https://ditu.amap.com/detail/B000A8URXB?citycode=110105'>详细信息</a>");
+            content.push("<img src='http://aos-cdn-image.amap.com/sns/ugccomment/15cc7aa1-8efd-4960-a497-22917d85e620.jpg?type=pic' style='width:100px;height:80px;'>地址：西安市雁塔区唐延南路i都会12号楼10105");
+            content.push("电话：029-8918 9518");
+            content.push("<a href='https://www.gaode.com/detail/B0FFJIYCYE?citycode=610100' target='_blank'>详细信息</a>");
 
             // 创建信息窗体
             var infoWindow = new AMap.InfoWindow({

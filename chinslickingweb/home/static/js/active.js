@@ -6,6 +6,15 @@ var document,
 
     const flat = {};
 
+
+    (function ($) {
+        $.getUrlParam = function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+    })(jQuery);
+
     // preloader
     flat.fnPreloader = () => {
         flat.preloader = $('.preloader');
@@ -67,10 +76,26 @@ var document,
                 layoutMode: 'fitRows'
             });
 
+            console.log(flat.portfolio_menu);
+            flat.portfolio_menu.removeClass("active");
+
+
+            var pro_type_id = $.getUrlParam('product_type') || '1';
+            var index = parseInt(pro_type_id) - 1;
+            flat.portfolio_menu_li = $('.isotope-menu li:eq(' + index + ')');
+            flat.portfolio_menu_li.addClass('active');
+
+
             flat.portfolio_menu.on('click', function () {
                 flat.portfolio_menu.removeClass("active");
                 $(this).addClass("active");
-                var selector = $(this).attr('data-filter');
+
+                var id = $(this).attr('data-id');
+                window.location.href = '/king/product_list?banner=product&product_type=' + id + '&ok=0#section-title';
+                return false;
+
+                //动画效果
+                /*var selector = $(this).attr('data-filter');
                 flat.portfolio_isotope.isotope({
                     filter: selector,
                     animationOptions: {
@@ -79,7 +104,7 @@ var document,
                         queue: false,
                     }
                 });
-                return false;
+                return false;*/
             });
 
         }
