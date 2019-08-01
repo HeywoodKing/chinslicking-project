@@ -273,6 +273,7 @@ K.options = {
 	],
 	fontSizeTable : ['9px', '10px', '12px', '14px', '16px', '18px', '24px', '32px'],
 	htmlTags : {
+		video: ['src', 'type', 'width', 'height', 'autostart', 'loop', 'controls'],
 		font : ['id', 'class', 'color', 'size', 'face', '.background-color'],
 		span : [
 			'id', 'class', '.color', '.background-color', '.font-size', '.font-family', '.background',
@@ -906,7 +907,7 @@ function _mediaType(src) {
 	if (/\.(rm|rmvb)(\?|$)/i.test(src)) {
 		return 'audio/x-pn-realaudio-plugin';
 	}
-	if (/\.(swf|flv)(\?|$)/i.test(src)) {
+	if (/\.(swf|flv|mp4)(\?|$)/i.test(src)) {
 		return 'application/x-shockwave-flash';
 	}
 	return 'video/x-ms-asf-plugin';
@@ -931,27 +932,45 @@ function _mediaEmbed(attrs) {
 	html += '/>';
 	return html;
 }
-function _mediaImg(blankPath, attrs) {
+
+function _mediaVideo(attrs) {
+	var html = '<video ';
+	_each(attrs, function(key, val) {
+		html += key + '="' + val + '" ';
+	});
+	html += ' controls></video>';
+	return html;
+}
+
+// function _mediaImg(blankPath, attrs) {
+function _mediaImg(blankPath, zdy, attrs) {
 	var width = attrs.width,
 		height = attrs.height,
 		type = attrs.type || _mediaType(attrs.src),
-		srcTag = _mediaEmbed(attrs),
+		// srcTag = _mediaEmbed(attrs),
+		srcTag = _mediaVideo(attrs),
 		style = '';
-	if (/\D/.test(width)) {
-		style += 'width:' + width + ';';
-	} else if (width > 0) {
-		style += 'width:' + width + 'px;';
+
+	console.log(srcTag);
+	if(zdy == 'zdy'){
+		var html = srcTag;
+	}else {
+		if (/\D/.test(width)) {
+			style += 'width:' + width + ';';
+		} else if (width > 0) {
+			style += 'width:' + width + 'px;';
+		}
+		if (/\D/.test(height)) {
+			style += 'height:' + height + ';';
+		} else if (height > 0) {
+			style += 'height:' + height + 'px;';
+		}
+		var html = '<img class="' + _mediaClass(type) + '" src="' + blankPath + '" ';
+		if (style !== '') {
+			html += 'style="' + style + '" ';
+		}
+		html += 'data-ke-tag="' + escape(srcTag) + '" alt="" />';
 	}
-	if (/\D/.test(height)) {
-		style += 'height:' + height + ';';
-	} else if (height > 0) {
-		style += 'height:' + height + 'px;';
-	}
-	var html = '<img class="' + _mediaClass(type) + '" src="' + blankPath + '" ';
-	if (style !== '') {
-		html += 'style="' + style + '" ';
-	}
-	html += 'data-ke-tag="' + escape(srcTag) + '" alt="" />';
 	return html;
 }
 function _tmpl(str, data) {
@@ -974,6 +993,7 @@ K.getAttrList = _getAttrList;
 K.mediaType = _mediaType;
 K.mediaAttrs = _mediaAttrs;
 K.mediaEmbed = _mediaEmbed;
+K.mediaVideo = _mediaVideo;
 K.mediaImg = _mediaImg;
 K.clearMsWord = _clearMsWord;
 K.tmpl = _tmpl;
@@ -5924,7 +5944,7 @@ _plugin('core', function(K) {
 			attrs.src = _undef(attrs.src, '');
 			attrs.width = _undef(attrs.width, 0);
 			attrs.height = _undef(attrs.height, 0);
-			return _mediaImg(self.themesPath + 'common/blank.gif', attrs);
+			return _mediaImg(self.themesPath + 'common/blank.gif', 'zdy', attrs);
 		})
 		.replace(/<a[^>]*name="([^"]+)"[^>]*>(?:<\/a>)?/ig, function(full) {
 			var attrs = _getAttrList(full);

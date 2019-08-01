@@ -460,8 +460,8 @@ iframe {
 }
 .product-commend-title{
     position:relative;
-    bottom:50px;
-    float: left;
+    margin-top: -50px;
+    /*float: left;*/
     width:100%;
     background-color: rgba(0,0,0,0.3);
     color: #fde981;
@@ -470,11 +470,39 @@ iframe {
     height:50px;
 }
 
+
 /*翻牌效果 start*/
 @media screen and (min-width: 991px) {
     .outer{
+        margin: 40px auto;
+        height: 340px;
+        /*display: flex;*/
+        justify-content: center;
+        align-items: center;
+    }
+
+    .outer .front .front-content{
+        position:absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        padding: 100px 30px 30px 30px;
+        text-align:center;
+        color: #fff;
+    }
+
+    .outer .back{
+        width: 254px;
+        height: 331px;
+        background-color: #f7d83d;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .outer{
+        position: relative;
         margin: 0px auto;
-        height: 520px;
+        height: 530px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -489,26 +517,11 @@ iframe {
         text-align:center;
         color: #fff;
     }
-}
 
-@media screen and (max-width: 768px) {
-    .outer{
-        position: relative;
-        margin: 0px auto;
-        height: 465px;
-        /*display: flex;*/
-        justify-content: center;
-        align-items: center;
-    }
-
-    .outer .front .front-content{
-        position:absolute;
-        top: 0px;
-        left: 0px;
+    .outer .back{
         width: 100%;
-        padding: 100px 30px 30px 30px;
-        text-align:center;
-        color: #fff;
+        height: 520px;
+        background-color: #f7d83d;
     }
 }
 
@@ -538,7 +551,7 @@ iframe {
 
 .outer .back{
     transform:rotateY(-180deg);
-    background-color: rgba(0,0,0,0.8);
+    /*background-color: rgba(0,0,0,0.8);*/
     overflow: hidden;
 }
 .outer .back .back-content{
@@ -546,7 +559,7 @@ iframe {
     top: 0px;
     left: 0px;
     width: 100%;
-    padding: 50px 30px 30px 30px;
+    padding: 50px 10px;
     text-align:center;
     color: #fff;
 }
@@ -1558,9 +1571,10 @@ form.search-form button {
   margin: 0; }
   .faq-sidebar li {
     position: relative;
-    padding-left: 40px;
+    /*padding-left: 40px;*/
     padding-top: 5px;
     padding-bottom: 5px;
+      text-align: center;
     }
     .faq-sidebar-li-hover {
       background-color: #fbdf50;

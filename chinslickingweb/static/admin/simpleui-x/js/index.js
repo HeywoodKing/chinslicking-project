@@ -1,4 +1,36 @@
 (function () {
+    if (window.frameElement) {
+        window.frameElement.contentWindow.parent.callback()
+    }
+
+    window.addEventListener('hashchange', function (e) {
+        // console.log(e)
+        // console.log('hash')
+        if (e.newURL != e.oldURL) {
+            openByHash()
+        }
+    });
+
+    function openByHash() {
+        var hash = location.hash;
+        hash = hash.substring(1)
+
+        for (var i = 0; i < app.menuData.length; i++) {
+            var item = app.menuData[i]
+            if ((item.url || '/') == hash) {
+                app.openTab(item, item.index)
+                break;
+            }
+        }
+    }
+
+    function changeUrl(data) {
+        location.href = '#' + (data.url || '/')
+    }
+
+    window.callback = function () {
+        window.location.reload()
+    }
 
     var fontConfig = new Vue({
         el: '#dynamicCss',
@@ -42,7 +74,8 @@
     new Vue({
         el: '#main',
         data: {
-            searchInput:'',
+            isResize: false,
+            searchInput: '',
             height: 1000,
             fold: false,
             zoom: false,
@@ -127,7 +160,8 @@
             fontDialogVisible: false,
             fontSlider: 12,
             loading: false,
-            menuTextShow: true
+            menuTextShow: true,
+            menuData: []
         },
         watch: {
             fold: function (newValue, oldValue) {
@@ -150,6 +184,12 @@
                     }
                 });
             }
+            /*,
+            tabs: function (newValue, oldValue) {
+
+                //改变tab时把状态储存到sessionStorage
+                console.log(newValue)
+            }*/
         },
         created: function () {
 
@@ -167,10 +207,11 @@
                 if (!self.small) {
 
                     self.menuTextShow = !(width < 800);
-                    self.$nextTick(()=>{
-                        self.fold= width < 800;
+                    self.$nextTick(() => {
+                        self.fold = width < 800;
                     })
                 }
+                self.isResize = true
 
                 //判断全屏状态
                 try {
@@ -181,12 +222,17 @@
             }
             window.app = this;
 
+
             window.menus.forEach(item => {
                 item.icon = getIcon(item.name, item.icon);
+
                 if (item.models) {
                     item.models.forEach(mItem => {
                         mItem.icon = getIcon(mItem.name, mItem.icon);
+                        self.menuData.push(mItem)
                     });
+                } else {
+                    self.menuData.push(item)
                 }
             });
 
@@ -205,9 +251,27 @@
                     fontEvents.push(handler);
                 }
             }
+            var temp_tabs = sessionStorage['tabs'];
 
+            if (temp_tabs && temp_tabs != '') {
+                this.tabs = JSON.parse(temp_tabs);
+                console.log(this.tabs)
+            }
+            if (location.hash != '') {
+                openByHash();
+            }
+
+            //elementui布局问题，导致页面不能正常撑开，调用resize使其重新计算
+            if(window.onresize){
+                window.onresize();
+            }
         },
         methods: {
+            syncTabs: function () {
+                if (window.sessionStorage) {
+                    sessionStorage['tabs'] = JSON.stringify(this.tabs);
+                }
+            },
             reset: function () {
                 this.fontSlider = 14;
                 fontConfig.fontSize = 0;
@@ -284,6 +348,7 @@
                 var index = item.index;
                 this.menuActive = index;
                 this.breadcrumbs = item.breadcrumbs;
+                changeUrl(item);
             },
             handleTabsEdit: function (targetName, action) {
 
@@ -297,6 +362,7 @@
                                 next = temp.id;
                                 self.menuActive = temp.index;
                                 self.breadcrumbs = temp.breadcrumbs;
+                                changeUrl(temp)
                             }
                         }
                     });
@@ -305,6 +371,7 @@
                     if (targetName != 0) {
                         this.tabs = this.tabs.filter(tab => tab.id !== targetName);
                     }
+                    this.syncTabs();
                 }
             }
             ,
@@ -334,7 +401,8 @@
                     this.tabs.push(data);
                     this.tabModel = data.id;
                 }
-
+                changeUrl(data)
+                this.syncTabs();
             }
             ,
             foldClick: function () {

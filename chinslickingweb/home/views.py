@@ -102,19 +102,31 @@ def about(req):
             comp_about_model = comp_about_models[0]
 
             # 反向查找
-            culture = comp_about_model.about_resource.filter(type_code=1)
-            honor = comp_about_model.about_resource.filter(type_code=2)
-            aptitude = comp_about_model.about_resource.filter(type_code=3)
+            # type_code: 1 企业文化 2 品牌荣誉 3 企业资质 4 团队风采 5 品牌故事 6 组织架构
+            cultures = comp_about_model.about_resource.filter(type_code=1)
+            honors = comp_about_model.about_resource.filter(type_code=2)
+            aptitudes = comp_about_model.about_resource.filter(type_code=3)
+            teams = comp_about_model.about_resource.filter(type_code=4)
+            brands = comp_about_model.about_resource.filter(type_code=5)
+            orgs = comp_about_model.about_resource.filter(type_code=6)
     except Exception as e:
         comp_about_model = models.ChinAbout()
-        culture = []
-        honor = []
-        aptitude = []
+        cultures = []
+        honors = []
+        aptitudes = []
+        teams = []
+        brands = []
+        orgs = []
         logger.error(e)
 
     comp_history_list = models.ChinCompanyHistory.objects.filter(is_enable=True)
 
     return render(req, 'about.html', locals())
+
+
+# 秦始皇介绍页面
+def king(req):
+    return render(req, 'king.html', locals())
 
 
 # 联系我们 为您服务

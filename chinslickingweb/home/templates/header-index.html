@@ -26,6 +26,12 @@
 
     {% block style_tag %}
     <style>
+        .logo-top{
+            position: absolute;
+            top: 3%;
+            left: 2%;
+            width: 15%;
+        }
         .sun{
             position: absolute;
             top: 6%;
@@ -222,7 +228,7 @@
             transform: rotate(-60deg);
         }
         .bottle-01 img{
-            width: 40%;
+            width: 70%;
         }
         .rain-01{
             position: absolute;
@@ -283,7 +289,7 @@
             transform: rotate(-60deg);
         }
         .bottle-02 img{
-            width: 40%;
+            width: 70%;
         }
         .rain-02{
             position: absolute;
@@ -344,7 +350,7 @@
             transform: rotate(-60deg);
         }
         .bottle-03 img{
-            width: 40%;
+            width: 70%;
         }
         .rain-03{
             position: absolute;
@@ -398,7 +404,7 @@
             transform: rotate(-60deg);
         }
         .bottle-04 img{
-            width: 40%;
+            width: 70%;
         }
         .rain-04{
             position: absolute;
@@ -665,12 +671,15 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div style="margin-right: -15px; margin-left: -15px;">
                     {% csrf_token %}
-                    <img src="{% static 'images/index_top_bg2.jpg' %}">
+                    <img src="{% static 'images/index_top_bg3.jpg' %}">
+                    <div class="logo-top">
+                        <img src="{% static 'images/logo_nav.png' %}">
+                    </div>
                     <div class="sun">
                         <img src="{% static 'images/sun.png' %}">
                     </div>
                     <!--小树苗-->
-                    <div class="watering-box-01">
+                    <div class="watering-box-01" data-toggle="tooltip" data-placement="top" title="{% trans '给我浇水，我就会快快长大哦！' %}">
                         <div class="waternumber-01 animated hidden">+20</div>
                         <div class="bottle-01 animated hidden">
                             <img src="{% static 'images/bottle.png' %}">
@@ -686,7 +695,7 @@
                         </div>
                     </div>
                     <!--中树苗-->
-                    <div class="watering-box-02">
+                    <div class="watering-box-02" data-toggle="tooltip" data-placement="top" title="{% trans '给我浇水，我就会长大哦！' %}">
                         <div class="waternumber-02 animated hidden">+20</div>
                         <div class="bottle-02 animated hidden">
                             <img src="{% static 'images/bottle.png' %}">
@@ -703,7 +712,7 @@
                         </div>
                     </div>
                     <!--大树苗-->
-                    <div class="watering-box-03">
+                    <div class="watering-box-03" data-toggle="tooltip" data-placement="top" title="{% trans '给我浇水，我就会结果实哦！' %}">
                         <div class="waternumber-03 animated hidden">+20</div>
                         <div class="bottle-03 animated hidden">
                             <img src="{% static 'images/bottle.png' %}">
@@ -716,7 +725,7 @@
                         </div>
                     </div>
                     <!--长果实的树-->
-                    <div class="watering-box-04">
+                    <div class="watering-box-04" data-toggle="tooltip" data-placement="top" title="{% trans '给我浇水，我就会结很多果实哦！' %}">
                         <div class="waternumber-04 animated hidden">+20</div>
                         <div class="bottle-04 animated hidden">
                             <img src="{% static 'images/bottle.png' %}">

@@ -133,8 +133,33 @@
                                 <h2>{% trans item.title %}</h2>
                             </div>
                         </div>
-                        <div class="back">
+                        {% comment %}<div class="back">
                             <img src="/uploads/{{item.back_image}}" alt="{{item.title}}">
+                            <div class="back-content">
+                                <img src="/uploads/{{item.plate_image_url}}">
+                                <hr>
+                                {% if item.is_redirect_sub_page %}
+                                <h2><a href="{{item.sub_page_url}}">{% trans item.title %}</a></h2>
+                                <a href="{{item.sub_page_url}}">
+                                    <div>
+                                        <span style="color:#fff;">{% trans item.descr|truncate_point:'50' %}</span>
+                                    </div>
+                                </a>
+                                {% else %}
+                                <h2>
+                                    <a href="javascript:void(0);" class="video-play" data-image="/uploads/{{item.front_image}}"
+                                       data-source="/uploads/{{item.video_source}}">{% trans item.title %}</a>
+                                </h2>
+                                <a href="javascript:void(0);" class="video-play" data-image="/uploads/{{item.front_image}}"
+                                   data-source="/uploads/{{item.video_source}}">
+                                    <div>
+                                        <span style="color:#fff;">{% trans item.descr|truncate_point:'50' %}</span>
+                                    </div>
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>{% endcomment %}
+                        <div class="back">
                             <div class="back-content">
                                 <img src="/uploads/{{item.plate_image_url}}">
                                 <hr>
@@ -187,6 +212,8 @@
                 $('#video').attr('height', window.innerHeight);
                 $('#video').attr('width', window.innerWidth);
             });
+
+            {#$('[data-toggle="tooltip"]').tooltip();#}
 
             initTreeBox();
 

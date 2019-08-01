@@ -72,7 +72,8 @@ KindEditor.plugin('media', function(K) {
 							heightBox[0].focus();
 							return;
 						}
-						var html = K.mediaImg(self.themesPath + 'common/blank.gif', {
+						// var html = K.mediaImg(self.themesPath + 'common/blank.gif', {
+						var html = K.mediaImg(self.themesPath + 'common/blank.gif', 'zdy', {
 								src : url,
 								type : K.mediaType(url),
 								width : width,

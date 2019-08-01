@@ -189,6 +189,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #     # os.path.join(BASE_DIR, 'chinslicking', 'static'),
 # )
 
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_COOKIE_AGE = 60*30  # 30分钟
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # 会话cookie可以在用户浏览器中保持有效期。True：关闭浏览器，则Cookie失效
+
 
 # 自定义用户model 否则会报：HINT: Add or change a related_name argument to the definition
 # for ‘User.user_permissions’ or ‘User.user_permissions’.
@@ -416,6 +420,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads').replace('\\', '/')  # 设置静�
 # #     },
 # # ]
 
+# ==========================================================================
+# ==========================================================================
+# ==========================================================================
+
+
+# SIMPLEUI 配置
+
 # 首页配置
 # SIMPLEUI_HOME_PAGE = 'https://www.baidu.com'
 # 首页标题
@@ -427,8 +438,10 @@ SIMPLEUI_INDEX = 'http://47.99.121.101:8001/king/index'
 # 自定义SIMPLEUI的Logo 修改LOGO
 SIMPLEUI_LOGO = STATIC_URL + 'images/apple.png'
 
+
+
 # 服务器信息
-SIMPLEUI_HOME_INFO = True
+SIMPLEUI_HOME_INFO = False
 # 快速操作
 # SIMPLEUI_HOME_QUICK = True
 # 最近动作

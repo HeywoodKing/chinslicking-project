@@ -245,10 +245,19 @@ class ChinBanner(BaseModel):
 # 品牌介绍图片资源
 class ChinAboutResource(BaseModel):
     """
-    type_code: 1 企业文化 2 品牌荣誉 3 企业资质 4 团队风采 5 品牌故事
+    type_code: 1 企业文化 2 品牌荣誉 3 企业资质 4 团队风采 5 品牌故事 6 组织架构
     """
-    type_code = models.PositiveSmallIntegerField('图片业务类型', default=0)
-    type_name = models.CharField('图片业务类型名称', max_length=15, default=None)
+    type_code = models.PositiveSmallIntegerField('图片业务类型', default=0,
+                                                 choices=(
+                                                     (1, '企业文化'),
+                                                     (2, '品牌荣誉'),
+                                                     (3, '企业资质'),
+                                                     (4, '团队风采'),
+                                                     (5, '品牌故事'),
+                                                     (6, '组织架构')
+                                                 )
+                                                 )
+    # type_name = models.CharField('图片业务类型名称', max_length=15, default=None)
     image_url = models.ImageField('图片', default=None, null=True, blank=True, upload_to='company/%Y/%m')
     about = models.ForeignKey(to='ChinAbout', default=None, null=True, blank=True, related_name='about_resource',
                               related_query_name='about', on_delete=models.CASCADE, verbose_name='品牌介绍')
@@ -262,7 +271,7 @@ class ChinAboutResource(BaseModel):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.type_name
+        return str(self.type_code)
 
 
 # 关于我们
@@ -358,8 +367,8 @@ class ChinIndexPlate(BaseModel):
         return self.title
 
     def profile(self):
-        if len(str(self.descr)) > 20:
-            return '{}...'.format(str(self.descr)[0:20])
+        if len(str(self.descr)) > 5:
+            return '{}...'.format(str(self.descr)[0:5])
         else:
             return str(self.descr)
 
@@ -828,11 +837,13 @@ class ChinQuestion(BaseModel):
     content = models.TextField('问题描述',  default=None, null=True, blank=True)
     type = models.SmallIntegerField('问题类型', default=-1,
                                     choices=(
-                                         (-1, '不是问题'),
-                                         (0, '浏览器问题'),
-                                         (1, '操作系统问题'),
-                                         (2, '真bug'),
-                                         (3, '其他问题'),
+                                        (-1, '不是问题'),
+                                        (0, '浏览器问题'),
+                                        (1, '操作系统问题'),
+                                        (2, 'bug'),
+                                        (3, '其他问题'),
+                                        (4, '重复问题'),
+                                        (5, '第三方问题'),
                                     ))
     state = models.SmallIntegerField('问题状态', default=-1,
                                      choices=(
@@ -840,7 +851,10 @@ class ChinQuestion(BaseModel):
                                          (0, '未解决'),
                                          (1, '已解决'),
                                          (2, '延期处理'),
+                                         (3, '不予处理'),
+                                         (4, '需第三方处理'),
                                      ))
+    remark = models.CharField('备注', max_length=200, default=None, null=True, blank=True)
 
     class Meta:
         db_table = "chin_question"
@@ -859,4 +873,13 @@ class ChinQuestion(BaseModel):
 
     profile.allow_tags = True
     profile.short_description = u'问题描述'
+
+    def profile_remark(self):
+        if len(str(self.remark)) > 60:
+            return '{}...'.format(str(self.remark)[0:60])
+        else:
+            return str(self.remark)
+
+    profile_remark.allow_tags = True
+    profile_remark.short_description = u'备注'
 
