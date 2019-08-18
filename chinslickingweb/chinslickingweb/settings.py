@@ -111,6 +111,7 @@ DATABASES = {
         'PORT': '3306',
         'NAME': 'chin',
         'USER': 'root',
+        # 'PASSWORD': '@chinslicking2019',
         'PASSWORD': '123456',
     }
 }
@@ -466,6 +467,26 @@ SIMPLEUI_CONFIG = {
             'icon': 'fas fa-cog',
             'models': [
                 {
+                    'name': '导航菜单',
+                    'icon': 'fa fa-book-open',
+                    'url': 'home/sysnav/'
+                },
+                {
+                    'name': '网站配置',
+                    'icon': 'fa fa-book-open',
+                    'url': 'home/sysconfig/'
+                },
+                {
+                    'name': '动画类型',
+                    'icon': 'fa fa-allergies',
+                    'url': 'home/chinanimatetype/'
+                },
+                {
+                    'name': '问题列表',
+                    'icon': 'fa fa-book-open',
+                    'url': 'home/chinquestion/'
+                },
+                {
                     'name': '清除系统缓存',
                     'icon': 'fa fa-broom',
                 },
@@ -481,21 +502,6 @@ SIMPLEUI_CONFIG = {
                 {
                     'name': '关键词管理',
                     'icon': 'fa fa-book-open',
-                },
-                {
-                    'name': '动画类型',
-                    'icon': 'fa fa-allergies',
-                    'url': 'home/chinanimatetype/'
-                },
-                {
-                    'name': '导航菜单',
-                    'icon': 'fa fa-book-open',
-                    'url': 'home/sysnav/'
-                },
-                {
-                    'name': '问题列表',
-                    'icon': 'fa fa-book-open',
-                    'url': 'home/chinquestion/'
                 }
             ]
         },
@@ -584,6 +590,11 @@ SIMPLEUI_CONFIG = {
                     'name': '发展历程',
                     'icon': 'fa fa-dharmachakra',
                     'url': 'home/chincompanyhistory/'
+                },
+                {
+                    'name': '秦始皇故事',
+                    'icon': 'fa fa-dharmachakra',
+                    'url': 'home/chinstory/'
                 }
             ]
         },

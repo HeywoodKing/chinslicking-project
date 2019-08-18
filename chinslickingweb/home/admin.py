@@ -119,6 +119,21 @@ class IsActiveFilter(SimpleListFilter):
             return queryset.filter()
 
 
+# admin here
+# 系统配置
+@admin.register(models.SysConfig)
+class SysConfigAdmin(admin.ModelAdmin):
+    list_display = ('id', 'site_name', 'site_company', 'address', 'telephone', 'email',
+                    'icp', 'is_enable', 'logo_bottom', 'qrcode')
+    list_display_links = ('id', 'site_name', )
+    # list_editable = ('telephone', 'is_enable', 'icp')
+    list_filter = (IsEnableFilter, )
+    list_per_page = 10
+    exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username', )
+    search_fields = ('site_name', 'site_author', 'site_company', 'address', 'telephone',
+                     'email', 'icp', )
+
+
 # 管理员
 @admin.register(models.ChinUserProfile)
 class ChinUserProfileAdmin(UserAdmin):
@@ -348,6 +363,26 @@ class ChinAboutResourceAdmin(admin.ModelAdmin):
     list_per_page = 30
     search_fields = ('type_code',)
     exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
+
+
+# 秦始皇故事
+@admin.register(models.ChinStory)
+class ChinStoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'short_title', 'short_profile', 'long_title', 'long_profile', 'is_enable')
+    list_display_links = ('id', 'short_title', 'short_profile', 'long_title', 'long_profile', )
+    list_editable = ('is_enable', )
+    list_filter = (IsEnableFilter, )
+    list_per_page = 10
+    search_fields = ('short_title', 'long_title', 'short_profile', 'long_profile', )
+    exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
+
+    class Media:
+        js = (
+            # '/static/plugins/kindeditor-4.1.10/kindeditor-all-min.js',
+            '/static/plugins/kindeditor-4.1.10/kindeditor.js',
+            '/static/plugins/kindeditor-4.1.10/lang/zh_CN.js',
+            '/static/plugins/kindeditor-4.1.10/config.js',
+        )
 
 
 # 动画类型

@@ -137,20 +137,23 @@ class BaseModel(models.Model):
 
 # 系统|站点配置
 class SysConfig(BaseModel):
-    site_name = models.CharField('站点名称', max_length=50)
-    site_desc = models.CharField('站点描述', max_length=150)
-    site_author = models.CharField('作者', max_length=100)
+    site_name = models.CharField('站点名称', max_length=50, default='', blank=True)
+    site_desc = models.CharField('站点描述', max_length=150, default='', blank=True)
+    site_author = models.CharField('作者', max_length=100, default='', blank=True)
     site_company = models.CharField('公司', max_length=100)
     address = models.CharField('底部显示地址', max_length=150)
-    telephone = models.CharField('底部显示电话', max_length=11)
-    email = models.EmailField('邮箱', max_length=50)
-    icp = models.CharField('备案号', max_length=15)
-    remark = models.CharField('备注', max_length=200)
+    telephone = models.CharField('底部显示电话', max_length=15)
+    email = models.EmailField('邮箱', max_length=50, default='', blank=True)
+    icp = models.CharField('备案号', max_length=15, default='', blank=True)
+    remark = models.CharField('备注', max_length=200, default='', blank=True)
+    logo_bottom = models.ImageField('底部logo', default=None, null=True, blank=True, upload_to='sys/%Y/%m')
+    qrcode = models.ImageField('二维码', default=None, null=True, blank=True, upload_to='sys/%Y/%m')
+    is_enable = models.BooleanField('是否启用', default=True)
 
     class Meta:
         db_table = "sys_config"
         verbose_name = '站点配置'
-        verbose_name_plural = 'SysConfig'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.site_name
@@ -315,6 +318,42 @@ class ChinAbout(BaseModel):
 
     profile.allow_tags = True
     profile.short_description = u'公司简介'
+
+
+# 秦始皇故事
+class ChinStory(BaseModel):
+    short_title = models.CharField('短板故事标题', max_length=80, default='')
+    short_content = models.TextField('短板故事', max_length=1000, default='')
+    long_title = models.CharField('长板故事标题', max_length=80, default='')
+    long_content = models.TextField('长板故事', max_length=4000, default='')
+    is_enable = models.BooleanField('是否启用', default=True)
+
+    class Meta:
+        db_table = 'chin_story'
+        ordering = ['-create_time']
+        verbose_name = '秦始皇故事'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.short_title
+
+    def short_profile(self):
+        if len(str(self.short_content)) > 20:
+            return '{}...'.format(str(self.short_content)[0:20])
+        else:
+            return str(self.short_content)
+
+    short_profile.allow_tags = True
+    short_profile.short_description = u'短板描述'
+
+    def long_profile(self):
+        if len(str(self.long_content)) > 50:
+            return '{}...'.format(str(self.long_content)[0:50])
+        else:
+            return str(self.long_content)
+
+    long_profile.allow_tags = True
+    long_profile.short_description = u'长板描述'
 
 
 # 动画类型

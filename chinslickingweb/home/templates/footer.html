@@ -8,20 +8,28 @@
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-4">
                     <div class="justify-align-items">
-                        <img src="{% static 'images/logo_nav.png' %}" style="width:270px;">
+                        {% if sysconfig.logo_bottom %}
+                            <img src="/uploads/{{ sysconfig.logo_bottom }}" style="width:270px;">
+                        {% else %}
+                            <img src="{% static 'images/logo_nav.png' %}" style="width:270px;">
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-4 footer_widget">
                     <div class="text-center">
-                        <h4>{% trans "西安秦食皇食品有限公司" %}</h4>
+                        <h4>{% trans sysconfig.site_company %}</h4>
                         <ul>
                             <li>
-                                <span>{% trans "邮箱" %}：</span>
-                                <span>Johndarphy@xachf.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                {% if sysconfig.email %}
+                                    <span>{% trans "邮箱" %}：</span>
+                                    <span>{{ sysconfig.email }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                {% endif %}
                             </li>
                             <li>
-                                <span>{% trans "地址" %}：</span>
-                                <span>{% trans "西安市高新区丈八二路31号" %}</span>
+                                {% if sysconfig.address %}
+                                    <span>{% trans "地址" %}：</span>
+                                    <span>{% trans sysconfig.address %}</span>
+                                {% endif %}
                             </li>
                         </ul>
                     </div>
@@ -29,7 +37,11 @@
                 <div class="col-sm-12 col-md-4 col-lg-4">
                     <div class="justify-align-items">
                         <div class="">
-                            <img src="{% static 'images/qrcode.jpg' %}" style="width: 105px;" class="pull-left" alt="">
+                            {% if sysconfig.qrcode %}
+                                <img src="/uploads/{{ sysconfig.qrcode }}" style="width: 105px;" class="pull-left" alt="">
+                            {% else %}
+                                <img src="{% static 'images/qrcode.jpg' %}" style="width: 105px;" class="pull-left" alt="">
+                            {% endif %}
                             <div class="pull-left" style="margin-left: 20px;">
                                 <h4 style="color: #68ab22; font-weight: bold; font-size:30px; margin-top:0; margin-bottom:18px;">CONTACT</h4>
                                 <h4 style="margin: 0; padding: 0;">
@@ -37,7 +49,7 @@
                                         <i class="glyphicon glyphicon-phone-alt"></i>
                                     </i>&nbsp;&nbsp;{% trans "商务合作" %}
                                 </h4>
-                                <i><h3 style="margin: 10px 0; padding: 0;">029-8918 9518</h3></i>
+                                <i><h3 style="margin: 10px 0; padding: 0;">{{ sysconfig.telephone }}</h3></i>
                             </div>
                         </div>
                     </div>

@@ -12,16 +12,16 @@
 <body>
 <div class="layui-container" style="margin-top: 20px;">
     <div class="layui-row">
-        <div class="layui-col-md12">
+        <div class="layui-col-xs12 layui-col-sm12 layui-col-md12 layui-col-lg12">
             <form id="myform" class="layui-form">
                 {% csrf_token %}
-                <div class="layui-form-item">
+                {% comment %}<div class="layui-form-item">
                     <label class="layui-form-label">{% trans "姓名：" %}</label>
                     <div class="layui-input-block">
                         <input type="text" name="username" required lay-verify="required|username" placeholder="{% trans '请输入姓名' %}"
                                autocomplete="off" class="layui-input">
                     </div>
-                </div>
+                </div>{% endcomment %}
                 <div class="layui-form-item">
                     <label class="layui-form-label">{% trans "手机号：" %}</label>
                     <div class="layui-input-block">
@@ -30,18 +30,29 @@
                     </div>
                 </div>
                 <div class="layui-form-item">
+                    <label class="layui-form-label">{% trans "中奖提示" %}：</label>
+                    <div class="layui-input-block">
+                        <div>
+                            <b>{% trans "恭喜您获得价值30元购物抵用券一张，凭券您可以到秦食皇品牌展示中心领取伴手礼一份或线上商城购物时抵用" %}</b>
+                        </div>
+                        <div>
+                            <b>{% trans "您购物时向销售人员或客服出示手机号码即可使用实物抵用券，线上购物需用此手机号码拨打秦食皇客服电话确认使用抵用券" %}</b>
+                        </div>
+                    </div>
+                </div>
+                {% comment %}<div class="layui-form-item">
                     <label class="layui-form-label">{% trans "邮箱：" %}</label>
                     <div class="layui-input-block">
-                        <input type="text" name="email" required lay-verify="required|email" placeholder="{% trans '请输入邮箱' %}"
+                        <input type="text" name="email" lay-verify="email" placeholder="{% trans '请输入邮箱' %}"
                                autocomplete="off" class="layui-input">
                     </div>
                 </div>
-                <!--<div class="layui-form-item">
+                <div class="layui-form-item">
                     <label class="layui-form-label">生日：</label>
                     <div class="layui-input-block">
                         <input type="text" class="layui-input" id="birthday" name="birthday" placeholder="请选择生日">
                     </div>
-                </div>-->
+                </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">{% trans "性别：" %}</label>
                     <div class="layui-input-block">
@@ -49,7 +60,7 @@
                         <input type="radio" name="sex" value="女" title="{% trans '女' %}">
                         <input type="radio" name="sex" value="保密" title="{% trans '保密' %}">
                     </div>
-                </div>
+                </div>{% endcomment %}
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <button type="submit" id="btnSave" class="layui-btn" lay-submit lay-filter="go">{% trans "提交" %}</button>

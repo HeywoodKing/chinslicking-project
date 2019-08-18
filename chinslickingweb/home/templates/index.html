@@ -457,11 +457,16 @@
 
             //苹果长成触发方法
             $('.tree-04').on('click', function(){
+                var width = '500px'
+                if (document.body.clientWidth < 500){
+                    width = (document.body.clientWidth - 35) + 'px'
+                }
+
                 top.layer.open({
                     type: 2,
                     title: "{% trans '优惠券抢购' %}",
-                    area: ['500px', '330px'],
-                    // area: ['25%', '35%'],
+                    {#area: ['500px', '330px'],#}
+                    area: [width, '52%'],
                     content: "/king/layer_coupon_form",
                     zIndex: layer.zIndex,
                     closeBtn: 1,
