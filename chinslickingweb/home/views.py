@@ -266,8 +266,8 @@ def add_watering_qty(req):
 
             # amount_str = req.POST.get('amount', 0)
             # amount = int(amount_str)
-
-            amount = random.randint(1, 10)
+            # amount = random.randint(1, 10)
+            amount = 1
 
             # 保存本次浇水水量到余额表
             water_qty = models.ChinWateringQty.objects.all()[0]
