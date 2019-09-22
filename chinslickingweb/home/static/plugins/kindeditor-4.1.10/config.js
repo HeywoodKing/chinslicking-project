@@ -23,7 +23,9 @@ var options1 = {
 
 KindEditor.ready(function(K){
     editor[0] = K.create('textarea[name=content]', options1);
-    editor[1] = K.create('textarea[name=short_content]', options1);
-    editor[2] = K.create('textarea[name=long_content]', options1);
-    // editor[3] = K.create('textarea[name=cooper_question]', options1);
+    editor[1] = K.create('textarea[name=en_content]', options1);
+    editor[2] = K.create('textarea[name=short_content]', options1);
+    editor[3] = K.create('textarea[name=long_content]', options1);
+    editor[4] = K.create('textarea[name=en_short_content]', options1);
+    editor[5] = K.create('textarea[name=en_long_content]', options1);
 });

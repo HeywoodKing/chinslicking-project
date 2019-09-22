@@ -53,42 +53,81 @@
 <div class="faq-area-2 sp bg2">
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
-                <div class="single-faq" style="background-color: #99cc67;padding: 20px 20px 20px 20px;">
-                    <h2>
-                        <!--<span class="icon">
-                            <i class="glyphicon glyphicon-heart-empty"></i>
-                        </span>&nbsp;&nbsp;-->
-                        {{ product.name }}
-                    </h2>
-                    <div>
-                        <span class="icon">
-                            <i class="glyphicon glyphicon-time"></i>
-                        </span>
-                        <span>{% trans "时间" %}：{{ product.create_time }}</span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="icon">
-                            <i class="glyphicon glyphicon-eye-open"></i>
-                        </span>
-                        <span>{% trans "浏览" %}：{{ product.read_count }}</span>
+            {% if LANGUAGE_CODE == 'en' %}
+                <div class="col-md-9">
+                    <div class="single-faq" style="background-color: #99cc67;padding: 20px 20px 20px 20px;">
+                        <h2>
+                            <!--<span class="icon">
+                                <i class="glyphicon glyphicon-heart-empty"></i>
+                            </span>&nbsp;&nbsp;-->
+                            {{ product.en_name }}
+                        </h2>
+                        <div>
+                            <span class="icon">
+                                <i class="glyphicon glyphicon-time"></i>
+                            </span>
+                            <span>{% trans "时间" %}：{{ product.create_time }}</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="icon">
+                                <i class="glyphicon glyphicon-eye-open"></i>
+                            </span>
+                            <span>{% trans "浏览" %}：{{ product.read_count }}</span>
+                        </div>
+                        <hr>
+                        <div>{{ product.en_content|safe }}</div>
                     </div>
-                    <hr>
-                    <div>{{ product.content|safe }}</div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="faq-sidebar-wrap">
-                    <h3>{% trans "推荐产品" %}</h3>
-                    {% for item in product_command_list %}
-                    <div class="product-commend about-img">
-                        <a href="/king/product_detail/{{item.id}}?banner={{ banner }}">
-                            <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.name}}" title="{{item.name}}">
-                        </a>
-                        <div class="product-commend-title">{{item.name|truncate_point:'12'}}</div>
+                <div class="col-md-3">
+                    <div class="faq-sidebar-wrap">
+                        <h3>{% trans "推荐产品" %}</h3>
+                        {% for item in product_command_list %}
+                        <div class="product-commend about-img">
+                            <a href="/product_detail/{{item.id}}?banner={{ banner }}">
+                                <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.en_name}}" title="{{item.en_name}}">
+                            </a>
+                            <div class="product-commend-title">{{item.en_name|truncate_point:'12'}}</div>
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
-            </div>
+            {% else %}
+                <div class="col-md-9">
+                    <div class="single-faq" style="background-color: #99cc67;padding: 20px 20px 20px 20px;">
+                        <h2>
+                            <!--<span class="icon">
+                                <i class="glyphicon glyphicon-heart-empty"></i>
+                            </span>&nbsp;&nbsp;-->
+                            {{ product.name }}
+                        </h2>
+                        <div>
+                            <span class="icon">
+                                <i class="glyphicon glyphicon-time"></i>
+                            </span>
+                            <span>{% trans "时间" %}：{{ product.create_time }}</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="icon">
+                                <i class="glyphicon glyphicon-eye-open"></i>
+                            </span>
+                            <span>{% trans "浏览" %}：{{ product.read_count }}</span>
+                        </div>
+                        <hr>
+                        <div>{{ product.content|safe }}</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="faq-sidebar-wrap">
+                        <h3>{% trans "推荐产品" %}</h3>
+                        {% for item in product_command_list %}
+                        <div class="product-commend about-img">
+                            <a href="/product_detail/{{item.id}}?banner={{ banner }}">
+                                <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.name}}" title="{{item.name}}">
+                            </a>
+                            <div class="product-commend-title">{{item.name|truncate_point:'12'}}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

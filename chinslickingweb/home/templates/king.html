@@ -71,22 +71,41 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 bg6">
-                <div style="padding-top: 0;">
-                    <div class="single-faq">
-                        <h2><span>&nbsp;&nbsp;</span>{{ story.short_title }}</h2>
-                        {{ story.short_content|safe }}
+            {% if LANGUAGE_CODE =='en' %}
+                <div class="col-md-12 bg6">
+                    <div style="padding-top: 0;">
+                        <div class="single-faq">
+                            <h2><span>&nbsp;&nbsp;</span>{{ story.en_short_title }}</h2>
+                            {{ story.en_short_content|safe }}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-12 bg6">
-                <div style="padding-top: 0;">
-                    <div class="single-faq">
-                        <h2><span>&nbsp;&nbsp;</span>{{ story.long_title }}</h2>
-                        {{ story.long_content|safe }}
+                <div class="col-md-12 bg6">
+                    <div style="padding-top: 0;">
+                        <div class="single-faq">
+                            <h2><span>&nbsp;&nbsp;</span>{{ story.en_long_title }}</h2>
+                            {{ story.en_long_content|safe }}
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% else %}
+                <div class="col-md-12 bg6">
+                    <div style="padding-top: 0;">
+                        <div class="single-faq">
+                            <h2><span>&nbsp;&nbsp;</span>{{ story.short_title }}</h2>
+                            {{ story.short_content|safe }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 bg6">
+                    <div style="padding-top: 0;">
+                        <div class="single-faq">
+                            <h2><span>&nbsp;&nbsp;</span>{{ story.long_title }}</h2>
+                            {{ story.long_content|safe }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-22 00:52+0800\n"
+"POT-Creation-Date: 2019-09-14 18:15+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,17 +17,159 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\chinslickingweb\settings.py:163
+#: .\chinslickingweb\settings.py:161
 msgid "中文简体"
-msgstr ""
+msgstr "zh-Hans"
 
-#: .\chinslickingweb\settings.py:164
+#: .\chinslickingweb\settings.py:162
 msgid "English"
-msgstr ""
+msgstr "English"
+
+#: .\chinslickingweb\settings.py:199
+msgid "秦食皇"
+msgstr "Chinslicking"
+
+#: .\chinslickingweb\settings.py:200
+msgid "秦食皇官网"
+msgstr "Chinslicking Official"
+
+#: .\chinslickingweb\settings.py:458 .\chinslickingweb\settings.py:470
+msgid "系统"
+msgstr "System"
+
+#: .\chinslickingweb\settings.py:459 .\chinslickingweb\settings.py:513
+msgid "信息管理"
+msgstr "Info Manage"
+
+#: .\chinslickingweb\settings.py:460 .\chinslickingweb\settings.py:564
+msgid "产品管理"
+msgstr "Product Manage"
+
+#: .\chinslickingweb\settings.py:461 .\chinslickingweb\settings.py:580
+msgid "简介管理"
+msgstr "Company Introduce Manage"
+
+#: .\chinslickingweb\settings.py:462 .\chinslickingweb\settings.py:606
+msgid "留言管理"
+msgstr "Message Manage"
+
+#: .\chinslickingweb\settings.py:463 .\chinslickingweb\settings.py:617
+msgid "招聘管理"
+msgstr "Job Manage"
+
+#: .\chinslickingweb\settings.py:464 .\chinslickingweb\settings.py:628
+msgid "管理员管理"
+msgstr "Administrator Manage"
+
+#: .\chinslickingweb\settings.py:474
+msgid "导航菜单"
+msgstr "Nav Menu"
+
+#: .\chinslickingweb\settings.py:479
+msgid "网站配置"
+msgstr "Site Config"
+
+#: .\chinslickingweb\settings.py:484 .\home\models.py:413 .\home\models.py:443
+msgid "动画类型"
+msgstr "Animate Type"
+
+#: .\chinslickingweb\settings.py:489
+msgid "问题列表"
+msgstr "Question List"
+
+#: .\chinslickingweb\settings.py:494
+msgid "清除系统缓存"
+msgstr "Clear System Cache"
+
+#: .\chinslickingweb\settings.py:498
+msgid "系统日志"
+msgstr "System Log"
+
+#: .\chinslickingweb\settings.py:503
+msgid "数据库备份"
+msgstr "Database Backup"
+
+#: .\chinslickingweb\settings.py:507
+msgid "关键词管理"
+msgstr "Keyword Manage"
+
+#: .\chinslickingweb\settings.py:517
+msgid "首页模块"
+msgstr "Index Model"
+
+#: .\chinslickingweb\settings.py:522
+msgid "Banner图"
+msgstr "Banner Image"
+
+#: .\chinslickingweb\settings.py:527 .\home\models.py:894
+msgid "用户浇水记录"
+msgstr "User watering record"
+
+#: .\chinslickingweb\settings.py:532 .\home\models.py:871
+msgid "用户抢券记录"
+msgstr "User ticket grabbing Record"
+
+#: .\chinslickingweb\settings.py:537
+msgid "浇水水量余额"
+msgstr "Water balance"
+
+#: .\chinslickingweb\settings.py:542 .\home\models.py:715
+#: .\home\templates\news_list.html:159
+msgid "新闻资讯"
+msgstr "News"
+
+#: .\chinslickingweb\settings.py:552 .\home\models.py:672
+msgid "合作共赢"
+msgstr "Cooperation"
+
+#: .\chinslickingweb\settings.py:557
+msgid "申请表管理"
+msgstr "Apply Manage"
+
+#: .\chinslickingweb\settings.py:568
+msgid "产品列表"
+msgstr "Product List"
+
+#: .\chinslickingweb\settings.py:573 .\home\models.py:529 .\home\models.py:551
+msgid "产品类型"
+msgstr "Product Type"
+
+#: .\chinslickingweb\settings.py:584 .\home\models.py:287 .\home\models.py:317
+msgid "品牌介绍"
+msgstr "About"
+
+#: .\chinslickingweb\settings.py:589
+msgid "品牌图片资源"
+msgstr "About Image Resource"
+
+#: .\chinslickingweb\settings.py:594 .\home\models.py:492
+#: .\home\templates\about.html:297
+msgid "发展历程"
+msgstr "Development History"
+
+#: .\chinslickingweb\settings.py:599 .\home\models.py:360
+msgid "秦始皇故事"
+msgstr "Qin shihuang story"
+
+#: .\chinslickingweb\settings.py:610
+msgid "留言列表"
+msgstr "Message List"
+
+#: .\chinslickingweb\settings.py:621
+msgid "招聘列表"
+msgstr "Job List"
+
+#: .\chinslickingweb\settings.py:632 .\dashboard.py:79 .\home\models.py:97
+msgid "用户"
+msgstr "User"
+
+#: .\chinslickingweb\settings.py:638
+msgid "用户组"
+msgstr "User Group"
 
 #: .\dashboard.py:24
 msgid "支持列表"
-msgstr ""
+msgstr "Supported List"
 
 #: .\dashboard.py:27
 msgid "Django documentation"
@@ -47,318 +189,1048 @@ msgstr ""
 
 #: .\dashboard.py:56
 msgid "快速操作"
-msgstr ""
+msgstr "Quick Action"
 
 #: .\dashboard.py:62
 msgid "查看站点"
-msgstr ""
+msgstr "View Site"
 
 #: .\dashboard.py:63
 msgid "修改密码"
-msgstr ""
+msgstr "Change Password"
 
 #: .\dashboard.py:65
 msgid "退出"
-msgstr ""
+msgstr "Quit"
 
 #: .\dashboard.py:72
 msgid "应用"
-msgstr ""
-
-#: .\dashboard.py:79
-msgid "用户"
-msgstr ""
+msgstr "Application"
 
 #: .\dashboard.py:86
 msgid "模型"
-msgstr ""
+msgstr "Model"
 
 #: .\dashboard.py:93
 msgid "最近操作"
-msgstr ""
+msgstr "Recent Operation"
 
 #: .\dashboard.py:100
 msgid "django订阅信息"
-msgstr ""
+msgstr "Django Subscription information"
 
-#: .\home\templates\about.html:44 .\home\templates\about.html:57
-#: .\home\templates\about.html:68
-msgid "华夏传统美食的国际级复刻者"
-msgstr ""
+#: .\home\admin.py:10
+msgid "欢迎使用秦食皇后台管理系统"
+msgstr "Welcome to use the Chinslicking Management System"
 
-#: .\home\templates\about.html:81
-msgid "年"
-msgstr ""
+#: .\home\admin.py:11 .\home\admin.py:12
+msgid "秦食皇后台管理系统"
+msgstr "Chinslicking Management System"
 
-#: .\home\templates\about.html:84
-msgid "公司正式成立"
-msgstr ""
+#: .\home\models.py:86
+msgid "用户头像"
+msgstr "User Avatar"
 
-#: .\home\templates\about.html:94
-msgid "注册认证"
-msgstr ""
+#: .\home\models.py:88
+msgid "手机号"
+msgstr "Phone"
 
-#: .\home\templates\about.html:101
-msgid "个"
-msgstr ""
+#: .\home\models.py:89
+msgid "昵称"
+msgstr "Nickname"
 
-#: .\home\templates\about.html:104
-msgid "系列产品"
-msgstr ""
+#: .\home\models.py:137
+msgid "创建时间"
+msgstr "CreateDate"
 
-#: .\home\templates\about.html:112
-msgid "公司简介"
-msgstr ""
+#: .\home\models.py:138
+msgid "创建人ID"
+msgstr "CreateUID"
 
-#: .\home\templates\about.html:154
+#: .\home\models.py:139
+msgid "创建人名称"
+msgstr "CreateUserName"
+
+#: .\home\models.py:140
+msgid "操作时间"
+msgstr "OperateDate"
+
+#: .\home\models.py:141
+msgid "操作人ID"
+msgstr "OperateUID"
+
+#: .\home\models.py:142
+msgid "操作人名称"
+msgstr "OperateUserName"
+
+#: .\home\models.py:159
+msgid "站点名称"
+msgstr "SiteName"
+
+#: .\home\models.py:160
+msgid "站点描述"
+msgstr "SiteDescr"
+
+#: .\home\models.py:161
+msgid "作者"
+msgstr "Author"
+
+#: .\home\models.py:162
+msgid "公司"
+msgstr "Company"
+
+#: .\home\models.py:163
+msgid "底部显示地址"
+msgstr "Bottom display address"
+
+#: .\home\models.py:164
+msgid "底部显示电话"
+msgstr "Bottom display phone"
+
+#: .\home\models.py:165 .\home\models.py:856 .\home\templates\contact.html:141
+#: .\home\templates\footer.html:24
+msgid "邮箱"
+msgstr "Email"
+
+#: .\home\models.py:166
+msgid "备案号"
+msgstr "ICP"
+
+#: .\home\models.py:167 .\home\models.py:979 .\home\models.py:1006
+msgid "备注"
+msgstr "Remark"
+
+#: .\home\models.py:168
+msgid "底部logo"
+msgstr "Bottom Logo"
+
+#: .\home\models.py:169
+msgid "二维码"
+msgstr "QR Code"
+
+#: .\home\models.py:170 .\home\models.py:194 .\home\models.py:257
+#: .\home\models.py:289 .\home\models.py:313 .\home\models.py:355
+#: .\home\models.py:408 .\home\models.py:445 .\home\models.py:487
+#: .\home\models.py:523 .\home\models.py:554 .\home\models.py:618
+#: .\home\models.py:667 .\home\models.py:720 .\home\models.py:800
+#: .\home\models.py:929
+msgid "是否启用"
+msgstr "Is Enabled"
+
+#: .\home\models.py:174
+msgid "站点配置"
+msgstr "Site Config"
+
+#: .\home\models.py:183
+msgid "标识"
+msgstr "Flag"
+
+#: .\home\models.py:184 .\home\models.py:610 .\home\models.py:651
+msgid "名称(中文)"
+msgstr "Name(zh)"
+
+#: .\home\models.py:185 .\home\models.py:611 .\home\models.py:652
+msgid "名称(英文)"
+msgstr "Name(en)"
+
+#: .\home\models.py:186 .\home\models.py:615
+msgid "链接"
+msgstr "Link"
+
+#: .\home\models.py:187 .\home\models.py:506 .\home\models.py:515
+msgid "描述"
+msgstr "Description"
+
+#: .\home\models.py:189
+msgid "父级"
+msgstr "Parent"
+
+#: .\home\models.py:191
+msgid "是否一级菜单"
+msgstr "Is Top Level Menu"
+
+#: .\home\models.py:192
+msgid "是否删除"
+msgstr "Is Delete"
+
+#: .\home\models.py:193 .\home\models.py:256 .\home\models.py:288
+#: .\home\models.py:444 .\home\models.py:486 .\home\models.py:522
+#: .\home\models.py:552 .\home\models.py:617 .\home\models.py:666
+#: .\home\models.py:710 .\home\models.py:799 .\home\models.py:866
+msgid "排序"
+msgstr "Sort"
+
+#: .\home\models.py:199
+msgid "导航菜单管理"
+msgstr "Navigation menu Manage"
+
+#: .\home\models.py:252
+msgid "Banner页面"
+msgstr "Banner Page"
+
+#: .\home\models.py:253 .\home\models.py:285 .\home\models.py:485
+#: .\home\models.py:548 .\home\models.py:709
+msgid "图片"
+msgstr "Image"
+
+#: .\home\models.py:254
+msgid "Banner上文本描述(中文)"
+msgstr "Banner Text Description(zh)"
+
+#: .\home\models.py:255
+msgid "Banner上文本描述(英文)"
+msgstr "Banner Text Description(en)"
+
+#: .\home\models.py:262
+msgid "Banner管理"
+msgstr "Banner Manage"
+
+#: .\home\models.py:274
+msgid "图片业务类型"
+msgstr "Picture business type"
+
+#: .\home\models.py:276 .\home\templates\about.html:125
 msgid "企业文化"
-msgstr ""
+msgstr "Company Culture"
 
-#: .\home\templates\about.html:181
+#: .\home\models.py:277 .\home\templates\about.html:235
 msgid "品牌荣誉"
-msgstr ""
+msgstr "Brand honor"
 
-#: .\home\templates\about.html:212
+#: .\home\models.py:278 .\home\templates\about.html:267
 msgid "企业资质"
-msgstr ""
+msgstr "Company qualification"
 
-#: .\home\templates\about.html:242
-msgid "发展历程"
-msgstr ""
+#: .\home\models.py:279 .\home\templates\about.html:179
+msgid "团队风采"
+msgstr "Team mien"
 
-#: .\home\templates\about.html:291
+#: .\home\models.py:280 .\home\templates\about.html:206
+#: .\home\templates\king.html:64
+msgid "品牌故事"
+msgstr "Brand story"
+
+#: .\home\models.py:281 .\home\templates\about.html:152
+msgid "组织架构"
+msgstr "Organizational structure"
+
+#: .\home\models.py:294
+msgid "品牌介绍图片资源"
+msgstr "Brand introduction image resource"
+
+#: .\home\models.py:304
+msgid "公司名称(中文)"
+msgstr "Company Name(zh)"
+
+#: .\home\models.py:305
+msgid "公司名称(英文)"
+msgstr "Company Name(en)"
+
+#: .\home\models.py:307 .\home\models.py:542
+msgid "根据name生成的，用于生成页面URL，必须唯一"
+msgstr "Generated based on name, used to generate page URL, must be unique"
+
+#: .\home\models.py:308
+msgid "公司简介标题(中文)"
+msgstr "Company profile title(zh)"
+
+#: .\home\models.py:309
+msgid "公司简介标题(英文)"
+msgstr "Company profile title(en)"
+
+#: .\home\models.py:310 .\home\models.py:333
+msgid "公司简介(中文)"
+msgstr "Company profile(zh)"
+
+#: .\home\models.py:311 .\home\models.py:342
+msgid "公司简介(英文)"
+msgstr "Company profile(en)"
+
+#: .\home\models.py:312
+msgid "公司简介图片"
+msgstr "Company profile image"
+
+#: .\home\models.py:347
+msgid "短板故事标题(中文)"
+msgstr "Short story title(zh)"
+
+#: .\home\models.py:348
+msgid "短板故事标题(英文)"
+msgstr "Short story title(en)"
+
+#: .\home\models.py:349
+msgid "短板故事(中文)"
+msgstr "Short story(zh)"
+
+#: .\home\models.py:350
+msgid "短板故事(英文)"
+msgstr "Short story(en)"
+
+#: .\home\models.py:351
+msgid "长板故事标题(中文)"
+msgstr "Long board story title(zh)"
+
+#: .\home\models.py:352
+msgid "长板故事标题(英文)"
+msgstr "Long board story title(en)"
+
+#: .\home\models.py:353
+msgid "长板故事(中文)"
+msgstr "Long board story(zh)"
+
+#: .\home\models.py:354
+msgid "长板故事(英文)"
+msgstr "Long board story(en)"
+
+#: .\home\models.py:373
+msgid "短板描述(中文)"
+msgstr "Short description(zh)"
+
+#: .\home\models.py:382
+msgid "短板描述(英文)"
+msgstr "Short description(en)"
+
+#: .\home\models.py:391
+msgid "长板描述(中文)"
+msgstr "Long board description(zh)"
+
+#: .\home\models.py:400
+msgid "长板描述(英文)"
+msgstr "Long board description(en)"
+
+#: .\home\models.py:405
+msgid "动画名称"
+msgstr "Animate Name"
+
+#: .\home\models.py:406
+msgid "class样式名"
+msgstr "Style Name"
+
+#: .\home\models.py:407 .\home\models.py:426
+msgid "动画描述"
+msgstr "Animate Description"
+
+#: .\home\models.py:431
+msgid "板块标题(中文)"
+msgstr "Plate title(zh)"
+
+#: .\home\models.py:432
+msgid "板块标题(英文)"
+msgstr "Plate title(en)"
+
+#: .\home\models.py:433
+msgid "图标"
+msgstr "Icon"
+
+#: .\home\models.py:434
+msgid "正面图"
+msgstr "Front Image"
+
+#: .\home\models.py:435
+msgid "背面图"
+msgstr "Back Image"
+
+#: .\home\models.py:436 .\home\models.py:463 .\home\models.py:613
+#: .\home\models.py:637
+msgid "简介(中文)"
+msgstr "Brief(zh)"
+
+#: .\home\models.py:437 .\home\models.py:472 .\home\models.py:614
+#: .\home\models.py:646
+msgid "简介(英文)"
+msgstr "Brief(en)"
+
+#: .\home\models.py:438
+msgid "是否跳转到子页面"
+msgstr "Is Redirect Subpage"
+
+#: .\home\models.py:439
+msgid "子页面地址"
+msgstr "Subpage Address"
+
+#: .\home\models.py:440
+msgid "视频文件地址"
+msgstr "Video Address"
+
+#: .\home\models.py:450
+msgid "首页板块"
+msgstr "Index Plate"
+
+#: .\home\models.py:477
+msgid "时间标题(中文)"
+msgstr "Time title(zh)"
+
+#: .\home\models.py:478
+msgid "时间标题(英文)"
+msgstr "Time title(en)"
+
+#: .\home\models.py:479 .\home\models.py:700
+msgid "标题(中文)"
+msgstr "Title(zh)"
+
+#: .\home\models.py:480 .\home\models.py:701
+msgid "标题(英文)"
+msgstr "Title(en)"
+
+#: .\home\models.py:481 .\home\models.py:704
+msgid "摘要(中文)"
+msgstr "Brief(zh)"
+
+#: .\home\models.py:482 .\home\models.py:705
+msgid "摘要(英文)"
+msgstr "Brief(en)"
+
+#: .\home\models.py:483
+msgid "描述(中文)"
+msgstr "Description(zh)"
+
+#: .\home\models.py:484
+msgid "描述(英文)"
+msgstr "Description(en)"
+
+#: .\home\models.py:520
+msgid "类型名称(中文)"
+msgstr "Type Name(zh)"
+
+#: .\home\models.py:521
+msgid "类型名称(英文)"
+msgstr "Type Name(en)"
+
+#: .\home\models.py:524
+msgid "数据类型标识"
+msgstr "Data Type Flag"
+
+#: .\home\models.py:539
+msgid "产品名称(中文)"
+msgstr "Product Name(zh)"
+
+#: .\home\models.py:540
+msgid "产品名称(英文)"
+msgstr "Product Name(en)"
+
+#: .\home\models.py:543
+msgid "产品摘要(中文)"
+msgstr "Product Brief(zh)"
+
+#: .\home\models.py:544
+msgid "产品摘要(英文)"
+msgstr "Product Brief(en)"
+
+#: .\home\models.py:545 .\home\models.py:596
+msgid "产品描述(中文)"
+msgstr "Product Description(zh)"
+
+#: .\home\models.py:546 .\home\models.py:605
+msgid "产品描述(英文)"
+msgstr "Product Description(en)"
+
+#: .\home\models.py:547
+msgid "在线商城地址"
+msgstr "Online mall address"
+
+#: .\home\models.py:549 .\home\models.py:708
+msgid "浏览量"
+msgstr "Views"
+
+#: .\home\models.py:553
+msgid "是否推荐"
+msgstr "Is Recommend"
+
+#: .\home\models.py:559
+msgid "品牌产品"
+msgstr "Brand Product"
+
+#: .\home\models.py:578
+msgid "产品简介(中文)"
+msgstr "Product Brief(zh)"
+
+#: .\home\models.py:587
+msgid "产品简介(英文)"
+msgstr "Product Brief(en)"
+
+#: .\home\models.py:612
+msgid "Logo"
+msgstr "Logo"
+
+#: .\home\models.py:616 .\home\templates\contact.html:154
+#: .\home\templates\footer.html:30
+msgid "地址"
+msgstr "Address"
+
+#: .\home\models.py:623
+msgid "合作伙伴"
+msgstr "Partner"
+
+#: .\home\models.py:653 .\home\models.py:685 .\home\models.py:706
+#: .\home\models.py:746
+msgid "内容(中文)"
+msgstr "Content(zh)"
+
+#: .\home\models.py:654 .\home\models.py:694 .\home\models.py:707
+#: .\home\models.py:755
+msgid "内容(英文)"
+msgstr "Content(en)"
+
+#: .\home\models.py:656 .\home\models.py:712
+msgid "类型"
+msgstr "Type"
+
+#: .\home\models.py:659 .\home\templates\partner.html:69
+msgid "合作政策"
+msgstr "cooperative policy"
+
+#: .\home\models.py:660 .\home\templates\partner.html:70
+msgid "项目优势"
+msgstr "item advantage"
+
+#: .\home\models.py:661 .\home\templates\partner.html:72
+msgid "经销商问答"
+msgstr "Dealer questions"
+
+#: .\home\models.py:662 .\home\templates\partner.html:71
+msgid "支持与服务"
+msgstr "support and service"
+
+#: .\home\models.py:703
+msgid "根据title生成的，用于生成页面URL，必须唯一"
+msgstr "Generated based on title, used to generate page URL, must be unique"
+
+#: .\home\models.py:716 .\home\templates\news_list.html:65
+msgid "社会责任"
+msgstr "social responsibility"
+
+#: .\home\models.py:725
+msgid "新闻资讯|社会责任"
+msgstr "News | social responsibility"
+
+#: .\home\models.py:760
+msgid "职位名称(中文)"
+msgstr "Job Name(zh)"
+
+#: .\home\models.py:761
+msgid "职位名称(英文)"
+msgstr "Job Name(en)"
+
+#: .\home\models.py:763
+msgid "根据job_name生成的，用于生成页面URL，必须唯一"
+msgstr "Generated based on job_name, used to generate page URL, must be unique"
+
+#: .\home\models.py:764
+msgid "工作经验"
+msgstr "work experience"
+
+#: .\home\models.py:766
+msgid "学历"
+msgstr "education background"
+
+#: .\home\models.py:769
+msgid "请选择"
+msgstr "please select"
+
+#: .\home\models.py:770
+msgid "博士导师"
+msgstr "doctoral advisor"
+
+#: .\home\models.py:771
+msgid "博士后"
+msgstr "postdoctor"
+
+#: .\home\models.py:772
+msgid "博士"
+msgstr "doctor"
+
+#: .\home\models.py:773
+msgid "硕士"
+msgstr "master"
+
+#: .\home\models.py:774
+msgid "研究生"
+msgstr "graduate student"
+
+#: .\home\models.py:775
+msgid "本科"
+msgstr "regular college course"
+
+#: .\home\models.py:776
+msgid "大专"
+msgstr "junior college"
+
+#: .\home\models.py:777
+msgid "高中"
+msgstr "senior high school"
+
+#: .\home\models.py:778
+msgid "初中"
+msgstr "junior high school"
+
+#: .\home\models.py:779
+msgid "小学"
+msgstr "primary school"
+
+#: .\home\models.py:780 .\home\models.py:791
+msgid "其他"
+msgstr "other"
+
+#: .\home\models.py:785
+msgid "工作性质"
+msgstr "ob category"
+
+#: .\home\models.py:788
+msgid "全职"
+msgstr "full-time"
+
+#: .\home\models.py:789
+msgid "兼职"
+msgstr "part-time job"
+
+#: .\home\models.py:790
+msgid "自由职业"
+msgstr "freelance work"
+
+#: .\home\models.py:797 .\home\models.py:827
+msgid "招聘要求(中文)"
+msgstr "recruitment requirements(zh)"
+
+#: .\home\models.py:798 .\home\models.py:837
+msgid "招聘要求(英文)"
+msgstr "recruitment requirements(en)"
+
+#: .\home\models.py:805
+msgid "工作机会"
+msgstr "ob opportunity"
+
+#: .\home\models.py:842
+msgid "姓名"
+msgstr "Name"
+
+#: .\home\models.py:844
+msgid "性别"
+msgstr "Gender"
+
+#: .\home\models.py:847
+msgid "男"
+msgstr "Male"
+
+#: .\home\models.py:848
+msgid "女"
+msgstr "Female"
+
+#: .\home\models.py:849
+msgid "保密"
+msgstr "Secrecy"
+
+#: .\home\models.py:850
+msgid "未知"
+msgstr "Unknown"
+
+#: .\home\models.py:854
+msgid "生日"
+msgstr "Birthday"
+
+#: .\home\models.py:855 .\home\templates\contact.html:128
+msgid "电话"
+msgstr "Telephone"
+
+#: .\home\models.py:857
+msgid "是否已领取"
+msgstr "Is Received"
+
+#: .\home\models.py:858
+msgid "是否已通知"
+msgstr "Is Notified"
+
+#: .\home\models.py:860
+msgid "是否中奖"
+msgstr "Is Winning"
+
+#: .\home\models.py:862
+msgid "未中奖"
+msgstr "Not Winning"
+
+#: .\home\models.py:863
+msgid "中奖"
+msgstr "Winning"
+
+#: .\home\models.py:880
+msgid "客户端IP"
+msgstr "Client IP"
+
+#: .\home\models.py:881
+msgid "客户端主机名"
+msgstr "Client Hostname"
+
+#: .\home\models.py:882
+msgid "客户端端口"
+msgstr "Client Prot"
+
+#: .\home\models.py:883 .\home\models.py:907
+msgid "客户端浏览器"
+msgstr "Client Browser"
+
+#: .\home\models.py:884
+msgid "服务器IP"
+msgstr "Server IP"
+
+#: .\home\models.py:885
+msgid "服务器主机名"
+msgstr "Server Hostname"
+
+#: .\home\models.py:886
+msgid "服务器端口"
+msgstr "Server Port"
+
+#: .\home\models.py:887
+msgid "期初水量"
+msgstr "The beginning of water"
+
+#: .\home\models.py:888
+msgid "本次水量"
+msgstr "water"
+
+#: .\home\models.py:889
+msgid "期末水量"
+msgstr "The final water"
+
+#: .\home\models.py:912
+msgid "水量余额"
+msgstr "The water balance"
+
+#: .\home\models.py:913
+msgid "浇水总量"
+msgstr "The total water"
+
+#: .\home\models.py:918
+msgid "浇水量余额表"
+msgstr "Water quantity balance sheet"
+
+#: .\home\models.py:927
+msgid "名称"
+msgstr "Name"
+
+#: .\home\models.py:928 .\home\models.py:947
+msgid "文件"
+msgstr "File"
+
+#: .\home\models.py:934
+msgid "申请表格"
+msgstr "apply form"
+
+#: .\home\models.py:952
+msgid "问题标题"
+msgstr "Question Title"
+
+#: .\home\models.py:953 .\home\models.py:997
+msgid "问题描述"
+msgstr "Question Description"
+
+#: .\home\models.py:955
+msgid "问题类型"
+msgstr "Question Type"
+
+#: .\home\models.py:958
+msgid "不是问题"
+msgstr "No Problem"
+
+#: .\home\models.py:959
+msgid "浏览器问题"
+msgstr "Browser Problem"
+
+#: .\home\models.py:960
+msgid "操作系统问题"
+msgstr "OS Problem"
+
+#: .\home\models.py:961
+msgid "bug"
+msgstr "Bug"
+
+#: .\home\models.py:962
+msgid "其他问题"
+msgstr "Other Problem"
+
+#: .\home\models.py:963
+msgid "重复问题"
+msgstr "Repeat Problem"
+
+#: .\home\models.py:964
+msgid "第三方问题"
+msgstr "Third Party Problem"
+
+#: .\home\models.py:968
+msgid "问题状态"
+msgstr "Problem State"
+
+#: .\home\models.py:971
+msgid "待解决"
+msgstr "to be solved"
+
+#: .\home\models.py:972
+msgid "未解决"
+msgstr "unsolved"
+
+#: .\home\models.py:973
+msgid "已解决"
+msgstr "resolved"
+
+#: .\home\models.py:974
+msgid "延期处理"
+msgstr "deferred processing"
+
+#: .\home\models.py:975
+msgid "不予处理"
+msgstr "Not to deal with"
+
+#: .\home\models.py:976
+msgid "需第三方处理"
+msgstr "Third party processing required"
+
+#: .\home\models.py:984
+msgid "问题汇总列表"
+msgstr "Question List"
+
+#: .\home\templates\about.html:45
+msgid "年"
+msgstr "Year"
+
+#: .\home\templates\about.html:48
+msgid "公司正式成立"
+msgstr "The company was formally established."
+
+#: .\home\templates\about.html:59
+msgid "注册认证"
+msgstr "Registration Authentication"
+
+#: .\home\templates\about.html:66
+msgid "个"
+msgstr "A"
+
+#: .\home\templates\about.html:69
+msgid "系列产品"
+msgstr "series of products"
+
+#: .\home\templates\about.html:77
+msgid "公司简介"
+msgstr "company profile"
+
+#: .\home\templates\about.html:131
+msgid "我们的理念：绿色、健康、安全"
+msgstr "Our philosophy: green, healthy and safe"
+
+#: .\home\templates\about.html:367
 msgid "愿景规划"
-msgstr ""
+msgstr "vision planning"
 
-#: .\home\templates\about.html:298
+#: .\home\templates\about.html:374
 msgid ""
 "\"秦食皇\"希望把中国农副产品和民间特色美食，以品牌的形式展示到境外华人的视"
 "野，意图通过境外宣传与销售通道，改变海外华人对中国美食的认知。实现我们\"一口"
 "国土味，入胃解乡愁\"的夙愿，让老百姓\"送的安心，吃的放心\"。"
-msgstr ""
+msgstr "\"Qin food emperor\" hopes to show Chinese agricultural and sideline products and folk cuisine to overseas Chinese in the form of brand, and intends to change overseas Chinese's cognition of Chinese cuisine through overseas publicity and sales channels.We realize our long-cherished wish of \"a taste of land, into the stomach to solve homesickness\", so that the people send peace of mind, eat at ease."
 
-#: .\home\templates\contact.html:169
+#: .\home\templates\contact.html:111
 msgid "联系我们"
-msgstr ""
+msgstr "Contact US"
 
-#: .\home\templates\contact.html:186
-msgid "电话"
-msgstr ""
-
-#: .\home\templates\contact.html:199 .\home\templates\footer.html:19
-msgid "邮箱"
-msgstr ""
-
-#: .\home\templates\contact.html:212 .\home\templates\footer.html:23
-msgid "地址"
-msgstr ""
-
-#: .\home\templates\contact.html:215 .\home\templates\footer.html:24
+#: .\home\templates\contact.html:157
 msgid "西安市高新区丈八二路31号"
-msgstr ""
+msgstr "31 zhangba er road, high-tech zone, xi 'an city"
 
-#: .\home\templates\contact.html:225
+#: .\home\templates\contact.html:167
 msgid "公司地址"
-msgstr ""
+msgstr "company address"
 
-#: .\home\templates\contact.html:234
+#: .\home\templates\contact.html:177
 msgid "如果，您是亲临秦食皇，有以下交通方式可供选择"
-msgstr ""
+msgstr "If you are in person, you can choose from the following modes of transportation"
 
-#: .\home\templates\contact.html:235
+#: .\home\templates\contact.html:178
+msgid "乘坐公交"
+msgstr "Bus"
+
+#: .\home\templates\contact.html:179
 msgid ""
-"乘坐公交：251路、107路、高新2号线都可到达，自驾车：参考地图标示行驶高新六路，"
-"科技四路，团结南路前往双水磨公交站均可到达。"
-msgstr ""
+"<b>唐延南路傅村东路口（中兴通讯）站</b>  乘坐324路、411路、6路、902路、高新1"
+"号线、高新2号线可达，公交车站东侧步行100米即到"
+msgstr "<b> tangyan south road fu village east intersection (zhongxing communication) station </b> take 324 road, 411 road, 6 road, 902 road, gaoxin line 1, gaoxin line 2 can reach, the east side of the bus station walk 100 meters"
 
-#: .\home\templates\duty_detail.html:61 .\home\templates\news_detail.html:105
-#: .\home\templates\product_detail.html:64
+#: .\home\templates\contact.html:180
+msgid ""
+"<b>高家堡站</b>  乘坐150路、173路、204路、220路、260路、311路、313路、322路、"
+"333路、4-18路、902路、916路、922路可达，公交车站西侧步行150米即到"
+msgstr "<b> gao-jiapu station </b> take bus no. 150, 173, 204, 220, 260, 311, 313, 322, 333, 4-18, 902, 916, 922"
+
+#: .\home\templates\contact.html:181
+msgid "自驾车"
+msgstr "self-driving"
+
+#: .\home\templates\contact.html:182
+msgid "导航至“秦食皇品牌展示中心”或“逸翠园i都会-停车场”，步行50米即到"
+msgstr "Navigate to \"qin shi huang brand exhibition center\" or \"yi cui yuan I metropolis - parking lot\", walk 50 meters"
+
+#: .\home\templates\contact.html:514
+msgid "秦食皇品牌展示中心"
+msgstr "Qinshihuang brand exhibition center"
+
+#: .\home\templates\contact.html:516
+msgid "地址：西安市雁塔区唐延南路i都会12号楼10105"
+msgstr "Address: 10105, building 12, I metropolis, tangyan south road, yanta district, xi 'an"
+
+#: .\home\templates\contact.html:518
+msgid "详细信息"
+msgstr "Details"
+
+#: .\home\templates\duty_detail.html:62 .\home\templates\news_detail.html:73
+#: .\home\templates\news_detail.html:106
+#: .\home\templates\product_detail.html:70
+#: .\home\templates\product_detail.html:107
 msgid "时间"
-msgstr ""
+msgstr "DateTime"
 
-#: .\home\templates\duty_detail.html:66 .\home\templates\news_detail.html:110
-#: .\home\templates\product_detail.html:69
+#: .\home\templates\duty_detail.html:67 .\home\templates\news_detail.html:78
+#: .\home\templates\news_detail.html:111
+#: .\home\templates\product_detail.html:75
+#: .\home\templates\product_detail.html:112
 msgid "浏览"
-msgstr ""
+msgstr "View"
 
-#: .\home\templates\duty_detail.html:74 .\home\templates\duty_list.html:75
-#: .\home\templates\news_list.html:131
+#: .\home\templates\duty_detail.html:75 .\home\templates\duty_list.html:76
+#: .\home\templates\news_list.html:102 .\home\templates\news_list.html:139
 msgid "最新动态"
-msgstr ""
+msgstr "recent news"
 
-#: .\home\templates\footer.html:16
-msgid "西安秦食皇食品有限公司"
-msgstr ""
-
-#: .\home\templates\footer.html:38
+#: .\home\templates\footer.html:50
 msgid "商务合作"
-msgstr ""
+msgstr "business cooperation"
 
-#: .\home\templates\footer.html:53
+#: .\home\templates\footer.html:65
 msgid "陕ICP备"
-msgstr ""
+msgstr "Shan ICP for"
 
-#: .\home\templates\footer.html:53
+#: .\home\templates\footer.html:65
 msgid "西安秦食皇食品有限公司版权所有"
-msgstr ""
+msgstr "Copyright xi 'an qinshihuang food co., LTD. All rights reserved"
 
-#: .\home\templates\footer.html:79
-msgid "中文"
-msgstr ""
-
-#: .\home\templates\footer.html:82
-msgid "英文"
-msgstr ""
-
-#: .\home\templates\footer.html:86
-msgid "在线<br>商城"
-msgstr ""
-
-#: .\home\templates\footer.html:91
+#: .\home\templates\footer.html:103
 msgid "在线<br>客服"
-msgstr ""
+msgstr "Online <br> service"
 
-#: .\home\templates\header.html:72 .\home\templates\index.html:91
-msgid "首页"
-msgstr ""
+#: .\home\templates\header-index.html:993
+msgid "给我浇水，我就会快快长大哦！"
+msgstr "Give me water, I will grow up quickly!"
 
-#: .\home\templates\header.html:73 .\home\templates\index.html:92
-msgid "品牌介绍"
-msgstr ""
+#: .\home\templates\header-index.html:1009
+msgid "给我浇水，我就会长大哦！"
+msgstr "Water me and I'll grow!"
 
-#: .\home\templates\header.html:74 .\home\templates\index.html:93
-msgid "在线商城"
-msgstr ""
+#: .\home\templates\header-index.html:1026
+msgid "给我浇水，我就会结果实哦！"
+msgstr "Water me and I will bear fruit!"
 
-#: .\home\templates\header.html:75 .\home\templates\index.html:94
-msgid "合作共赢"
-msgstr ""
+#: .\home\templates\header-index.html:1039
+msgid "给我浇水，我就会结很多果实哦！"
+msgstr "Give me water, I will bear a lot of fruit oh!"
 
-#: .\home\templates\header.html:76 .\home\templates\index.html:95
-msgid "新闻动态"
-msgstr ""
+#: .\home\templates\index.html:560
+msgid "优惠券抢购"
+msgstr "Coupon buying"
 
-#: .\home\templates\header.html:77 .\home\templates\index.html:96
-msgid "静候伯乐"
-msgstr ""
-
-#: .\home\templates\header.html:78 .\home\templates\index.html:97
-msgid "为您服务"
-msgstr ""
-
-#: .\home\templates\job_list.html:98
+#: .\home\templates\job_list.html:65
 msgid "招贤纳士"
-msgstr ""
+msgstr "Job Recruitment"
 
-#: .\home\templates\job_list.html:104
+#: .\home\templates\job_list.html:71
 msgid "我们期待您的加入"
-msgstr ""
+msgstr "We look forward to your participation"
 
-#: .\home\templates\job_list.html:116
+#: .\home\templates\job_list.html:84 .\home\templates\job_list.html:95
 msgid "经验"
-msgstr ""
+msgstr "experience"
 
-#: .\home\templates\news_detail.html:118
+#: .\home\templates\layer_coupon_form.html:27
+msgid "手机号："
+msgstr "Phone:"
+
+#: .\home\templates\layer_coupon_form.html:29
+msgid "请输入手机号"
+msgstr "Please enter your mobile phone number"
+
+#: .\home\templates\layer_coupon_form.html:34
+msgid "中奖提示"
+msgstr "The winning tips"
+
+#: .\home\templates\layer_coupon_form.html:37
+msgid ""
+"恭喜您获得价值30元购物抵用券一张，凭券您可以到秦食皇品牌展示中心领取伴手礼一"
+"份或线上商城购物时抵用"
+msgstr "Congratulations! You have received a shopping voucher worth 30 yuan, with which you can receive a companion gift at qinshihuang brand exhibition center or a voucher at shopping online mall"
+
+#: .\home\templates\layer_coupon_form.html:40
+msgid ""
+"您购物时向销售人员或客服出示手机号码即可使用实物抵用券，线上购物需用此手机号"
+"码拨打秦食皇客服电话确认使用抵用券"
+msgstr "When shopping, you can use the voucher in kind by showing your mobile phone number to the sales staff or customer service. Shopping online requires this mobile phone number to call customer service of qinshiaohuang to confirm using the voucher"
+
+#: .\home\templates\layer_coupon_form.html:68
+msgid "提交"
+msgstr "Submit"
+
+#: .\home\templates\layer_coupon_form.html:69
+msgid "取消"
+msgstr "Cancel"
+
+#: .\home\templates\layer_coupon_form.html:91
+msgid "超过最大长度！"
+msgstr "Over the maximum length"
+
+#: .\home\templates\layer_coupon_form.html:94
+msgid "请输入正确手机号！"
+msgstr "Please enter the correct phone number"
+
+#: .\home\templates\layer_coupon_form.html:111
+msgid "信息已提交"
+msgstr "Information submitted"
+
+#: .\home\templates\news_detail.html:86 .\home\templates\news_detail.html:119
 msgid "最新资讯"
-msgstr ""
+msgstr "latest news"
 
-#: .\home\templates\news_list.html:98
-msgid "社会责任"
-msgstr ""
-
-#: .\home\templates\news_list.html:155
-msgid "新闻资讯"
-msgstr ""
-
-#: .\home\templates\news_list.html:188
+#: .\home\templates\news_list.html:198 .\home\templates\news_list.html:231
 msgid "更多"
-msgstr ""
+msgstr "More"
 
-#: .\home\templates\partner.html:99
+#: .\home\templates\partner.html:66
 msgid "品牌合作"
-msgstr ""
+msgstr "brand partnership"
 
-#: .\home\templates\partner.html:102
-msgid "合作政策"
-msgstr ""
-
-#: .\home\templates\partner.html:103
-msgid "项目优势"
-msgstr ""
-
-#: .\home\templates\partner.html:104
-msgid "经销商问答"
-msgstr ""
-
-#: .\home\templates\partner.html:105
+#: .\home\templates\partner.html:73
 msgid "申请表下载"
-msgstr ""
+msgstr "Apply Table Download"
 
-#: .\home\templates\product_detail.html:39
-#: .\home\templates\product_list.html:45 .\home\templates\product_list.html:61
-#: .\home\templates\product_list.html:75
-msgid "纯粹"
-msgstr ""
-
-#: .\home\templates\product_detail.html:39
-#: .\home\templates\product_list.html:45 .\home\templates\product_list.html:61
-#: .\home\templates\product_list.html:75
-msgid "纯粮"
-msgstr ""
-
-#: .\home\templates\product_detail.html:39
-#: .\home\templates\product_list.html:45 .\home\templates\product_list.html:61
-#: .\home\templates\product_list.html:75
-msgid "纯手工"
-msgstr ""
-
-#: .\home\templates\product_detail.html:39
-#: .\home\templates\product_list.html:45 .\home\templates\product_list.html:61
-#: .\home\templates\product_list.html:75
-msgid "纯天然"
-msgstr ""
-
-#: .\home\templates\product_detail.html:42
-#: .\home\templates\product_list.html:46 .\home\templates\product_list.html:62
-#: .\home\templates\product_list.html:76
-msgid "秦韵"
-msgstr ""
-
-#: .\home\templates\product_detail.html:42
-#: .\home\templates\product_list.html:46 .\home\templates\product_list.html:62
-#: .\home\templates\product_list.html:76
-msgid "秦风"
-msgstr ""
-
-#: .\home\templates\product_detail.html:42
-#: .\home\templates\product_list.html:46 .\home\templates\product_list.html:62
-#: .\home\templates\product_list.html:76
-msgid "秦文化"
-msgstr ""
-
-#: .\home\templates\product_detail.html:42
-#: .\home\templates\product_list.html:46 .\home\templates\product_list.html:62
-#: .\home\templates\product_list.html:76
-msgid "秦饮食"
-msgstr ""
-
-#: .\home\templates\product_detail.html:77
+#: .\home\templates\product_detail.html:83
+#: .\home\templates\product_detail.html:120
 msgid "推荐产品"
-msgstr ""
+msgstr "recommend products"
 
-#: .\home\templates\product_list.html:86
+#: .\home\templates\product_list.html:57
 msgid "秦食皇产品"
-msgstr ""
+msgstr "Qin food products"
 
-#: .\home\templates\product_list.html:92
+#: .\home\templates\product_list.html:63
 msgid "一口国土味，入胃解乡愁"
-msgstr ""
+msgstr "A taste of land, into the stomach to solve homesickness"
 
-#: .\home\templates\product_list.html:123
+#: .\home\templates\product_list.html:103
+#: .\home\templates\product_list.html:134
 msgid "查看详情"
-msgstr ""
+msgstr "view details"
 
-#: .\home\templates\product_list.html:125
-#: .\home\templates\product_list.html:127
+#: .\home\templates\product_list.html:106
+#: .\home\templates\product_list.html:109
+#: .\home\templates\product_list.html:137
+#: .\home\templates\product_list.html:140
 msgid "商城选购"
-msgstr ""
+msgstr "Store buy"
+
+#: .\home\templates\product_list.html:122
+#: .\home\templates\product_list.html:153
+msgid "还没有商品哦！赶快添加吧！"
+msgstr "No merchandise yet! Add it now!"

@@ -74,41 +74,79 @@
                 </div>
             </div>
             <div class="col-md-9 bg6">
-                <div id="hzzc" style="padding-top: 0;">
-                    {% for item in policy_list %}
-                    <div class="single-faq">
-                        <h2><span>{{ forloop.counter }}</span>{{item.title}}</h2>
-                        {{item.content|safe}}
+                {% if LANGUAGE_CODE == 'en' %}
+                    <div id="hzzc" style="padding-top: 0;">
+                        {% for item in policy_list %}
+                        <div class="single-faq">
+                            <h2><span>{{ forloop.counter }}</span>{{item.en_title}}</h2>
+                            {{item.en_content|safe}}
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
 
-                <div id="xmys" style="display:none;padding-top: 0;">
-                    {% for item in superiority_list %}
-                    <div class="single-faq">
-                        <h2><span>{{ forloop.counter }}</span>{{item.title}}</h2>
-                        {{item.content|safe}}
+                    <div id="xmys" style="display:none;padding-top: 0;">
+                        {% for item in superiority_list %}
+                        <div class="single-faq">
+                            <h2><span>{{ forloop.counter }}</span>{{item.en_title}}</h2>
+                            {{item.en_content|safe}}
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
 
-                <div id="zcyfw" style="display:none;padding-top: 0;">
-                    {% for item in support_list %}
-                    <div class="single-faq">
-                        <h2><span>{{ forloop.counter }}</span>{{item.title}}</h2>
-                        {{item.content|safe}}
+                    <div id="zcyfw" style="display:none;padding-top: 0;">
+                        {% for item in support_list %}
+                        <div class="single-faq">
+                            <h2><span>{{ forloop.counter }}</span>{{item.en_title}}</h2>
+                            {{item.en_content|safe}}
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
 
-                <div id="jxswd" style="display:none;padding-top: 0;">
-                    {% for item in question_list %}
-                    <div class="single-faq">
-                        <h2><span>{{ forloop.counter }}</span>{{item.title}}</h2>
-                        {{item.content|safe}}
+                    <div id="jxswd" style="display:none;padding-top: 0;">
+                        {% for item in question_list %}
+                        <div class="single-faq">
+                            <h2><span>{{ forloop.counter }}</span>{{item.en_title}}</h2>
+                            {{item.en_content|safe}}
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                </div>
+                {% else %}
+                    <div id="hzzc" style="padding-top: 0;">
+                        {% for item in policy_list %}
+                        <div class="single-faq">
+                            <h2><span>{{ forloop.counter }}</span>{{item.title}}</h2>
+                            {{item.content|safe}}
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div id="xmys" style="display:none;padding-top: 0;">
+                        {% for item in superiority_list %}
+                        <div class="single-faq">
+                            <h2><span>{{ forloop.counter }}</span>{{item.title}}</h2>
+                            {{item.content|safe}}
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div id="zcyfw" style="display:none;padding-top: 0;">
+                        {% for item in support_list %}
+                        <div class="single-faq">
+                            <h2><span>{{ forloop.counter }}</span>{{item.title}}</h2>
+                            {{item.content|safe}}
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div id="jxswd" style="display:none;padding-top: 0;">
+                        {% for item in question_list %}
+                        <div class="single-faq">
+                            <h2><span>{{ forloop.counter }}</span>{{item.title}}</h2>
+                            {{item.content|safe}}
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>

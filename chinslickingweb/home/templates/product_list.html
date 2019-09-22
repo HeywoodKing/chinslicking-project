@@ -6,8 +6,8 @@
 {% block header %}
     {% include "header.html" with title="品牌产品" %}
     {% block style_tag %}
-    <style>
-    </style>
+        <style>
+        </style>
     {% endblock %}
 {% endblock %}
 
@@ -50,125 +50,171 @@
 {% endblock %}{% endcomment %}
 
 {% block content %}
-<div class="portfolio-area sp bg2">
-    <div class="container">
-        <div class="section-title" id="section-title">
-            <h2>{% trans "秦食皇产品" %}</h2>
-            <div class="section-title-bg">
-                <div class="section-title-bg-box" style="width: 125px;"></div>
+    <div class="portfolio-area sp bg2">
+        <div class="container">
+            <div class="section-title" id="section-title">
+                <h2>{% trans "秦食皇产品" %}</h2>
+                <div class="section-title-bg">
+                    <div class="section-title-bg-box" style="width: 125px;"></div>
+                </div>
+                <div class="sub-title">
+                    <hr class="hr-2">
+                    <span>{% trans "一口国土味，入胃解乡愁" %}</span>
+                    <hr class="hr-2">
+                </div>
             </div>
-            <div class="sub-title">
-                <hr class="hr-2">
-                <span>{% trans "一口国土味，入胃解乡愁" %}</span>
-                <hr class="hr-2">
-            </div>
-        </div>
-        <div class="row">
-            <ul class="isotope-menu">
-                {% for item in product_type_list %}
-                    {% if forloop.counter0 == 0 %}
-                    <li data-id="{{ item.id }}" data-filter="{{item.data_filter_name}}" class="active">{% trans item.name %}</li>
+            <div class="row">
+                <ul class="isotope-menu">
+                    {% if LANGUAGE_CODE == 'en' %}
+                        {% for item in product_type_list %}
+                            {% if forloop.counter0 == 0 %}
+                                <li data-id="{{ item.id }}" data-filter="{{ item.data_filter_name }}"
+                                    class="active">{{ item.en_name }}</li>
+                            {% else %}
+                                <li data-id="{{ item.id }}"
+                                    data-filter=".{{ item.data_filter_name }}">{{ item.en_name }}</li>
+                            {% endif %}
+                        {% endfor %}
                     {% else %}
-                    <li data-id="{{ item.id }}" data-filter=".{{item.data_filter_name}}">{% trans item.name %}</li>
+                        {% for item in product_type_list %}
+                            {% if forloop.counter0 == 0 %}
+                                <li data-id="{{ item.id }}" data-filter="{{ item.data_filter_name }}"
+                                    class="active">{{ item.name }}</li>
+                            {% else %}
+                                <li data-id="{{ item.id }}"
+                                    data-filter=".{{ item.data_filter_name }}">{{ item.name }}</li>
+                            {% endif %}
+                        {% endfor %}
                     {% endif %}
-                {% endfor %}
-
-                <!--<li data-filter="*" class="active">全部</li>
-                <li data-filter=".ceramics">青春芽酱</li>
-                <li data-filter=".branding">怀旧零嘴</li>
-                <li data-filter=".design">养生素食</li>
-                <li data-filter=".magic">魔芋塑身</li>
-                <li data-filter=".photography">礼盒包装</li>-->
-            </ul>
-        </div>
-        <div class="row portfolio-isotope">
-            {% for item in product_list %}
-                <div class="single-portfolio col-md-4 {{item.product_type.data_filter_name}}">
-                    <div class="inner">
-                        <div class="portfolio-img-pro">
-                            <!--<img src="{% static 'images/portfolio1.jpg' %}" alt="portfolio-image">-->
-                            <img src="/uploads/{{item.cover_image_url}}" alt="{{item.name}}">
-                            <div class="hover-content">
-                                <div>
-                                    <a href="/king/product_detail/{{item.id}}?banner={{ banner }}" class="button" target="_blank">{% trans "查看详情" %}</a>
-                                    {% if item.mall_url %}
-                                        <a href="{{item.mall_url}}" class="button" target="_blank">{% trans "商城选购" %}</a>
-                                    {% else %}
-                                        <a href="/king/product_detail/{{item.id}}?banner={{ banner }}" class="button" target="_blank">{% trans "商城选购" %}</a>
-                                    {% endif %}
+                </ul>
+            </div>
+            <div class="row portfolio-isotope">
+                {% if LANGUAGE_CODE == 'en' %}
+                    {% for item in product_list %}
+                        <div class="single-portfolio col-md-4 {{ item.product_type.data_filter_name }}">
+                            <div class="inner">
+                                <div class="portfolio-img-pro">
+                                    <!--<img src="{% static 'images/portfolio1.jpg' %}" alt="portfolio-image">-->
+                                    <img src="/uploads/{{ item.cover_image_url }}" alt="{{ item.en_name }}">
+                                    <div class="hover-content">
+                                        <div>
+                                            <a href="/product_detail/{{ item.id }}?banner={{ banner }}" class="button"
+                                               target="_blank">{% trans "查看详情" %}</a>
+                                            {% if item.mall_url %}
+                                                <a href="{{ item.mall_url }}" class="button"
+                                                   target="_blank">{% trans "商城选购" %}</a>
+                                            {% else %}
+                                                <a href="/product_detail/{{ item.id }}?banner={{ banner }}"
+                                                   class="button" target="_blank">{% trans "商城选购" %}</a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <a href="/product_detail/{{ item.id }}?banner={{ banner }}" target="_blank">
+                                        <h3>{{ item.en_name|truncate_point:'15' }}</h3></a>
+                                    <span>{{ item.en_brief|truncate_point:'24' }}</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="portfolio-content">
-                            <a href="/king/product_detail/{{item.id}}?banner={{ banner }}" target="_blank"><h3>{{item.name|truncate_point:'15'}}</h3></a>
-                            <span>{{item.brief|truncate_point:'24'}}</span>
+                    {% empty %}
+                        <div class="single-portfolio col-xs-12 col-sm-12 col-md-12 text-center">{% trans "还没有商品哦！赶快添加吧！" %}</div>
+                    {% endfor %}
+                {% else %}
+                    {% for item in product_list %}
+                        <div class="single-portfolio col-md-4 {{ item.product_type.data_filter_name }}">
+                            <div class="inner">
+                                <div class="portfolio-img-pro">
+                                    <!--<img src="{% static 'images/portfolio1.jpg' %}" alt="portfolio-image">-->
+                                    <img src="/uploads/{{ item.cover_image_url }}" alt="{{ item.name }}">
+                                    <div class="hover-content">
+                                        <div>
+                                            <a href="/product_detail/{{ item.id }}?banner={{ banner }}" class="button"
+                                               target="_blank">{% trans "查看详情" %}</a>
+                                            {% if item.mall_url %}
+                                                <a href="{{ item.mall_url }}" class="button"
+                                                   target="_blank">{% trans "商城选购" %}</a>
+                                            {% else %}
+                                                <a href="/product_detail/{{ item.id }}?banner={{ banner }}"
+                                                   class="button" target="_blank">{% trans "商城选购" %}</a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="portfolio-content">
+                                    <a href="/product_detail/{{ item.id }}?banner={{ banner }}" target="_blank">
+                                        <h3>{{ item.name|truncate_point:'15' }}</h3></a>
+                                    <span>{{ item.brief|truncate_point:'24' }}</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            {% empty %}
-                <div class="single-portfolio col-xs-12 col-sm-12 col-md-12 text-center">{% trans "还没有商品哦！赶快添加吧！" %}</div>
-            {% endfor %}
-        </div>
+                    {% empty %}
+                        <div class="single-portfolio col-xs-12 col-sm-12 col-md-12 text-center">{% trans "还没有商品哦！赶快添加吧！" %}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
 
-{#        {% include "pager.html" with page_list=product_list %}#}
+            {#        {% include "pager.html" with page_list=product_list %}#}
 
-        {% with page_list=product_list %}
-        {% if page_list.paginator.num_pages > 1 %}
-        <div class="row">
-            <div class="col-12 text-center" data-margin="0 0 0 0">
-                <!--<a href="#" class="button">More Works</a>-->
-                <nav aria-label="Page navigation">
-                    <!--<span>
+            {% with page_list=product_list %}
+                {% if page_list.paginator.num_pages > 1 %}
+                    <div class="row">
+                        <div class="col-12 text-center" data-margin="0 0 0 0">
+                            <!--<a href="#" class="button">More Works</a>-->
+                            <nav aria-label="Page navigation">
+                                <!--<span>
                         当前第 {{ page_list.number }} 页&nbsp;&nbsp;&nbsp;&nbsp;共{{ page_list.paginator.num_pages }}页
                     </span>-->
-                    <ul class="pager">
+                                <ul class="pager">
 
-                        {% if page_list.has_previous %}
-                            <li>
-                                <a href="?page={{ page_list.previous_page_number }}&banner={{ banner }}" aria-label="Previous">
-                                    <span aria-hidden="true">&lsaquo;</span>
-                                </a>
-                            </li>
-                        {% else %}
-                            <li class="disabled">
-                                <a href="javascript:void(0);" aria-label="Previous">
-                                    <span aria-hidden="true">&lsaquo;</span>
-                                </a>
-                            </li>
-                        {% endif %}
+                                    {% if page_list.has_previous %}
+                                        <li>
+                                            <a href="?page={{ page_list.previous_page_number }}&banner={{ banner }}"
+                                               aria-label="Previous">
+                                                <span aria-hidden="true">&lsaquo;</span>
+                                            </a>
+                                        </li>
+                                    {% else %}
+                                        <li class="disabled">
+                                            <a href="javascript:void(0);" aria-label="Previous">
+                                                <span aria-hidden="true">&lsaquo;</span>
+                                            </a>
+                                        </li>
+                                    {% endif %}
 
-                        {% for pg in page_list.paginator.page_range %}
-                            {% comment %}{% if page_list.number == pg %}
+                                    {% for pg in page_list.paginator.page_range %}
+                                        {% comment %}{% if page_list.number == pg %}
                                 <li class="active"><a href="?page={{ pg }}&banner={{ banner }}">{{ pg }}</a></li>
                             {% else %}
                                 <li><a href="?page={{ pg }}&banner={{ banner }}">{{ pg }}</a></li>
                             {% endif %}{% endcomment %}
 
-                            {% circle_page page_list.number pg banner %}
-                        {% endfor %}
+                                        {% circle_page page_list.number pg banner %}
+                                    {% endfor %}
 
-                        {% if page_list.has_next %}
-                            <li>
-                                <a href="?page={{ page_list.next_page_number }}&banner={{ banner }}" aria-label="Next">
-                                    <span aria-hidden="true">&rsaquo;</span>
-                                </a>
-                            </li>
-                        {% else %}
-                            <li class="disabled">
-                                <a href="javascript:void(0);" aria-label="Next">
-                                    <span aria-hidden="true">&rsaquo;</span>
-                                </a>
-                            </li>
-                        {% endif %}
-                    </ul>
-                </nav>
-            </div>
+                                    {% if page_list.has_next %}
+                                        <li>
+                                            <a href="?page={{ page_list.next_page_number }}&banner={{ banner }}"
+                                               aria-label="Next">
+                                                <span aria-hidden="true">&rsaquo;</span>
+                                            </a>
+                                        </li>
+                                    {% else %}
+                                        <li class="disabled">
+                                            <a href="javascript:void(0);" aria-label="Next">
+                                                <span aria-hidden="true">&rsaquo;</span>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endwith %}
+
         </div>
-        {% endif %}
-        {% endwith %}
-
     </div>
-</div>
 
 {% endblock %}
 
@@ -176,9 +222,9 @@
 {% block footer %}
     {% include "footer.html" with footer="footer" %}
     {% block script_tag %}
-    <script>
-        $(function(){
-        });
-    </script>
+        <script>
+            $(function () {
+            });
+        </script>
     {% endblock %}
 {% endblock %}
