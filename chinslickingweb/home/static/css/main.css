@@ -475,7 +475,7 @@ iframe {
 @media screen and (min-width: 991px) {
     .outer{
         margin: 40px auto;
-        height: 340px;
+        height: 310px;
         /*display: flex;*/
         justify-content: center;
         align-items: center;
@@ -483,8 +483,8 @@ iframe {
 
     .outer .front .front-content{
         position:absolute;
-        top: 0px;
-        left: 0px;
+        top: 0;
+        left: 0;
         width: 100%;
         padding: 100px 30px 30px 30px;
         text-align:center;
@@ -492,8 +492,8 @@ iframe {
     }
 
     .outer .back{
-        width: 254px;
-        height: 331px;
+        width: 240px;
+        height: 330px;
         background-color: #f7d83d;
     }
 }
@@ -501,8 +501,8 @@ iframe {
 @media screen and (max-width: 768px) {
     .outer{
         position: relative;
-        margin: 0px auto;
-        height: 530px;
+        margin: 30px auto;
+        height: 430px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -520,7 +520,7 @@ iframe {
 
     .outer .back{
         width: 100%;
-        height: 520px;
+        height: 430px;
         background-color: #f7d83d;
     }
 }

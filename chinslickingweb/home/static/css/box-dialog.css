@@ -43,25 +43,25 @@
     /*移动端*/
     .box-container-arrow-left{
         position: absolute;
-        bottom: 13%;
-        left: 10%;
+        bottom: 25%;
+        left: 5%;
         font-size: 12px;
     }
     .box-container-arrow-right{
         position: absolute;
-        bottom: 18%;
+        bottom: 20%;
         right: 4%;
         font-size: 12px;
     }
     .box-container-arrow-down-right{
         position: absolute;
-        bottom: 25%;
+        bottom: 37%;
         left: 20%;
         font-size: 12px;
     }
     .box-container-arrow-down-left{
         position: absolute;
-        bottom: 25%;
+        bottom: 37%;
         right: 17%;
         font-size: 12px;
     }

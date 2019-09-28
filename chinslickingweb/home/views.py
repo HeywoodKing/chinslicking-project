@@ -11,10 +11,34 @@ import json
 import socket
 import pytz
 from home import models
-
+from logging.handlers import RotatingFileHandler
 
 # Create your views here.
-logger = logging.getLogger("me")
+
+# logging.basicConfig(level = logging.INFO,format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger("chin")
+logger.setLevel(level=logging.INFO)
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# file
+# fileHandler = logging.FileHandler('chin.log')
+# fileHandler.setLevel(logging.INFO)
+# fileHandler.setFormatter(formatter)
+
+# 定义一个RotatingFileHandler，最多备份3个日志文件，每个日志文件最大1K
+rotatHandler = RotatingFileHandler('chin.log', maxBytes=300 * 1024, backupCount=3)
+rotatHandler.setLevel(logging.INFO)
+rotatHandler.setFormatter(formatter)
+
+# console
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+console.setFormatter(formatter)
+
+# logger.addHandler(fileHandler)
+logger.addHandler(rotatHandler)
+logger.addHandler(console)
 
 
 def global_setting(req):
@@ -185,6 +209,16 @@ def add_coupon(req):
 
         # models.ChinApplyRecord.objects.create(name=username, phone=phone, email=email, sex=sex)
 
+        # update wate_qty
+        water_qty_list = models.ChinwWateringQty.objects.all()
+        if water_qty_list:
+            water_qty = water_qty_list[0]
+        else:
+            water_qty = models.ChinwWateringQty
+
+        water_qty.amount = 0
+        water_qty.save()
+
         # 返回结果
         res['code'] = 0
         res['flag'] = 'success'
@@ -222,9 +256,14 @@ def add_watering_qty(req):
         if req.method == 'POST':
             # 接收参数
             # 获取客户端IP地址，判断同一个IP一天不能浇水超过3次
-            client_ip = req.META['REMOTE_ADDR'].split(':')[0]
-            # remote_host = req.META['REMOTE_HOST']
+            if 'HTTP_X_FORWARDED_FOR' in req.META:
+                # client_ip = req.META['HTTP_X_FORWARDED_FOR'].split(',')[0]
+                client_ip = req.META.get('HTTP_X_FORWARDED_FOR', None)
+            else:
+                # client_ip = req.META['REMOTE_ADDR'].split(':')[0]
+                client_ip = req.META.get('REMOTE_ADDR', None)
 
+            # remote_host = req.META['REMOTE_HOST']
             client_host = client_ip if client_ip else req.META['USERDOMAIN']
             client_port = req.META['REMOTE_PORT'] if 'REMOTE_PORT' in req.META else 0
             client_user_agent = req.META['HTTP_USER_AGENT']
@@ -253,8 +292,8 @@ def add_watering_qty(req):
             # start_date = datetime.date(2019, 5, 1)
             # end_date = datetime.date(2019, 6, 1)
 
-            ip_count = models.ChinUserWateringRecord.objects\
-                .filter(client_ip=client_ip, create_time__range=(start_date, curr_now))\
+            ip_count = models.ChinUserWateringRecord.objects \
+                .filter(client_ip=client_ip, create_time__range=(start_date, curr_now)) \
                 .count()
             if ip_count > 3:
                 # 返回结果
@@ -270,7 +309,11 @@ def add_watering_qty(req):
             amount = 1
 
             # 保存本次浇水水量到余额表
-            water_qty = models.ChinWateringQty.objects.all()[0]
+            water_qty_list = models.ChinWateringQty.objects.all()
+            if water_qty_list:
+                water_qty = water_qty_list[0]
+            else:
+                water_qty = models.ChfWateringQty
 
             # 保存本次用户浇水记录
             end_amount = water_qty.amount + amount
@@ -308,6 +351,7 @@ def add_watering_qty(req):
             res['data'] = None
     except Exception as ex:
         print(ex)
+        logger.error(ex)
         res['code'] = 3
         res['flag'] = 'fail'
         res['msg'] = '浇水失败，服务器异常！'
@@ -485,4 +529,3 @@ def job_list(req):
     job_list = models.ChinJobRecruit.objects.filter(is_enable=True)
 
     return render(req, 'job_list.html', locals())
-

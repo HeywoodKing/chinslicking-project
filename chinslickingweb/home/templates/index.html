@@ -210,6 +210,7 @@
             $(function () {
                 <!--alert("我是index.html的js");-->
                 var rainNumber = {{ water_qty.amount }};
+                var rainNumberTotal = {{ water_qty.total_amount }};
                 var rainMsg = "";
                 var myVideo = document.getElementById('video');
                 myVideo.volume = 0.3;
@@ -261,31 +262,50 @@
 
 
                 function initTreeBox() {
-                    if (rainNumber <= 200) {
-                        $('.watering-box-01').show();
-                        $('.watering-box-02').hide();
-                        $('.watering-box-03').hide();
-                        $('.watering-box-04').hide();
-                        $('.soil').show();
-                    } else if (rainNumber > 200 && rainNumber <= 400) {
-                        $('.watering-box-01').hide();
-                        $('.watering-box-02').show();
-                        $('.watering-box-03').hide();
-                        $('.watering-box-04').hide();
-                        $('.soil').show();
-                    } else if (rainNumber > 400 && rainNumber < 888) {
-                        $('.watering-box-01').hide();
-                        $('.watering-box-02').hide();
-                        $('.watering-box-03').show();
-                        $('.watering-box-04').hide();
-                        $('.soil').hide();
-                    } else if (rainNumber >= 888) {
-                        $('.watering-box-01').hide();
-                        $('.watering-box-02').hide();
-                        $('.watering-box-03').hide();
-                        $('.watering-box-04').show();
-                        $('.soil').hide();
-                        $('.tree-04').click();
+                    if (rainNumberTotal < 888) {
+                        if (rainNumber <= 200) {
+                            $('.watering-box-01').show();
+                            $('.watering-box-02').hide();
+                            $('.watering-box-03').hide();
+                            $('.watering-box-04').hide();
+                            $('.soil').show();
+                        } else if (rainNumber > 200 && rainNumber <= 400) {
+                            $('.watering-box-01').hide();
+                            $('.watering-box-02').show();
+                            $('.watering-box-03').hide();
+                            $('.watering-box-04').hide();
+                            $('.soil').show();
+                        } else {
+                            {#if (rainNumber > 400 && rainNumber < 888)#}
+                            $('.watering-box-01').hide();
+                            $('.watering-box-02').hide();
+                            $('.watering-box-03').show();
+                            $('.watering-box-04').hide();
+                            $('.soil').hide();
+                        }
+                        {% comment %}else if (rainNumber >= 888) {
+                            $('.watering-box-01').hide();
+                            $('.watering-box-02').hide();
+                            $('.watering-box-03').hide();
+                            $('.watering-box-04').show();
+                            $('.soil').hide();
+                            $('.tree-04').click();
+                        }{% endcomment %}
+                    }else{
+                        if (rainNumber < 888) {
+                            $('.watering-box-01').hide();
+                            $('.watering-box-02').hide();
+                            $('.watering-box-03').show();
+                            $('.watering-box-04').hide();
+                            $('.soil').hide();
+                        } else if (rainNumber >= 888) {
+                            $('.watering-box-01').hide();
+                            $('.watering-box-02').hide();
+                            $('.watering-box-03').hide();
+                            $('.watering-box-04').show();
+                            $('.soil').hide();
+                            $('.tree-04').click();
+                        }
                     }
 
 
@@ -465,16 +485,18 @@
 
                 //苹果长成触发方法
                 $('.tree-04').on('click', function () {
-                    var width = '500px'
+                    var width = '500px';
+                    var height = '50%';
                     if (document.body.clientWidth < 500) {
-                        width = (document.body.clientWidth - 35) + 'px'
+                        width = (document.body.clientWidth - 35) + 'px';
+                        height = '65%';
                     }
 
                     top.layer.open({
                         type: 2,
                         title: "{% trans '优惠券抢购' %}",
                         {#area: ['500px', '330px'],#}
-                        area: [width, '52%'],
+                        area: [width, height],
                         content: "/layer_coupon_form",
                         zIndex: layer.zIndex,
                         closeBtn: 1,
