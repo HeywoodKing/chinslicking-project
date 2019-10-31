@@ -85,7 +85,7 @@
                             <h3>{% trans "最新资讯" %}</h3>
                             {% for item in news_lasted %}
                                 <div class="product-commend about-img">
-                                    <a href="/news_detail/{{ item.id }}?banner={{ banner }}">
+                                    <a href="/news_detail/{{ item.id }}/banner/{{ banner }}">
                                         <img src="/uploads/{{ item.cover_image_url }}" alt="{{ item.en_title }}"
                                              title="{{ item.en_title }}">
                                     </a>
@@ -118,7 +118,7 @@
                             <h3>{% trans "最新资讯" %}</h3>
                             {% for item in news_lasted %}
                                 <div class="product-commend about-img">
-                                    <a href="/news_detail/{{ item.id }}?banner={{ banner }}">
+                                    <a href="/news_detail/{{ item.id }}/banner/{{ banner }}">
                                         <img src="/uploads/{{ item.cover_image_url }}" alt="{{ item.title }}"
                                              title="{{ item.title }}">
                                     </a>

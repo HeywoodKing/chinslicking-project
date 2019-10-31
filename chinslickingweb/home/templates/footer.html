@@ -17,21 +17,39 @@
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-4 footer_widget">
                     <div class="text-center">
-                        <h4>{% trans sysconfig.site_company %}</h4>
-                        <ul>
-                            <li>
-                                {% if sysconfig.email %}
-                                    <span>{% trans "邮箱" %}：</span>
-                                    <span>{{ sysconfig.email }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                {% endif %}
-                            </li>
-                            <li>
-                                {% if sysconfig.address %}
-                                    <span>{% trans "地址" %}：</span>
-                                    <span>{% trans sysconfig.address %}</span>
-                                {% endif %}
-                            </li>
-                        </ul>
+                        {% if LANGUAGE_CODE == 'en' %}
+                            <h4>{{ sysconfig.en_site_company }}</h4>
+                            <ul>
+                                <li>
+                                    {% if sysconfig.email %}
+                                        <span>{% trans "邮箱" %}：</span>
+                                        <span>{{ sysconfig.email }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    {% endif %}
+                                </li>
+                                <li>
+                                    {% if sysconfig.en_address %}
+                                        <span>{% trans "地址" %}：</span>
+                                        <span>{{ sysconfig.en_address }}</span>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        {% else %}
+                            <h4>{{ sysconfig.site_company }}</h4>
+                            <ul>
+                                <li>
+                                    {% if sysconfig.email %}
+                                        <span>{% trans "邮箱" %}：</span>
+                                        <span>{{ sysconfig.email }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    {% endif %}
+                                </li>
+                                <li>
+                                    {% if sysconfig.address %}
+                                        <span>{% trans "地址" %}：</span>
+                                        <span>{{ sysconfig.address }}</span>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-4">
@@ -62,7 +80,11 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="copyright-txt">
-                        {% trans "陕ICP备" %}17020623-1 Copyright2020 {% trans "西安秦食皇食品有限公司版权所有" %}
+                        {% if LANGUAGE_CODE == 'en' %}
+                            <a href="http://www.beian.miit.gov.cn" target="_blank">{{ sysconfig.en_icp }}</a> | {{ sysconfig.en_site_company }}
+                        {% else %}
+                            <a href="http://www.beian.miit.gov.cn" target="_blank">{{ sysconfig.icp }}</a> | {{ sysconfig.site_company }}
+                        {% endif %}
                     </div>
                 </div>
                 <!--<div class="col-lg-6 text-right">

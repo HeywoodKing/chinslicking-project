@@ -124,15 +124,15 @@ class IsActiveFilter(SimpleListFilter):
 # 系统配置
 @admin.register(models.SysConfig)
 class SysConfigAdmin(admin.ModelAdmin):
-    list_display = ('id', 'site_name', 'site_company', 'address', 'telephone', 'email',
-                    'icp', 'is_enable', 'logo_bottom', 'qrcode')
+    list_display = ('id', 'site_name', 'site_company', 'en_site_company', 'address', 'en_address', 'telephone', 'email',
+                    'icp', 'en_icp', 'is_enable', 'logo_bottom', 'qrcode')
     list_display_links = ('id', 'site_name', )
     # list_editable = ('telephone', 'is_enable', 'icp')
     list_filter = (IsEnableFilter, )
     list_per_page = 10
     exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username', )
-    search_fields = ('site_name', 'site_author', 'site_company', 'address', 'telephone',
-                     'email', 'icp', )
+    search_fields = ('site_name', 'site_author', 'site_company', 'en_site_company', 'address', 'en_address', 'telephone',
+                     'email', 'icp', 'en_icp', )
 
 
 # 管理员
@@ -410,13 +410,13 @@ class ChinJobRecruitAdmin(admin.ModelAdmin):
 class ChinNewsAdmin(admin.ModelAdmin):
     # exclude = ('content', )
     list_display = ('title', 'en_title', 'brief', 'en_brief', 'type', 'profile', 'en_profile',
-                    'read_count', 'cover_image_url', 'sort', 'is_enable',)
+                    'read_count', 'cover_image_url', 'sort', 'is_enable', 'create_time')
     list_display_links = ('title', 'en_title', 'profile', 'en_profile')
     list_editable = ('brief', 'en_brief', 'type', 'sort', 'read_count', 'is_enable',)
     list_filter = ('type', IsEnableFilter,)
     list_per_page = 30
     search_fields = ('title', 'en_title', 'brief', 'en_brief')
-    exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
+    exclude = ('create_uid', 'create_username', 'operate_uid', 'operate_username',)
 
     class Media:
         js = (

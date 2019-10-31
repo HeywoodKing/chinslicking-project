@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from django.utils import timezone
+import django.utils.timezone as timezone
 from django.contrib.auth.models import AbstractUser, PermissionsMixin, BaseUserManager, AbstractBaseUser
 # from django.core.validators import RegexValidator
 from django.template.defaultfilters import slugify
@@ -92,14 +92,14 @@ class ChinUserProfile(AbstractUser):
     # is_enable = models.BooleanField(default=True, verbose_name='是否启用', choices=((0, '否'), (1, '是')))
 
     class Meta(AbstractUser.Meta):
-        db_table = 'chf_userprofile'
+        db_table = 'chin_userprofile'
         swappable = 'AUTH_USER_MODEL'
         verbose_name = _('用户')
         verbose_name_plural = verbose_name
         ordering = ['-id']
 
     # class Meta:
-    #     db_table = 'chf_userprofile'
+    #     db_table = 'chin_userprofile'
     #     verbose_name = '用户'
     #     verbose_name_plural = verbose_name
     #     ordering = ['-id']
@@ -134,7 +134,7 @@ class ChinUserProfile(AbstractUser):
 
 class BaseModel(models.Model):
     # default=datetime.now().replace(tzinfo=pytz.utc)
-    create_time = models.DateTimeField(_('创建时间'), auto_now_add=True)
+    create_time = models.DateTimeField(_('创建时间'), default=timezone.now)
     create_uid = models.IntegerField(_('创建人ID'), default=123456789, auto_created=True)
     create_username = models.CharField(_('创建人名称'), max_length=30, default='admin', auto_created=True)
     operate_time = models.DateTimeField(_('操作时间'), auto_now=True)
@@ -159,11 +159,14 @@ class SysConfig(BaseModel):
     site_name = models.CharField(_('站点名称'), max_length=50, default='', blank=True)
     site_desc = models.CharField(_('站点描述'), max_length=150, default='', blank=True)
     site_author = models.CharField(_('作者'), max_length=100, default='', blank=True)
-    site_company = models.CharField(_('公司'), max_length=100)
-    address = models.CharField(_('底部显示地址'), max_length=150)
+    site_company = models.CharField(_('公司(中文)'), max_length=100, default=None, blank=True, null=True)
+    en_site_company = models.CharField(_('公司(英文)'), max_length=200, default=None, blank=True, null=True)
+    address = models.CharField(_('底部显示地址(中文)'), max_length=150, default=None, blank=True, null=True)
+    en_address = models.CharField(_('底部显示地址(英文)'), max_length=300, default=None, blank=True, null=True)
     telephone = models.CharField(_('底部显示电话'), max_length=15)
     email = models.EmailField(_('邮箱'), max_length=50, default='', blank=True)
-    icp = models.CharField(_('备案号'), max_length=15, default='', blank=True)
+    icp = models.CharField(_('备案号(中文)'), max_length=256, default='', blank=True)
+    en_icp = models.CharField(_('备案号(英文)'), max_length=256, default='', blank=True)
     remark = models.CharField(_('备注'), max_length=200, default='', blank=True)
     logo_bottom = models.ImageField(_('底部logo'), default='', null=True, blank=True, upload_to='sys/%Y/%m')
     qrcode = models.ImageField(_('二维码'), default='', null=True, blank=True, upload_to='sys/%Y/%m')
@@ -251,8 +254,8 @@ class ChinBanner(BaseModel):
     nav = models.ForeignKey(to='SysNav', default='', null=True, blank=True, related_name='navs',
                             related_query_name='nav_query', on_delete=models.CASCADE, verbose_name=_('Banner页面'))
     image_url = models.ImageField(_('图片'), default='', null=True, blank=True, upload_to='banner/%Y/%m')
-    text = models.CharField(_('Banner上文本描述(中文)'), max_length=150, default='')
-    en_text = models.CharField(_('Banner上文本描述(英文)'), max_length=300, default='')
+    text = models.CharField(_('Banner上文本描述(中文)'), max_length=150, default='', blank=True, null=True)
+    en_text = models.CharField(_('Banner上文本描述(英文)'), max_length=300, default='', blank=True, null=True)
     sort = models.IntegerField(_('排序'), default=0)
     is_enable = models.BooleanField(_('是否启用'), default=True)
 

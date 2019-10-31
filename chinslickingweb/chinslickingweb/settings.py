@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0($(uv2i!b5gg19(tcx*z7s*s!t01xgi4)wor77o6w(zvrhw)w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -34,8 +34,9 @@ ALLOWED_HOSTS = [
     '192.168.0.122',
     '172.16.40.247',
     '47.99.121.101',
-    'www.chinslicking.local',
-    'www.chinslicking.com',
+    'www.xaqsh.cn',
+    'www.xaqsh.com',
+    'www.xianqinshihuang.com',
 ]
 
 # Application definition
@@ -105,9 +106,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'localhost',
+        # 'HOST': '172.17.0.2',
         'PORT': '3306',
         'NAME': 'king',
         'USER': 'root',
+        # 'PASSWORD': '@chinslicking2019',
         'PASSWORD': '123456',
         'OPTIONS': {
             "init_command": "SET sql_mode='STRICT_TRANS_TABLES'",
