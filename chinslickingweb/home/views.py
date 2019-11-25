@@ -51,27 +51,28 @@ def global_setting(req):
     # 菜单
     nav_list = models.SysNav.objects.filter(is_enable=True)
 
+    banner_list = []
     # 查询banner
     banner = req.GET.get('banner', None)
     if banner:
         nav = models.SysNav.objects.get(code=banner)
+        if nav:
+            # 方式一:主表.子表_set()
+            # Django默认每个主表对象都有一个外键的属性
+            # 可以通过它来查询所有属于主表的子表信息
+            # 返回值为一个queryset对象
+            # banner_list = nav.ChfBanner_set.all()
 
-        # 方式一:主表.子表_set()
-        # Django默认每个主表对象都有一个外键的属性
-        # 可以通过它来查询所有属于主表的子表信息
-        # 返回值为一个queryset对象
-        # banner_list = nav.ChfBanner_set.all()
+            # 方式二：
+            # 通过在外键中设置related_name属性值既可
+            banner_list = nav.navs.all()
 
-        # 方式二：
-        # 通过在外键中设置related_name属性值既可
-        banner_list = nav.navs.all()
+            # 方式三：
+            # 通过@property装饰器在model中预定义方法实现
+            # banner_list = nav.all_navs
 
-        # 方式三：
-        # 通过@property装饰器在model中预定义方法实现
-        # banner_list = nav.all_navs
-
-        # 方式四：
-        # banner_list = models.ChfBanner.objects.filter(nav=nav)
+            # 方式四：
+            # banner_list = models.ChfBanner.objects.filter(nav=nav)
 
     # 网站底部公共信息
     sysconfig_list = models.SysConfig.objects.filter(is_enable=True)
@@ -495,10 +496,10 @@ def news_list(req):
         news_list = paginator.page(page)
     except PageNotAnInteger:
         news_list = paginator.page(1)
-        logger.error('传入的页码错误')
+        # logger.error('传入的页码错误')
     except EmptyPage:
         news_list = paginator.page(paginator.num_pages)
-        logger.error('空页')
+        # logger.error('空页')
 
     # news_lasted = models.ChinNews.objects.filter(type=0)[:10]
 

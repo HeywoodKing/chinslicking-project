@@ -91,7 +91,7 @@ var document,
                 $(this).addClass("active");
 
                 var id = $(this).attr('data-id');
-                window.location.href = '/king/product_list?banner=product&product_type=' + id + '&ok=0#section-title';
+                window.location.href = '/product_list?banner=product&product_type=' + id + '&ok=0#section-title';
                 return false;
 
                 //动画效果

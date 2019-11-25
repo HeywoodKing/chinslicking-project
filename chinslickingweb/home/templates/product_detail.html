@@ -82,7 +82,7 @@
                         <h3>{% trans "推荐产品" %}</h3>
                         {% for item in product_command_list %}
                         <div class="product-commend about-img">
-                            <a href="/product_detail/{{item.id}}/banner/{{ banner }}">
+                            <a href="/product_detail/{{item.id}}?banner={{ banner }}">
                                 <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.en_name}}" title="{{item.en_name}}">
                             </a>
                             <div class="product-commend-title">{{item.en_name|truncate_point:'12'}}</div>
@@ -119,7 +119,7 @@
                         <h3>{% trans "推荐产品" %}</h3>
                         {% for item in product_command_list %}
                         <div class="product-commend about-img">
-                            <a href="/product_detail/{{item.id}}/banner/{{ banner }}">
+                            <a href="/product_detail/{{item.id}}?banner={{ banner }}">
                                 <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.name}}" title="{{item.name}}">
                             </a>
                             <div class="product-commend-title">{{item.name|truncate_point:'12'}}</div>
