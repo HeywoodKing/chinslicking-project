@@ -23,14 +23,14 @@ urlpatterns = [
     url(r'^add_watering_qty', views.add_watering_qty, name='add_watering_qty'),
 
     url(r'^product_list', views.product_list, name='product_list'),
-    url(r'^product_detail/(?P<id>\d+)/', views.product_detail, name='product_detail'),
+    url(r'^product_detail/(?P<id>\d+)', views.product_detail, name='product_detail'),
 
     # url(r'^news_list/(?P<mtype>\S+)/$', views.news_list, name='news_list'),
     url(r'^news_list', views.news_list, name='news_list'),
-    url(r'^news_detail/(?P<id>\d+)/', views.news_detail, name='news_detail'),
+    url(r'^news_detail/(?P<id>\d+)', views.news_detail, name='news_detail'),
 
     url(r'^resp_list', views.resp_list, name='resp_list'),
-    url(r'^resp_detail/(?P<id>\d+)/', views.resp_detail, name='resp_detail'),
+    url(r'^resp_detail/(?P<id>\d+)', views.resp_detail, name='resp_detail'),
     url('', views.index, name='index'),
     url(r'^index', views.index, name='index'),
     url(r'^home', views.index, name='index'),

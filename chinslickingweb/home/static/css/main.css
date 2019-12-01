@@ -1339,7 +1339,7 @@ form.search-form button {
 @media only screen and (min-width: 991px) {
     .single-portfolio .inner .portfolio-img-pro img {
         min-width: 360px;
-        min-height: 323px;
+        min-height: 360px;
         border-radius: 15px;
     }
 }
@@ -1347,7 +1347,7 @@ form.search-form button {
 @media only screen and (max-width: 991px){
     .single-portfolio .inner .portfolio-img-pro img {
         min-width: 330px;
-        min-height: 323px;
+        min-height: 330px;
         border-radius: 15px;
     }
 }
