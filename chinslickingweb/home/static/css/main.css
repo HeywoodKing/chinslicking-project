@@ -233,7 +233,7 @@ h1,h2,h3,h4,h5,h6{
     color: #fff;
     background-color: #333;
     border-color: #333 !important; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 991px) {
     .button {
       font-size: 13px;
       padding: 0 15px;
@@ -254,7 +254,7 @@ h1,h2,h3,h4,h5,h6{
     color: #fff;
     background-color: #333;
     border-color: #333; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 991px) {
     .button-2 {
       font-size: 13px;
       padding: 0 15px;
@@ -496,9 +496,16 @@ iframe {
         height: 310px;
         background-color: #f7d83d;
     }
+
+    .outer .front{
+        transform:rotateY(0);
+        overflow: hidden;
+        width: 240px;
+        height: 310px;
+    }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
     .outer{
         position: relative;
         margin: 30px auto;
@@ -522,6 +529,13 @@ iframe {
         width: 100%;
         height: 430px;
         background-color: #f7d83d;
+    }
+
+    .outer .front{
+        transform:rotateY(0);
+        overflow: hidden;
+        width: 100%;
+        height: 430px;
     }
 }
 
@@ -869,7 +883,7 @@ header {
     align-items: center;
 }
 
-@media only screen and (max-width: 767px){
+@media only screen and (max-width: 991px){
     .logo-column{
         margin: 25px auto;
     }
@@ -930,7 +944,7 @@ form.search-form {
   form.search-form.active {
     opacity: 1;
     visibility: visible; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 991px) {
     form.search-form {
       transform: translateY(50%) translateX(0%);
       right: 50%;
@@ -1077,7 +1091,7 @@ form.search-form button {
         left: 0;
         top: 0;
         position: absolute; } }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 991px) {
     .hero-slider .single-slide {
       font-size: 18px;
       line-height: 24px;
@@ -1089,7 +1103,7 @@ form.search-form button {
     font-weight: 700;
       color: #fff;
   }
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 991px) {
       .hero-slider .single-slide h2 {
         font-size: 30px;
         line-height: 35px; } }
@@ -1398,7 +1412,7 @@ form.search-form button {
 
 @media only screen and (min-width: 991px) {
     .pdlr-150{
-        padding:0 150px;
+        padding:0 119px;
     }
 }
 
@@ -1817,7 +1831,7 @@ footer {
 /*****************************
  *   12. contact-area
  ***************************** */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 991px) {
   .contact-info {
     margin-bottom: 30px; } }
 .contact-info .single-info {
@@ -1874,7 +1888,7 @@ footer {
   width: 100%;
   display: block;
   background-color: #eee; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 991px) {
     .google-map {
       height: 280px; } }
   .google-map iframe {
@@ -2081,7 +2095,7 @@ footer {
   -ms-flex-direction: column;
   -webkit-flex-direction: column;
   flex-direction: column; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 991px) {
     .error-area {
       height: 300px; } }
   .error-area h1 {
