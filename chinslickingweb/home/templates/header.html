@@ -93,22 +93,6 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-6 col-sm-1 nav-column clearfix">
-                    <form action="/i18n/setlang/" method="post" id="change_language_form" class="language-form">
-                        {% csrf_token %}
-                        {% get_current_language as LANGUAGE_CODE %}
-                        {% get_available_languages as LANGUAGES %}
-                        {% get_current_language_bidi as LANGUAGE_BIDI %}
-                        <select class="change_language selectpicker" name="language" id="language" title="选择语言">
-                            {% for lang in LANGUAGES %}
-                                <option value="{{ lang.0|lower }}" {% ifequal lang.0 LANGUAGE_CODE %}
-                                        selected {% endifequal %}>
-                                    {{ lang.1|lower }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </form>
-                </div>
             </div>
         </div>
     </header>

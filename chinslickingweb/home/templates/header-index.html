@@ -1809,7 +1809,7 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-6 col-sm-1 nav-column clearfix">
+                {% comment %}<div class="col-6 col-sm-1 nav-column clearfix">
                     <form action="/i18n/setlang/" method="post" id="change_language_form" class="language-form">
                         {% csrf_token %}
                         {% get_current_language as LANGUAGE_CODE %}
@@ -1826,7 +1826,7 @@
                             {% endfor %}
                         </select>
                     </form>
-                </div>
+                </div>{% endcomment %}
             </div>
         </div>
     </header>

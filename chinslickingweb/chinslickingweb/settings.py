@@ -160,7 +160,7 @@ USE_L10N = True
 USE_TZ = True
 
 LANGUAGES = (
-    ('zh-hans', _('中文简体')),
+    ('zh-hans', _('中文')),
     ('en', _('English')),
     # ('zh-hant', _('中文繁體')),
 )
@@ -433,9 +433,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads').replace('\\', '/')  # 设置静�
 # 首页图标
 # SIMPLEUI_HOME_ICON = 'fa fa-user'
 # 设置simpleui 点击首页图标跳转的地址
-SIMPLEUI_INDEX = 'http://47.99.121.101:8001/king/index'
+SIMPLEUI_INDEX = 'http://www.chinslicking.com'
 # 自定义SIMPLEUI的Logo 修改LOGO
-SIMPLEUI_LOGO = STATIC_URL + 'images/logo_nav.png'
+SIMPLEUI_LOGO = STATIC_URL + 'images/logo.png'
 
 # 服务器信息
 SIMPLEUI_HOME_INFO = False
