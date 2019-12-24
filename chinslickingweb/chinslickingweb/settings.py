@@ -30,14 +30,20 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    '192.168.0.100',
-    '192.168.0.122',
-    '172.16.40.247',
-    '47.99.121.101',
     'www.xaqsh.cn',
+    'www.xaqsh.com.cn',
     'www.xaqsh.com',
+    'www.xaqshsp.com',
+    'www.xaqinshihuang.com',
     'www.xianqinshihuang.com',
     'www.chinslicking.com',
+    'xaqsh.cn',
+    'xaqsh.com.cn',
+    'xaqsh.com',
+    'xaqshsp.com',
+    'xaqinshihuang.com',
+    'xianqinshihuang.com',
+    'chinslicking.com',
 ]
 
 # Application definition

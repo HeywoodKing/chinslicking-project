@@ -722,7 +722,7 @@ iframe {
 
 .faq-area-2 .list-last-box {
     padding: 25px;
-    border-bottom: 1px solid #fbdf50;
+    border-bottom: 10px solid #fbdf50;
 }
 .faq-area-2 .list-last-box:last-child {
     padding: 25px;
