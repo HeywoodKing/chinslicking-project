@@ -167,7 +167,7 @@ USE_TZ = True
 
 LANGUAGES = (
     ('zh-hans', _('中文')),
-    ('en', _('English')),
+    ('en', _('英文')),
     # ('zh-hant', _('中文繁體')),
 )
 

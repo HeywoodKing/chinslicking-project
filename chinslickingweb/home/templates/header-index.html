@@ -1827,6 +1827,22 @@
                         </select>
                     </form>
                 </div>{% endcomment %}
+                <form action="/i18n/setlang/" method="post" id="change_language_form" class="language-form">
+                    {% csrf_token %}
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_current_language_bidi as LANGUAGE_BIDI %}
+                    <div style="display: inline-block;">
+                        {% for lang in LANGUAGES %}
+                            <label style="cursor: pointer; color: #000; font-weight: normal;margin-bottom: 0px">
+                                <input type="submit" style="width: 0;height: 0;background-color: transparent;border: 0;"
+                                       name="language" value="{{ lang.0|lower }}"
+                                    {% ifequal lang.0 LANGUAGE_CODE %}  checked {% endifequal %}>
+                                {{ lang.1|upper }}
+                            </label>{% if forloop.counter == 1 %}&nbsp;&nbsp;/{% else %}{% endif %}
+                        {% endfor %}
+                    </div>
+                </form>
             </div>
         </div>
     </header>

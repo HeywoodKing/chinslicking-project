@@ -18,12 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\chinslickingweb\settings.py:161
-msgid "中文简体"
-msgstr "zh-Hans"
+msgid "中文"
+msgstr "cn"
 
 #: .\chinslickingweb\settings.py:162
-msgid "English"
-msgstr "English"
+msgid "英文"
+msgstr "en"
 
 #: .\chinslickingweb\settings.py:199
 msgid "秦食皇"
