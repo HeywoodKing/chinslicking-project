@@ -89,7 +89,7 @@ def process_upload(files, dir_type, dir_name):
     # if file_suffix not in allow_suffix:
     #     return {"error": 1, "message": "图片格式不正确"}
 
-    if not is_ext_allowed(dir_type, file_suffix):
+    if not is_ext_allowed(dir_type, str(file_suffix).lower()):
         return {'error': 1, 'message': u'error:类型不支持%s, 扩展名不支持%s' % (type, file_suffix)}
 
     relative_path = get_relative_file_path(dir_name)

@@ -965,11 +965,18 @@ function _mediaImg(blankPath, zdy, attrs) {
 		} else if (height > 0) {
 			style += 'height:' + height + 'px;';
 		}
-		var html = '<img class="' + _mediaClass(type) + '" src="' + blankPath + '" ';
-		if (style !== '') {
-			html += 'style="' + style + '" ';
-		}
-		html += 'data-ke-tag="' + escape(srcTag) + '" alt="" />';
+
+		if (attrs.src.indexOf('.mp4') != -1 || attrs.src.indexOf('.MP4') != -1){
+            var html = '<video controls="" width="+width+" height="+height+" class="' + _mediaClass(type) + '" ';
+            html += '><source src="' + attrs.src + '" data-ke-src="'+attrs.src+'" >'
+            html += '</video>';
+        }else{
+            var html = '<img class="' + _mediaClass(type) + '" src="' + blankPath + '" ';
+            if (style !== '') {
+                html += 'style="' + style + '" ';
+            }
+            html += 'data-ke-tag="' + escape(srcTag) + '" alt="" />';
+        }
 	}
 	return html;
 }
