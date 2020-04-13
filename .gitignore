@@ -103,5 +103,8 @@ venv.bak/
 # mkdocs documentation
 /site
 
-# mypy
-.mypy_cache/
+# chfweb
+.chfweb_cache/
+
+local.py
+dev.py
