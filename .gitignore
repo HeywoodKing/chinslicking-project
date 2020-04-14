@@ -108,3 +108,6 @@ venv.bak/
 
 local.py
 dev.py
+
+upload
+upload/*
