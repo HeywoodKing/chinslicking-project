@@ -86,8 +86,8 @@ celerybeat-schedule
 .venv
 env/
 venv/
-chfweb_venv/
-chfweb_env/
+chinslicking_venv/
+chinslicking_env/
 ENV/
 env.bak/
 venv.bak/
@@ -103,8 +103,8 @@ venv.bak/
 # mkdocs documentation
 /site
 
-# chfweb
-.chfweb_cache/
+# chinslicking
+.chinslicking_cache/
 
 local.py
 dev.py

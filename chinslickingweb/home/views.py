@@ -441,40 +441,40 @@ def partner(req):
     return render(req, 'partner.html', locals())
 
 
-# 社会责任 和 新闻资讯合并为一个菜单了
-def resp_list(req):
-    index = 4
+# # 社会责任 和 新闻资讯合并为一个菜单了
+# def resp_list(req):
+#     index = 4
+#
+#     resp_lists = models.ChinNews.objects.filter(type=1, is_enable=True)
+#     paginator = Paginator(resp_lists, 10, 2)
+#     page = req.GET.get('page')
+#     try:
+#         resp_list = paginator.page(page)
+#     except PageNotAnInteger:
+#         resp_list = paginator.page(1)
+#     except EmptyPage:
+#         resp_list = paginator.page(paginator.num_pages)
+#
+#     resp_lasted = models.ChinNews.objects.filter(type=1)[:10]
+#
+#     return render(req, 'duty_list.html', locals())
 
-    resp_lists = models.ChinNews.objects.filter(type=1, is_enable=True)
-    paginator = Paginator(resp_lists, 10, 2)
-    page = req.GET.get('page')
-    try:
-        resp_list = paginator.page(page)
-    except PageNotAnInteger:
-        resp_list = paginator.page(1)
-    except EmptyPage:
-        resp_list = paginator.page(paginator.num_pages)
 
-    resp_lasted = models.ChinNews.objects.filter(type=1)[:10]
-
-    return render(req, 'duty_list.html', locals())
-
-
-# 社会责任详情
-def resp_detail(req, id):
-    index = 4
-    try:
-        if id:
-            resp = models.ChinNews.objects.get(id=id)
-
-            resp.read_count += 1
-            resp.save()
-    except Exception as e:
-        logger.error(e)
-
-    resp_lasted = models.ChinNews.objects.filter(type=1)[:10]
-
-    return render(req, 'duty_detail.html', locals())
+# # 社会责任详情
+# def resp_detail(req, id):
+#     index = 4
+#     try:
+#         if id:
+#             resp = models.ChinNews.objects.get(id=id)
+#
+#             resp.read_count += 1
+#             resp.save()
+#     except Exception as e:
+#         logger.error(e)
+#
+#     resp_lasted = models.ChinNews.objects.filter(type=1)[:10]
+#
+#     return render(req, 'duty_detail.html', locals())
 
 
 # 新闻资讯
@@ -507,6 +507,9 @@ def news_list(req):
         news_list = paginator.page(paginator.num_pages)
         # logger.error('空页')
 
+    if req.path.split('/')[1] == 'en':
+        resp_list = [item for item in resp_list if item.en_title]
+        news_list = [item for item in news_list if item.en_title]
     # news_lasted = models.ChinNews.objects.filter(type=0)[:10]
 
     return render(req, 'news_list.html', locals())

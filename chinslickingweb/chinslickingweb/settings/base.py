@@ -120,7 +120,7 @@ USE_TZ = True
 
 LANGUAGES = (
     ('zh-hans', _('中文')),
-    ('en', _('英文')),
+    ('en', _('EN')),
     # ('zh-hant', _('中文繁體')),
 )
 
@@ -333,7 +333,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads').replace('\\', '/')  # 设置静�
 #
 #
 # # JET_INDEX_DASHBOARD = 'jet.dashboard.dashboard.DefaultIndexDashboard'
-# JET_INDEX_DASHBOARD = 'chfweb.dashboard.CustomIndexDashboard'
+# JET_INDEX_DASHBOARD = 'chinslicking.dashboard.CustomIndexDashboard'
 # # JET_APP_INDEX_DASHBOARD = 'jet.dashboard.dashboard.DefaultAppIndexDashboard'
 #
 # # JET_MODULE_GOOGLE_ANALYTICS_CLIENT_SECRETS_FILE = os.path.join(PROJECT_DIR, 'client_secrets.json')
