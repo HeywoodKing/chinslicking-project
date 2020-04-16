@@ -522,12 +522,19 @@ def news_detail(req, id):
         if id:
             news = models.ChinNews.objects.get(id=id)
 
-            news.read_count += 1
-            news.save()
+            if req.path.split('/')[1] == 'en':
+                if news.en_title is not None:
+                    news.read_count += 1
+                    news.save()
+            else:
+                news.read_count += 1
+                news.save()
     except Exception as e:
         logger.error(e)
 
     news_lasted = models.ChinNews.objects.all()[:10]
+    if req.path.split('/')[1] == 'en':
+        news_lasted = [item for item in news_lasted if item.en_title]
 
     return render(req, 'news_detail.html', locals())
 
@@ -537,5 +544,7 @@ def job_list(req):
     index = 5
 
     job_list = models.ChinJobRecruit.objects.filter(is_enable=True)
+    if req.path.split('/')[1] == 'en':
+        job_list = [item for item in job_list if item.en_job_name]
 
     return render(req, 'job_list.html', locals())
