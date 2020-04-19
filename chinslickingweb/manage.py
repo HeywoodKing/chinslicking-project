@@ -5,7 +5,11 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chinslickingweb.settings')
+    # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chinslickingweb.settings')
+    env = os.environ.get('DJANGO_SETTINGS_PROFILE', 'dev')
+    # os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chinslickingweb.settings.%s' % env)
+    os.environ['DJANGO_SETTINGS_MODULE'] = 'chinslickingweb.settings.%s' % env
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

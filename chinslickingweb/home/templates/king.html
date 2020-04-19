@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% load staticfiles %}
+{% load static %}
 {% load i18n %}
 
 {% block header %}
@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="row">
-            {% if LANGUAGE_CODE =='en' %}
+            {% if LANGUAGE_CODE == 'en' %}
                 <div class="col-md-12 bg6">
                     <div style="padding-top: 0;">
                         <div class="single-faq">

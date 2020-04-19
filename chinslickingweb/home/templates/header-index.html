@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 {% load i18n %}
 
 <!DOCTYPE html>
@@ -665,7 +665,7 @@
             }
 
             {# small screen #}
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 991px) {
                 .cloud-01 {
                     position: absolute;
                     top: 10%;
@@ -1665,7 +1665,7 @@
 
                 <div style="margin-right: -15px; margin-left: -15px;">
                     {% csrf_token %}
-                    <img id="bg_top" src="{% static 'images/index_top_bg3.jpg' %}">
+                    <img id="bg_top" src="{% static 'images/index_top_bg3.jpg' %}" alt="" style="width: 100%;">
 
                     <div class="logo-top">
                         <img src="{% static 'images/logo_nav.png' %}">
@@ -1758,30 +1758,30 @@
     <header>
         <div class="container">
             <div class="row" style="display: flex; vertical-align: middle; justify-items: center; align-items: center;">
-                <div class="col-6 col-sm-2 logo-column">
+                <div class="col-6 col-sm-3 logo-column">
                     <a href="/index" class="logo">
-                        <img src="{% static 'images/logo_nav.png' %}" alt="logo">
+                        <img src="{% static 'images/logo_nav.png' %}" alt="logo" style="height: 67px;">
                     </a>
                 </div>
-                <div class="col-6 col-sm-9 nav-column clearfix">
+                <div class="col-6 col-sm-8 nav-column clearfix">
                     <nav id="menu" class="d-none d-lg-block">
                         <ul>
                             {% if LANGUAGE_CODE == 'en' %}
                                 {% for item in nav_list %}
                                     {% if item.children.all %}
                                         <li class="has-child">
-                                            <a href="{{ item.url }}/banner/{{ item.code }}">{{ item.en_name }}</a>
+                                            <a href="{{ item.url }}?banner={{ item.code }}">{{ item.en_name }}</a>
                                             <ul class="sub-menu">
                                                 {% for child in item.children.all %}
                                                     <li>
-                                                        <a href="{{ child.url }}/banner/{{ item.code }}">{{ child.en_name }}</a>
+                                                        <a href="{{ child.url }}?banner={{ item.code }}">{{ child.en_name }}</a>
                                                     </li>
                                                 {% endfor %}
                                             </ul>
                                         </li>
                                     {% else %}
                                         {% if item.is_root %}
-                                            <li><a href="{{ item.url }}/banner/{{ item.code }}">{{ item.en_name }}</a>
+                                            <li><a href="{{ item.url }}?banner={{ item.code }}">{{ item.en_name }}</a>
                                             </li>
                                         {% endif %}
                                     {% endif %}
@@ -1790,18 +1790,18 @@
                                 {% for item in nav_list %}
                                     {% if item.children.all %}
                                         <li class="has-child">
-                                            <a href="{{ item.url }}/banner/{{ item.code }}">{{ item.name }}</a>
+                                            <a href="{{ item.url }}?banner={{ item.code }}">{{ item.name }}</a>
                                             <ul class="sub-menu">
                                                 {% for child in item.children.all %}
                                                     <li>
-                                                        <a href="{{ child.url }}/banner/{{ item.code }}">{{ child.name }}</a>
+                                                        <a href="{{ child.url }}?banner={{ item.code }}">{{ child.name }}</a>
                                                     </li>
                                                 {% endfor %}
                                             </ul>
                                         </li>
                                     {% else %}
                                         {% if item.is_root %}
-                                            <li><a href="{{ item.url }}/banner/{{ item.code }}">{{ item.name }}</a></li>
+                                            <li><a href="{{ item.url }}?banner={{ item.code }}">{{ item.name }}</a></li>
                                         {% endif %}
                                     {% endif %}
                                 {% endfor %}
@@ -1809,31 +1809,40 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-6 col-sm-1 nav-column clearfix">
-                    <div class="">
-                        <form action="/i18n/setlang/" method="post" id="change_language_form" class="language-form">
-                            {% csrf_token %}
-                            {% get_current_language as LANGUAGE_CODE %}
-                            {% get_available_languages as LANGUAGES %}
-                            {% get_current_language_bidi as LANGUAGE_BIDI %}
-                            <select class="change_language selectpicker" name="language" id="language" title="选择语言">
-                                <!--<option value="{{LANGUAGE_CODE}}">{{LANGUAGE_CODE}}</option>-->
-                                {% for lang in LANGUAGES %}
-                                    <!--{% ifequal lang.0 current_language %} selected {% endifequal %}-->
-                                    <option value="{{ lang.0|lower }}" {% ifequal lang.0 LANGUAGE_CODE %}
-                                            selected {% endifequal %}>
-                                        {{ lang.1|lower }}
-                                    </option>
-                                {% endfor %}
-                            </select>
-                        </form>
-                        <!--<div class="header-social">
-                            <a href="#" class="fa fa-facebook"></a>
-                            <a href="#" class="fa fa-twitter"></a>
-                            <a href="#" class="fa fa-github"></a>
-                        </div>-->
+                {% comment %}<div class="col-6 col-sm-1 nav-column clearfix">
+                    <form action="/i18n/setlang/" method="post" id="change_language_form" class="language-form">
+                        {% csrf_token %}
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_current_language_bidi as LANGUAGE_BIDI %}
+                        <select class="change_language selectpicker" name="language" id="language" title="选择语言">
+                            <!--<option value="{{LANGUAGE_CODE}}">{{LANGUAGE_CODE}}</option>-->
+                            {% for lang in LANGUAGES %}
+                                <!--{% ifequal lang.0 current_language %} selected {% endifequal %}-->
+                                <option value="{{ lang.0|lower }}" {% ifequal lang.0 LANGUAGE_CODE %}
+                                        selected {% endifequal %}>
+                                    {{ lang.1|lower }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                </div>{% endcomment %}
+                <form action="/i18n/setlang/" method="post" id="change_language_form" class="language-form">
+                    {% csrf_token %}
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_current_language_bidi as LANGUAGE_BIDI %}
+                    <div style="display: inline-block;">
+                        {% for lang in LANGUAGES %}
+                            <label style="cursor: pointer; color: #000; font-weight: normal;margin-bottom: 0px">
+                                <input type="submit" style="width: 0;height: 0;background-color: transparent;border: 0;"
+                                       name="language" value="{{ lang.0|lower }}"
+                                    {% ifequal lang.0 LANGUAGE_CODE %}  checked {% endifequal %}>
+                                {{ lang.1|upper }}
+                            </label>{% if forloop.counter == 1 %}&nbsp;&nbsp;/{% else %}{% endif %}
+                        {% endfor %}
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </header>

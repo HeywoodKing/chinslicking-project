@@ -519,3 +519,14 @@ class ChinQuestionAdmin(admin.ModelAdmin):
             '/static/plugins/kindeditor-4.1.10/lang/zh_CN.js',
             '/static/plugins/kindeditor-4.1.10/config.js',
         )
+
+
+@admin.register(models.ChinKeywords)
+class ChinKeywordsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'profile_keyword', 'profile_descr', 'is_enable', 'sort', 'operate_time')
+    list_display_links = ('id', 'title', 'profile_keyword', 'profile_descr',)
+    # list_editable = ('type', 'state',)
+    list_filter = (IsEnableFilter, )
+    list_per_page = 30
+    search_fields = ('title', 'keyword', 'descr')
+    exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)

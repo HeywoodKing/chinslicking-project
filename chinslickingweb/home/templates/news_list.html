@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% load staticfiles %}
+{% load static %}
 {% load my_filter_tag %}
 {% load i18n %}
 
@@ -86,7 +86,7 @@
                                 <div class="col-md-8">
                                     <div class="about-content" style="margin-top:0;">
                                         <h3 style="margin: 5px 0;"><a
-                                                href="/news_detail/{{ item.id }}/banner/{{ banner }}">{{ item.en_title|truncate_point:'64' }}</a>
+                                                href="/news_detail/{{ item.id }}?banner={{ banner }}">{{ item.en_title|truncate_point:'64' }}</a>
                                         </h3>
                                         <div>{{ item.en_brief|truncate_point:'180' }}</div>
                                     </div>
@@ -102,7 +102,7 @@
                             {% for item in resp_lasted %}
                                 <div class="product-commend about-img">
                                     <a href="/news_detail/{{ item.id }}">
-                                        <img src="/uploads/{{ item.cover_image_url }}/banner/{{ banner }}"
+                                        <img src="/uploads/{{ item.cover_image_url }}?banner={{ banner }}"
                                              alt="{{ item.en_title }}" title="{{ item.en_title }}">
                                     </a>
                                     <div class="product-commend-title">{{ item.en_title|truncate_point:'12' }}</div>
@@ -116,14 +116,14 @@
                             <div class="row bg2" style="padding: 25px 10px;margin-bottom: 10px;">
                                 <div class="col-md-4">
                                     <div class="about-img">
-                                        <a href="/news_detail/{{ item.id }}/banner/{{ banner }}"><img
+                                        <a href="/news_detail/{{ item.id }}?banner={{ banner }}"><img
                                                 src="/uploads/{{ item.cover_image_url }}" alt="{{ item.title }}"></a>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="about-content" style="margin-top:0;">
                                         <h3 style="margin: 5px 0;"><a
-                                                href="/news_detail/{{ item.id }}/banner/{{ banner }}">{{ item.title|truncate_point:'64' }}</a>
+                                                href="/news_detail/{{ item.id }}?banner={{ banner }}">{{ item.title|truncate_point:'64' }}</a>
                                         </h3>
                                         <div>{{ item.brief|truncate_point:'180' }}</div>
                                     </div>
@@ -139,7 +139,7 @@
                             {% for item in resp_lasted %}
                                 <div class="product-commend about-img">
                                     <a href="/news_detail/{{ item.id }}">
-                                        <img src="/uploads/{{ item.cover_image_url }}/banner/{{ banner }}"
+                                        <img src="/uploads/{{ item.cover_image_url }}?banner={{ banner }}"
                                              alt="{{ item.title }}" title="{{ item.title }}">
                                     </a>
                                     <div class="product-commend-title">{{ item.title|truncate_point:'12' }}</div>
@@ -173,14 +173,14 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="about-img">
-                                        <a href="/news_detail/{{ item.id }}/banner/{{ banner }}"><img
+                                        <a href="/news_detail/{{ item.id }}?banner={{ banner }}"><img
                                                 src="/uploads/{{ item.cover_image_url }}" alt="{{ item.en_title }}"></a>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="about-content" style="margin-top:0;">
                                         <h3 style="margin: 5px 0;">
-                                            <a href="/news_detail/{{ item.id }}/banner/{{ banner }}">{{ item.en_title|truncate_point:'64' }}</a>
+                                            <a href="/news_detail/{{ item.id }}?banner={{ banner }}">{{ item.en_title|truncate_point:'64' }}</a>
                                         </h3>
                                         <div>{{ item.en_brief|truncate_point:'300' }}</div>
                                     </div>
@@ -194,7 +194,7 @@
                                     <div class="about-content" style="text-align: center;">
                                         <a class="btn btn-default"
                                            style="width: 120px; background-color: #fbdf50; color: #fff;"
-                                           href="/news_detail/{{ item.id }}/banner/{{ banner }}">{% trans "更多" %}>></a>
+                                           href="/news_detail/{{ item.id }}?banner={{ banner }}">{% trans "更多" %}>></a>
                                     </div>
                                 </div>
                             </div>
@@ -206,14 +206,14 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="about-img">
-                                        <a href="/news_detail/{{ item.id }}/banner/{{ banner }}"><img
+                                        <a href="/news_detail/{{ item.id }}?banner={{ banner }}"><img
                                                 src="/uploads/{{ item.cover_image_url }}" alt="{{ item.title }}"></a>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="about-content" style="margin-top:0;">
                                         <h3 style="margin: 5px 0;"><a
-                                                href="/news_detail/{{ item.id }}/banner/{{ banner }}">{{ item.title|truncate_point:'64' }}</a>
+                                                href="/news_detail/{{ item.id }}?banner={{ banner }}">{{ item.title|truncate_point:'64' }}</a>
                                         </h3>
                                         <div>{{ item.brief|truncate_point:'300' }}</div>
                                     </div>
@@ -227,7 +227,7 @@
                                     <div class="about-content" style="text-align: center;">
                                         <a class="btn btn-default"
                                            style="width: 120px; background-color: #fbdf50; color: #fff;"
-                                           href="/news_detail/{{ item.id }}/banner/{{ banner }}">{% trans "更多" %}>></a>
+                                           href="/news_detail/{{ item.id }}?banner={{ banner }}">{% trans "更多" %}>></a>
                                     </div>
                                 </div>
                             </div>

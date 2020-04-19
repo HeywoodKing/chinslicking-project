@@ -730,14 +730,17 @@ class ChinNews(BaseModel):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.title
+        if self.title:
+            return self.title
+        else:
+            return '-'
 
     # def get_absolute_url(self):
     #     return reverse('news', args=(self.slug, ))
 
-    def get_absolute_url(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super(ChinNews, self).get_absolute_url(*args, **kwargs)
+    # def get_absolute_url(self, *args, **kwargs):
+    #     self.slug = slugify(self.title)
+    #     super(ChinNews, self).get_absolute_url(*args, **kwargs)
 
     def profile(self):
         if len(str(self.content)) > 20:
@@ -1007,3 +1010,38 @@ class ChinQuestion(BaseModel):
 
     profile_remark.allow_tags = True
     profile_remark.short_description = _('备注')
+
+
+class ChinKeywords(BaseModel):
+    title = models.CharField(_('标题'), max_length=80, default='', null=True, blank=True)
+    keyword = models.TextField(_('关键字'), default='', null=True, blank=True)
+    descr = models.CharField(_('描述'), max_length=256, default='', null=True, blank=True)
+    is_enable = models.BooleanField(_('是否启用'), default=True)
+    sort = models.IntegerField(_('排序'), default=1)
+
+    class Meta:
+        db_table = "chin_keywords"
+        ordering = ['-create_time']
+        verbose_name = _('关键字管理')
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return str(self.title)
+
+    def profile_keyword(self):
+        if len(str(self.keyword)) > 30:
+            return '{}...'.format(str(self.keyword)[0:30])
+        else:
+            return str(self.keyword)
+
+    profile_keyword.allow_tags = True
+    profile_keyword.short_description = _('关键字')
+
+    def profile_descr(self):
+        if len(str(self.descr)) > 30:
+            return '{}...'.format(str(self.descr)[0:30])
+        else:
+            return str(self.descr)
+
+    profile_descr.allow_tags = True
+    profile_descr.short_description = _('描述')

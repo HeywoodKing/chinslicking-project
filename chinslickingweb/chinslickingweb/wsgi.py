@@ -11,6 +11,9 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chinslickingweb.settings')
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chinslickingweb.settings')
+env = os.environ.get('DJANGO_SETTINGS_PROFILE', 'pro')
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chinslickingweb.settings.%s' % env)
+os.environ['DJANGO_SETTINGS_MODULE'] = 'chinslickingweb.settings.%s' % env
 
 application = get_wsgi_application()

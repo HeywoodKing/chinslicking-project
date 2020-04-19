@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% load staticfiles %}
+{% load static %}
 {% load i18n %}
 
 {% block header %}
@@ -140,7 +140,7 @@
                         <h4>{% trans "邮箱" %}</h4>
                     </div>
                     <div class="content">
-                        <h3 style="color: #fff;">Johndarphy@xachf.com</h3>
+                        <h3 style="color: #fff;">info@xachf.com</h3>
                     </div>
                 </div>
             </div>
@@ -178,7 +178,7 @@
                 <div>{% trans "<b>唐延南路傅村东路口（中兴通讯）站</b>  乘坐324路、411路、6路、902路、高新1号线、高新2号线可达，公交车站东侧步行100米即到" %}</div>
                 <div>{% trans "<b>高家堡站</b>  乘坐150路、173路、204路、220路、260路、311路、313路、322路、333路、4-18路、902路、916路、922路可达，公交车站西侧步行150米即到" %}</div>
                 <div>{% trans "自驾车" %}：</div>
-                <div>{% trans "导航至“秦食皇品牌展示中心”或“逸翠园i都会-停车场”，步行50米即到" %}</div>
+                <div>{% trans "导航至“秦食皇品牌展示中心”或“逸翠园i都会-停车场”，步行即到" %}</div>
             </div>
         </div>
         <div class="row">
@@ -213,7 +213,7 @@
             }
 
             var map = new AMap.Map('map-container', {
-                zoom: 17,
+                zoom: 4,
                 zooms: [4, 25], //设置地图级别范围
                 // center: [116.397428, 39.90923]
                 center: [108.88516,34.184359],

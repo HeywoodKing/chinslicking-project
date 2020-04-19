@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: .\chinslickingweb\settings.py:163
-msgid "中文简体"
+msgid "中文"
 msgstr ""
 
 #: .\chinslickingweb\settings.py:164
-msgid "English"
+msgid "英文"
 msgstr ""
 
 #: .\dashboard.py:24
@@ -199,14 +199,6 @@ msgstr ""
 
 #: .\home\templates\footer.html:53
 msgid "西安秦食皇食品有限公司版权所有"
-msgstr ""
-
-#: .\home\templates\footer.html:79
-msgid "中文"
-msgstr ""
-
-#: .\home\templates\footer.html:82
-msgid "英文"
 msgstr ""
 
 #: .\home\templates\footer.html:86
