@@ -31,7 +31,7 @@ HOST = os.environ.get('MYSQL_HOST', '127.0.0.1')
 PORT = os.environ.get('MYSQL_PORT', '3306')
 USER = os.environ.get('MYSQL_USER', None)
 PASS = os.environ.get('MYSQL_PASS', None)
-NAME = os.environ.get('MYSQL_DB', 'mysql')
+NAME = os.environ.get('MYSQL_DB', 'king')
 
 DATABASES = {
     'default': {
