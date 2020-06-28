@@ -172,12 +172,6 @@ def king(req):
     return render(req, 'king.html', locals())
 
 
-# 联系我们 为您服务
-def contact(req):
-    index = 6
-    return render(req, 'contact.html', locals())
-
-
 def layer_coupon_form(req):
     return render(req, 'layer_coupon_form.html')
 
@@ -550,6 +544,12 @@ def job_list(req):
     return render(req, 'job_list.html', locals())
 
 
+# 联系我们 为您服务
+def contact(req):
+    index = 6
+    return render(req, 'contact.html', locals())
+
+
 # 大赛报名
 def compet_enroll(req):
     index = 7
@@ -567,7 +567,7 @@ def compet_enroll(req):
 
 # 公益大赛
 def compet_list(req, id):
-    index = 6
+    index = 7
     try:
         if id:
             compet = models.ChinCompet.objects.get(id=id)

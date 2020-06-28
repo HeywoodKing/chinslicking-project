@@ -7,41 +7,6 @@
 {% include "header.html" with title="公益大赛" %}
 {% block style_tag %}
 <style>
-    .full-video {
-        z-index: 9999;
-        position: fixed;
-        top: 0;
-        left: 0;
-        min-width: 100%;
-        min-height: 100%;
-        object-fit: fill;
-        width: auto;
-        height: auto;
-        /*-ms-transform: translateX(-50%) translateY(-50%);
-        -webkit-transform: translateX(-50%) translateY(-50%);
-        transform: translateX(-50%) translateY(-50%);
-        background: url(../images/cover.jpg) no-repeat;*/
-        -webkit-background-size: cover;
-        background-size: cover;
-    }
-
-    .full-video-close {
-        position: absolute;
-        top: 10px;
-        right: 20px;
-        width: 26px;
-        height: 26px;
-        cursor: pointer;
-        background-color: #fbdf50;
-        background-image: url({% static 'images/close.png' %});
-        background-size: cover;
-        background-position: center left;
-        z-index: 10000;
-    }
-
-    .full-video-close:hover {
-        background-position: -54px 0;
-    }
 </style>
 {% endblock %}
 {% endblock %}
@@ -70,15 +35,8 @@
 {% endcomment %}
 
 {% block content %}
-    <div class="video-box full-video hidden animated">
-        <div class="full-video-close"></div>
-        <video id="video" class="full-video" type="video/mp4" loop preload="auto" controls x5-video-player-type="h5"
-               x5-video-orientation="landscape" poster="/uploads/{{ item.cover_image_url }}">
-            <!--<source src="/uploads/{{ item.video_source }}">-->
-        </video>
-    </div>
     {% if compet %}
-        <div class="gallery-area bg6 sp">
+        <div class="gallery-area bg2 sp">
             <div class="container">
                 {% if LANGUAGE_CODE == 'en' %}
                     <div class="section-title" data-margin="0 0 40px">
@@ -137,7 +95,7 @@
         </div>
     </div>-->
 
-    <div class="faq-area-2 sp bg5">
+    <div class="faq-area-2 sp bg1">
         <div class="container">
             <div class="section-title">
                 <h2>{% trans "素食公益大赛视频" %}
@@ -151,10 +109,10 @@
                     <hr class="hr-2">
                 </div>
             </div>
-            <div class="row bg5 compet-video-list">
+            <div class="row bg2 compet-video-list">
                 {% if LANGUAGE_CODE == 'en' %}
                     {% for item in compet.data %}
-                        <div class="col-md-12 list-last-box" style="background-color: #fee97c; border-bottom: 10px solid #fbdf50;">
+                        <div class="col-md-12 list-last-box" style="border-bottom: 10px solid #fbdf50;">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="about-img">
@@ -181,7 +139,7 @@
                     {% endfor %}
                 {% else %}
                     {% for item in compet.data %}
-                        <div class="col-md-12 list-last-box" style="background-color: #fee97c; border-bottom: 10px solid #fbdf50;">
+                        <div class="col-md-12 list-last-box" style="border-bottom: 10px solid #fbdf50;">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="about-img">
