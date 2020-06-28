@@ -554,7 +554,7 @@ def job_list(req):
 def compet_enroll(req):
     index = 7
     try:
-        compet = models.ChfEnrollCompet.objects.get(is_enable=True)
+        compet = models.ChinEnrollCompet.objects.get(is_enable=True)
         if compet:
             if req.path.split('/')[1] == 'en':
                 if compet.en_title is None:
@@ -570,7 +570,7 @@ def compet_list(req, id):
     index = 6
     try:
         if id:
-            compet = models.ChfCompet.objects.get(id=id)
+            compet = models.ChinCompet.objects.get(id=id)
             if compet:
                 if req.path.split('/')[1] == 'en':
                     if compet.en_title is None:
@@ -579,8 +579,8 @@ def compet_list(req, id):
             compet = None
 
         if compet:
-            # compet.data = models.ChfCompetVideo.objects.filter(compet__id=compet.id)
-            compet.data = models.ChfCompetVideo.objects.filter(compet=compet.id)
+            # compet.data = models.ChinCompetVideo.objects.filter(compet__id=compet.id)
+            compet.data = models.ChinCompetVideo.objects.filter(compet=compet.id)
 
     except Exception as e:
         logger.error(e)
