@@ -52,7 +52,7 @@
                             {% if LANGUAGE_CODE == 'en' %}
                                 {% for item in nav_list %}
                                     {% if item.children.all %}
-                                        <li class="has-child">
+                                        <li class="has-child" data-flag="{{item.code}}">
                                             {% if item.url %}
                                                 <a href="{{ item.url }}?banner={{ item.code }}">{{ item.en_name }}</a>
                                             {% else %}
@@ -60,7 +60,7 @@
                                             {% endif %}
                                             <ul class="sub-menu">
                                                 {% for child in item.children.all %}
-                                                    <li>
+                                                    <li data-flag="{{child.code}}">
                                                         <a href="{{ child.url }}/{{ child.id }}?banner={{ item.code }}">{{ child.en_name }}</a>
                                                     </li>
                                                 {% endfor %}
@@ -68,7 +68,7 @@
                                         </li>
                                     {% else %}
                                         {% if item.is_root %}
-                                            <li>
+                                            <li data-flag="{{item.code}}">
                                                 {% if item.url %}
                                                     <a href="{{ item.url }}?banner={{ item.code }}">
                                                         {{ item.en_name }}
@@ -83,7 +83,7 @@
                             {% else %}
                                 {% for item in nav_list %}
                                     {% if item.children.all %}
-                                        <li class="has-child">
+                                        <li class="has-child" data-flag="{{item.code}}">
                                             {% if item.url %}
                                                 <a href="{{ item.url }}?banner={{ item.code }}">{{ item.name }}</a>
                                             {% else %}
@@ -91,7 +91,7 @@
                                             {% endif %}
                                             <ul class="sub-menu">
                                                 {% for child in item.children.all %}
-                                                    <li>
+                                                    <li data-flag="{{child.code}}">
                                                         <a href="{{ child.url }}/{{ child.id }}?banner={{ item.code }}">{{ child.name }}</a>
                                                     </li>
                                                 {% endfor %}
@@ -99,7 +99,7 @@
                                         </li>
                                     {% else %}
                                         {% if item.is_root %}
-                                            <li>
+                                            <li data-flag="{{item.code}}">
                                                 {% if item.url %}
                                                     <a href="{{ item.url }}?banner={{ item.code }}">
                                                         {{ item.name }}

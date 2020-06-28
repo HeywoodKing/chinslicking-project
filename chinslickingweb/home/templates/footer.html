@@ -285,7 +285,14 @@
 
 
         //头部菜单导航栏选中时候的显示样式
-        $('#menu').find('ul').find('li:eq({{index}})').addClass('current-menu-item');
+        //原来使用索引定位选中元素，改变背景颜色，这个有问题
+        //$('#menu').find('ul').find('li:eq({{index}})').addClass('current-menu-item');
+        // 现在要修改为根据标识定位选中元素，然后改变其背景颜色
+        $('#menu').find('ul li').each(function(e){
+            if ('{{index}}' == $(this).attr('data-flag')){
+                $(this).addClass('current-menu-item');
+            }
+        });
 
 
         /*页面右侧悬浮固定功能 start*/

@@ -192,9 +192,9 @@
                     if (scrollTop + clientHeight >= scrollHeight) { // 距离顶部高度+可视高度 >= 文档总高度 即代表滑动到底部
                         // alert('已经到底了！');
                         // 异步获取数据加载到页面
-                        <!--$.get('compet_video', function(result){
-                            $(".compet-video-list").html(result);
-                        }, 'json');-->
+                        //$.get('compet_video', function(result){
+                        //    $(".compet-video-list").html(result);
+                        //}, 'json');
                     } else if (scrollTop <= 0) {
                         // alert('已经到顶了！');
                     }
@@ -202,17 +202,17 @@
                 });
             });
 
-            <!--$('#content-zone').scroll(function(){
-                if (this.scrollTop+$(this).height()+4>this.scrollHeight){
-                    var  page = parseInt($('#page').val());
-                    var  page_num = parseInt($('#page_num').val());
-                    if(page<page_num){
-                        get_message(page+1);
-                    }
-                }
-            });
+            //$('#content-zone').scroll(function(){
+            //    if (this.scrollTop+$(this).height()+4>this.scrollHeight){
+            //      var  page = parseInt($('#page').val());
+            //        var  page_num = parseInt($('#page_num').val());
+            //        if(page<page_num){
+            //            get_message(page+1);
+            //        }
+            //    }
+            //});
 
-            //第二行的+4是padding和magin的距离-->
+            //第二行的+4是padding和magin的距离
         </script>
     {% endblock %}
 {% endblock %}
