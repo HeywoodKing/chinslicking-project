@@ -4,8 +4,6 @@
     }
 
     window.addEventListener('hashchange', function (e) {
-        // console.log(e)
-        // console.log('hash')
         if (e.newURL != e.oldURL) {
             openByHash()
         }
@@ -18,14 +16,17 @@
         for (var i = 0; i < app.menuData.length; i++) {
             var item = app.menuData[i]
             if ((item.url || '/') == hash) {
-                app.openTab(item, item.index)
+
+                app.openTab(item, item.eid, true, false);
                 break;
             }
         }
     }
 
     function changeUrl(data) {
-        location.href = '#' + (data.url || '/')
+        if (data.url && data.url.indexOf('http') != 0) {
+            location.hash = '#' + (data.url || '/')
+        }
     }
 
     window.callback = function () {
@@ -33,9 +34,9 @@
     }
 
     var fontConfig = new Vue({
-        el: '#dynamicCss',
+        // el: '#dynamicCss',
         data: {
-            fontSize: 14
+            fontSize: null
         },
         created: function () {
             var val = getCookie('fontSize');
@@ -43,6 +44,26 @@
                 this.fontSize = parseInt(val);
             } else {
                 this.fontSize = 0;
+            }
+        },
+        watch: {
+            fontSize: function (newValue) {
+                if (newValue != 0) {
+                    var fontStyle = document.getElementById('fontStyle');
+                    if (!fontStyle) {
+                        fontStyle = document.createElement('style');
+                        fontStyle.id = 'fontStyle';
+                        fontStyle.type = 'text/css';
+                        document.head.append(fontStyle);
+                    }
+                    fontStyle.innerHTML = '*{font-size:' + newValue + 'px!important;}'
+
+                } else {
+                    var fontStyle = document.getElementById('fontStyle');
+                    if (fontStyle) {
+                        fontStyle.remove();
+                    }
+                }
             }
         },
         methods: {}
@@ -71,9 +92,37 @@
         }
         return val
     }
+    window.simple_call = function (data) {
+
+        var o = __simpleui_version.replace(/\./g, '');
+        var n = data.data.name.replace(/\./g, '');
+        while(o.length!=3){
+            o += '0';
+        }
+        while(n.length!=3){
+            n += '0';
+        }
+        var oldVersion = parseInt(o)
+        var newVersion = parseInt(n)
+        var body = data.data.body;
+        if (oldVersion < newVersion) {
+            app.upgrade.isUpdate = true;
+            app.upgrade.body = body;
+            app.upgrade.version = data.data.name;
+
+        }
+    }
     new Vue({
         el: '#main',
         data: {
+            drawer: false,
+            mobile: false,
+            upgrade: {
+                isUpdate: false,
+                body: '',
+                version: '',
+                dialogVisible: false
+            },
             isResize: false,
             searchInput: '',
             height: 1000,
@@ -164,6 +213,13 @@
             menuData: []
         },
         watch: {
+            theme: function (newValue, oldValue) {
+                this.$nextTick(function () {
+                    if (window.renderCallback) {
+                        window.renderCallback(this);
+                    }
+                });
+            },
             fold: function (newValue, oldValue) {
                 // console.log(newValue)
             },
@@ -193,6 +249,7 @@
         },
         created: function () {
 
+            // this.watch.theme('');
 
             var val = getCookie('fold') == 'true';
             this.small = this.fold = val;
@@ -211,7 +268,8 @@
                         self.fold = width < 800;
                     })
                 }
-                self.isResize = true
+                self.isResize = true;
+                self.mobile = width < 800;
 
                 //判断全屏状态
                 try {
@@ -241,6 +299,7 @@
             this.theme = getCookie('theme');
             this.themeName = getCookie('theme_name');
 
+
             //接收子页面的事件注册
             window.themeEvents = [];
             window.fontEvents = [];
@@ -255,16 +314,20 @@
 
             if (temp_tabs && temp_tabs != '') {
                 this.tabs = JSON.parse(temp_tabs);
-                console.log(this.tabs)
             }
             if (location.hash != '') {
                 openByHash();
             }
 
             //elementui布局问题，导致页面不能正常撑开，调用resize使其重新计算
-            if(window.onresize){
+            if (window.onresize) {
                 window.onresize();
             }
+            this.$nextTick(function () {
+                if (window.renderCallback) {
+                    window.renderCallback(this);
+                }
+            });
         },
         methods: {
             syncTabs: function () {
@@ -346,8 +409,11 @@
             tabClick: function (tab) {
                 var item = this.tabs[tab.index];
                 var index = item.index;
-                this.menuActive = index;
+                this.menuActive = String(index);
                 this.breadcrumbs = item.breadcrumbs;
+                if (index == '1') {
+                    item.url = '/'
+                }
                 changeUrl(item);
             },
             handleTabsEdit: function (targetName, action) {
@@ -375,14 +441,36 @@
                 }
             }
             ,
-            openTab: function (data, index) {
+            openTab: function (data, index, selected, loading) {
+                if (data.breadcrumbs) {
+                    this.breadcrumbs = data.breadcrumbs;
+                }
+                //如果data没有eid，就直接打开或者添加，根据url
+                if (!data.eid) {
+                    data.eid = new Date().getTime() + "" + Math.random();
+                }
+
+                if (index) {
+                    this.menuActive = String(index);
+                }
+                if (selected) {
+                    //找到name，打开
+                    // console.log(data)
+                    for (var i = 0; i < this.tabs.length; i++) {
+                        if (this.tabs[i].url == data.url) {
+                            this.tabModel = this.tabs[i].id;
+                            break;
+                        }
+                    }
+                    return;
+                }
 
                 this.breadcrumbs = data.breadcrumbs;
                 var exists = null;
                 //判断是否存在，存在就直接打开
                 for (var i = 0; i < this.tabs.length; i++) {
                     var tab = this.tabs[i];
-                    if (tab.name == data.name) {
+                    if (tab.eid == data.eid) {
                         exists = tab;
                         continue;
                     }
@@ -392,11 +480,17 @@
                     this.tabModel = exists.id;
                 } else {
                     //其他的网址loading会一直转
-                    if (data.url.indexOf('http') != 0) {
-                        data.loading = true;
-                        this.loading = true;
+                    if (data.url && data.url.indexOf('http') != 0) {
+                        if (loading) {
+                            data.loading = true;
+                            this.loading = true;
+                        } else {
+                            data.loading = false;
+                            this.loading = false;
+                        }
                     }
-                    data.id = new Date().getTime() + "" + Math.random();
+                    // data.id = new Date().getTime() + "" + Math.random();
+                    data.id = data.eid;
                     data.index = index;
                     this.tabs.push(data);
                     this.tabModel = data.id;
@@ -407,6 +501,12 @@
             ,
             foldClick: function () {
 
+                //移动端浮动菜单
+                var width = document.documentElement.clientWidth || document.body.clientWidth;
+                if (width < 800) {
+                    this.drawer = !this.drawer;
+                    return;
+                }
                 this.menuTextShow = !this.menuTextShow;
                 this.$nextTick(() => {
                     this.fold = !this.fold;
@@ -447,6 +547,10 @@
                     cancelButtonText: language.no,
                     type: 'warning'
                 }).then(function () {
+                    //清除cookie主题设置和sessionStore数据
+                    delete sessionStorage['tabs'];
+                    setCookie('theme', '');
+                    setCookie('theme_name', '');
                     window.location.href = window.urls.logout;
                 }).catch(function () {
 
@@ -485,8 +589,11 @@
             displayTimeline: function () {
                 this.timeline = !this.timeline;
             },
-            report: function () {
-                window.open('https://github.com/newpanjing/simpleui/issues')
+            report: function (url) {
+                if (!url) {
+                    url = 'https://github.com/newpanjing/simpleui/issues';
+                }
+                window.open(url);
             }
         }
     })

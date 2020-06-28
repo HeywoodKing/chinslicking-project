@@ -530,3 +530,58 @@ class ChinKeywordsAdmin(admin.ModelAdmin):
     list_per_page = 30
     search_fields = ('title', 'keyword', 'descr')
     exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
+
+
+@admin.register(models.ChinCompet)
+class ChinCompetAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'en_title', 'profile', 'en_profile', 'is_enable', 'sort', 'operate_time')
+    list_display_links = ('id', 'title', 'en_title', 'profile', 'en_profile', )
+    list_filter = (IsEnableFilter, )
+    list_per_page = 30
+    search_fields = ('title', 'en_title', 'profile', 'en_profile', )
+    exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
+
+    class Media:
+        js = (
+            # '/static/plugins/kindeditor-4.1.10/kindeditor-all-min.js',
+            '/static/plugins/kindeditor-4.1.10/kindeditor.js',
+            '/static/plugins/kindeditor-4.1.10/lang/zh_CN.js',
+            '/static/plugins/kindeditor-4.1.10/config.js',
+        )
+
+
+@admin.register(models.ChinCompetVideo)
+class ChinCompetVideoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'compet', 'title', 'en_title', 'show_brief', 'en_show_brief', 'profile', 'en_profile',
+                    'cover_image_url', 'video_source', 'is_enable', 'sort', 'operate_time')
+    list_display_links = ('id', 'title', 'en_title', 'show_brief', 'en_show_brief', 'profile', 'en_profile', )
+    list_filter = (IsEnableFilter, )
+    list_per_page = 30
+    search_fields = ('title', 'en_title', 'show_brief', 'en_show_brief', 'profile', 'en_profile', )
+    exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
+
+    class Media:
+        js = (
+            # '/static/plugins/kindeditor-4.1.10/kindeditor-all-min.js',
+            '/static/plugins/kindeditor-4.1.10/kindeditor.js',
+            '/static/plugins/kindeditor-4.1.10/lang/zh_CN.js',
+            '/static/plugins/kindeditor-4.1.10/config.js',
+        )
+
+
+@admin.register(models.ChinEnrollCompet)
+class ChinEnrollCompetAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'en_title', 'profile', 'en_profile', 'is_enable', 'operate_time')
+    list_display_links = ('id', 'title', 'en_title', 'profile', 'en_profile',)
+    list_filter = (IsEnableFilter,)
+    list_per_page = 30
+    search_fields = ('title', 'en_title', 'profile', 'en_profile',)
+    exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
+
+    class Media:
+        js = (
+            # '/static/plugins/kindeditor-4.1.10/kindeditor-all-min.js',
+            '/static/plugins/kindeditor-4.1.10/kindeditor.js',
+            '/static/plugins/kindeditor-4.1.10/lang/zh_CN.js',
+            '/static/plugins/kindeditor-4.1.10/config.js',
+        )

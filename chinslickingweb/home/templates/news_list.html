@@ -58,6 +58,94 @@
 {% endblock %}{% endcomment %}
 
 {% block content %}
+    <div class="faq-area-2 sp bg2">
+        <div class="container">
+            <div class="section-title">
+                <h2>{% trans "新闻资讯" %}
+                </h2>
+                <div class="section-title-bg">
+                    <div class="section-title-bg-box" style=""></div>
+                </div>
+                <div class="sub-title">
+                    <hr class="hr-2">
+                    <span style="color: #000;">NEWS</span>
+                    <hr class="hr-2">
+                </div>
+            </div>
+            <div class="row bg1">
+                {% if LANGUAGE_CODE == 'en' %}
+                    {% for item in news_list %}
+                        <div class="col-md-12 list-last-box">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="about-img">
+                                        <a href="/news_detail/{{ item.id }}?banner={{ banner }}"><img
+                                                src="/uploads/{{ item.cover_image_url }}" alt="{{ item.en_title }}"></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="about-content" style="margin-top:0;">
+                                        <h3 style="margin: 5px 0;">
+                                            <a href="/news_detail/{{ item.id }}?banner={{ banner }}">{{ item.en_title|truncate_point:'64' }}</a>
+                                        </h3>
+                                        <div>{{ item.en_brief|truncate_point:'300' }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="about-content" style="margin-top:0; text-align: center;">
+                                        <h2 style="margin: 5px 0; font-size:35px; color: #fbdf51;">{{ item.read_count }}</h2>
+                                        <!--<div>{{item.create_time|date:'Y年m月d日 f'}}</div>-->
+                                        <div>{{ item.create_time|date:'Y年m月d日 H:i:s' }}</div>
+                                    </div>
+                                    <div class="about-content" style="text-align: center;">
+                                        <a class="btn btn-default"
+                                           style="width: 120px; background-color: #fbdf50; color: #fff;"
+                                           href="/news_detail/{{ item.id }}?banner={{ banner }}">{% trans "更多" %}>></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for item in news_list %}
+                        <div class="col-md-12 list-last-box">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="about-img">
+                                        <a href="/news_detail/{{ item.id }}?banner={{ banner }}"><img
+                                                src="/uploads/{{ item.cover_image_url }}" alt="{{ item.title }}"></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="about-content" style="margin-top:0;">
+                                        <h3 style="margin: 5px 0;"><a
+                                                href="/news_detail/{{ item.id }}?banner={{ banner }}">{{ item.title|truncate_point:'64' }}</a>
+                                        </h3>
+                                        <div>{{ item.brief|truncate_point:'300' }}</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="about-content" style="margin-top:0; text-align: center;">
+                                        <h2 style="margin: 5px 0; font-size:35px; color: #fbdf51;">{{ item.read_count }}</h2>
+                                        <!--<div>{{item.create_time|date:'Y年m月d日 f'}}</div>-->
+                                        <div>{{ item.create_time|date:'Y年m月d日 H:i:s' }}</div>
+                                    </div>
+                                    <div class="about-content" style="text-align: center;">
+                                        <a class="btn btn-default"
+                                           style="width: 120px; background-color: #fbdf50; color: #fff;"
+                                           href="/news_detail/{{ item.id }}?banner={{ banner }}">{% trans "更多" %}>></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            {% include "pager.html" with page_list=news_list %}
+        </div>
+    </div>
+
     <div class="faq-area-2 sp bg1">
         <div class="container">
             <div class="section-title">
@@ -152,93 +240,6 @@
         </div>
     </div>
 
-    <div class="faq-area-2 sp bg2">
-        <div class="container">
-            <div class="section-title">
-                <h2>{% trans "新闻资讯" %}
-                </h2>
-                <div class="section-title-bg">
-                    <div class="section-title-bg-box" style=""></div>
-                </div>
-                <div class="sub-title">
-                    <hr class="hr-2">
-                    <span style="color: #000;">NEWS</span>
-                    <hr class="hr-2">
-                </div>
-            </div>
-            <div class="row bg1">
-                {% if LANGUAGE_CODE == 'en' %}
-                    {% for item in news_list %}
-                        <div class="col-md-12 list-last-box">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="about-img">
-                                        <a href="/news_detail/{{ item.id }}?banner={{ banner }}"><img
-                                                src="/uploads/{{ item.cover_image_url }}" alt="{{ item.en_title }}"></a>
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="about-content" style="margin-top:0;">
-                                        <h3 style="margin: 5px 0;">
-                                            <a href="/news_detail/{{ item.id }}?banner={{ banner }}">{{ item.en_title|truncate_point:'64' }}</a>
-                                        </h3>
-                                        <div>{{ item.en_brief|truncate_point:'300' }}</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="about-content" style="margin-top:0; text-align: center;">
-                                        <h2 style="margin: 5px 0; font-size:35px; color: #fbdf51;">{{ item.read_count }}</h2>
-                                        <!--<div>{{item.create_time|date:'Y年m月d日 f'}}</div>-->
-                                        <div>{{ item.create_time|date:'Y年m月d日 H:i:s' }}</div>
-                                    </div>
-                                    <div class="about-content" style="text-align: center;">
-                                        <a class="btn btn-default"
-                                           style="width: 120px; background-color: #fbdf50; color: #fff;"
-                                           href="/news_detail/{{ item.id }}?banner={{ banner }}">{% trans "更多" %}>></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    {% for item in news_list %}
-                        <div class="col-md-12 list-last-box">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="about-img">
-                                        <a href="/news_detail/{{ item.id }}?banner={{ banner }}"><img
-                                                src="/uploads/{{ item.cover_image_url }}" alt="{{ item.title }}"></a>
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="about-content" style="margin-top:0;">
-                                        <h3 style="margin: 5px 0;"><a
-                                                href="/news_detail/{{ item.id }}?banner={{ banner }}">{{ item.title|truncate_point:'64' }}</a>
-                                        </h3>
-                                        <div>{{ item.brief|truncate_point:'300' }}</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="about-content" style="margin-top:0; text-align: center;">
-                                        <h2 style="margin: 5px 0; font-size:35px; color: #fbdf51;">{{ item.read_count }}</h2>
-                                        <!--<div>{{item.create_time|date:'Y年m月d日 f'}}</div>-->
-                                        <div>{{ item.create_time|date:'Y年m月d日 H:i:s' }}</div>
-                                    </div>
-                                    <div class="about-content" style="text-align: center;">
-                                        <a class="btn btn-default"
-                                           style="width: 120px; background-color: #fbdf50; color: #fff;"
-                                           href="/news_detail/{{ item.id }}?banner={{ banner }}">{% trans "更多" %}>></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            </div>
-
-            {% include "pager.html" with page_list=news_list %}
-        </div>
-    </div>
 {% endblock %}
 
 

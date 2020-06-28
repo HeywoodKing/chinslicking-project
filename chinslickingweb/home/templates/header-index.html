@@ -1770,18 +1770,29 @@
                                 {% for item in nav_list %}
                                     {% if item.children.all %}
                                         <li class="has-child">
-                                            <a href="{{ item.url }}?banner={{ item.code }}">{{ item.en_name }}</a>
+                                            {% if item.url %}
+                                                <a href="{{ item.url }}?banner={{ item.code }}">{{ item.en_name }}</a>
+                                            {% else %}
+                                                {{ item.en_name }}
+                                            {% endif %}
                                             <ul class="sub-menu">
                                                 {% for child in item.children.all %}
                                                     <li>
-                                                        <a href="{{ child.url }}?banner={{ item.code }}">{{ child.en_name }}</a>
+                                                        <a href="{{ child.url }}/{{ child.id }}?banner={{ item.code }}">{{ child.en_name }}</a>
                                                     </li>
                                                 {% endfor %}
                                             </ul>
                                         </li>
                                     {% else %}
                                         {% if item.is_root %}
-                                            <li><a href="{{ item.url }}?banner={{ item.code }}">{{ item.en_name }}</a>
+                                            <li>
+                                                {% if item.url %}
+                                                    <a href="{{ item.url }}?banner={{ item.code }}">
+                                                        {{ item.en_name }}
+                                                    </a>
+                                                {% else %}
+                                                    {{ item.en_name }}
+                                                {% endif %}
                                             </li>
                                         {% endif %}
                                     {% endif %}
@@ -1790,18 +1801,30 @@
                                 {% for item in nav_list %}
                                     {% if item.children.all %}
                                         <li class="has-child">
-                                            <a href="{{ item.url }}?banner={{ item.code }}">{{ item.name }}</a>
+                                            {% if item.url %}
+                                                <a href="{{ item.url }}?banner={{ item.code }}">{{ item.name }}</a>
+                                            {% else %}
+                                                {{ item.name }}
+                                            {% endif %}
                                             <ul class="sub-menu">
                                                 {% for child in item.children.all %}
                                                     <li>
-                                                        <a href="{{ child.url }}?banner={{ item.code }}">{{ child.name }}</a>
+                                                        <a href="{{ child.url }}/{{ child.id }}?banner={{ item.code }}">{{ child.name }}</a>
                                                     </li>
                                                 {% endfor %}
                                             </ul>
                                         </li>
                                     {% else %}
                                         {% if item.is_root %}
-                                            <li><a href="{{ item.url }}?banner={{ item.code }}">{{ item.name }}</a></li>
+                                            <li>
+                                                {% if item.url %}
+                                                    <a href="{{ item.url }}?banner={{ item.code }}">
+                                                        {{ item.name }}
+                                                    </a>
+                                                {% else %}
+                                                    {{ item.name }}
+                                                {% endif %}
+                                            </li>
                                         {% endif %}
                                     {% endif %}
                                 {% endfor %}

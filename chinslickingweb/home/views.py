@@ -548,3 +548,41 @@ def job_list(req):
         job_list = [item for item in job_list if item.en_job_name]
 
     return render(req, 'job_list.html', locals())
+
+
+# 大赛报名
+def compet_enroll(req):
+    index = 7
+    try:
+        compet = models.ChfEnrollCompet.objects.get(is_enable=True)
+        if compet:
+            if req.path.split('/')[1] == 'en':
+                if compet.en_title is None:
+                    compet = None
+    except Exception as e:
+        logger.error(e)
+
+    return render(req, 'compet_enroll.html', locals())
+
+
+# 公益大赛
+def compet_list(req, id):
+    index = 6
+    try:
+        if id:
+            compet = models.ChfCompet.objects.get(id=id)
+            if compet:
+                if req.path.split('/')[1] == 'en':
+                    if compet.en_title is None:
+                        compet = None
+        else:
+            compet = None
+
+        if compet:
+            # compet.data = models.ChfCompetVideo.objects.filter(compet__id=compet.id)
+            compet.data = models.ChfCompetVideo.objects.filter(compet=compet.id)
+
+    except Exception as e:
+        logger.error(e)
+
+    return render(req, 'compet.html', locals())

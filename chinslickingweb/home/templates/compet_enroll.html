@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block header %}
+    {% include "header.html" with title="公益大赛" %}
+    {% block style_tag %}
+    <link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+    <style>
+
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% comment %}{% block banner %}
+<!--滚动切换图片-->
+<div class="hero-slider">
+    {% for item in banner_list %}
+    <div class="single-slide" style="background-image: url(/uploads/{{ item.image_url }})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2>{% trans item.text %}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="slider-counter"></div>
+{% endblock %}{% endcomment %}
+
+{% block content %}
+{% if compet %}
+    <div class="gallery-area bg6 sp">
+        <div class="container">
+            {% if LANGUAGE_CODE == 'en' %}
+                <div class="section-title" data-margin="0 0 40px">
+                    <h2>{{ compet.en_title}}</h2>
+                    <div class="section-title-bg">
+                        <div class="section-title-bg-box" style=""></div>
+                    </div>
+                    <div class="sub-title">
+                        <hr class="hr-2">
+                        <span>The public competition</span>
+                        <hr class="hr-2">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 single-gallery text-center">
+                        <div class="outter-hover">
+                            {{ compet.en_content|safe }}
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="section-title" data-margin="0 0 40px">
+                    <h2>{{ compet.title}}</h2>
+                    <div class="section-title-bg">
+                        <div class="section-title-bg-box" style=""></div>
+                    </div>
+                    <div class="sub-title">
+                        <hr class="hr-2">
+                        <span>{{ compet.en_title }}</span>
+                        <hr class="hr-2">
+                    </div>
+                </div>
+                <div class="row bg5">
+                    <div class="col-md-12 col-md-offset-2 col-lg-offset-2 col-xl-offset-2 single-gallery">
+                        <div style="margin:50px 0;">
+                            {{ compet.content|safe }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}
+
+<!--<div class="page-bottom-title sp page-bottom-bg">
+    <div class="container text-center">
+        <h2 class="banner-h3" style="color:rgb(255,255,255,0.8);">
+            {% trans "愿景规划" %}
+        </h2>
+        <h4 class="banner-h4">
+            <hr class="hr-1">
+            <span>VISION</span>
+            <hr class="hr-1">
+        </h4>
+        <p style="color:rgb(255,255,255,0.8); letter-spacing:1px;">{% trans '"秦食皇"希望把中国农副产品和民间特色美食，以品牌的形式展示到境外华人的视野，意图通过境外宣传与销售通道，改变海外华人对中国美食的认知。实现我们"一口国土味，入胃解乡愁"的夙愿，让老百姓"送的安心，吃的放心"。' %}</p>
+    </div>
+</div>-->
+
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+            $('.grid').masonry({
+                itemSelector: '.grid-item',
+                // columnWidth: 200
+            });
+        });
+    </script>
+    {% endblock %}
+{% endblock %}

@@ -420,6 +420,7 @@ SIMPLEUI_CONFIG = {
         _('信息管理'),
         _('产品管理'),
         _('简介管理'),
+        _('大赛管理'),
         _('留言管理'),
         _('招聘管理'),
         _('管理员管理'),
@@ -562,6 +563,27 @@ SIMPLEUI_CONFIG = {
                     'icon': 'fa fa-dharmachakra',
                     'url': 'home/chinstory/'
                 }
+            ]
+        },
+        {
+            'name': _('大赛管理'),
+            'icon': 'fas fa-newspaper',
+            'models': [
+                {
+                    'name': _('大赛活动信息'),
+                    'icon': 'fa fa-images',
+                    'url': 'home/chinenrollcompet/'
+                },
+                {
+                    'name': _('历届大赛'),
+                    'icon': 'fa fa-beer',
+                    'url': 'home/chincompet/'
+                },
+                {
+                    'name': _('历届大赛视频'),
+                    'icon': 'fa fa-video',
+                    'url': 'home/chincompetvideo/'
+                },
             ]
         },
         {

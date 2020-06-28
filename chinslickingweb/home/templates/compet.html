@@ -1,0 +1,260 @@
+{% extends "layout.html" %}
+{% load static %}
+{% load my_filter_tag %}
+{% load i18n %}
+
+{% block header %}
+{% include "header.html" with title="公益大赛" %}
+{% block style_tag %}
+<style>
+    .full-video {
+        z-index: 9999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: fill;
+        width: auto;
+        height: auto;
+        /*-ms-transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        background: url(../images/cover.jpg) no-repeat;*/
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+
+    .full-video-close {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        background-color: #fbdf50;
+        background-image: url({% static 'images/close.png' %});
+        background-size: cover;
+        background-position: center left;
+        z-index: 10000;
+    }
+
+    .full-video-close:hover {
+        background-position: -54px 0;
+    }
+</style>
+{% endblock %}
+{% endblock %}
+
+{% comment %}
+{% block banner %}
+<!--滚动切换图片-->
+<div class="hero-slider">
+    {% for item in banner_list %}
+    <div class="single-slide" style="background-image: url(/uploads/{{ item.image_url }})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2>{% trans item.text %}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+{% endcomment %}
+
+{% block content %}
+    <div class="video-box full-video hidden animated">
+        <div class="full-video-close"></div>
+        <video id="video" class="full-video" type="video/mp4" loop preload="auto" controls x5-video-player-type="h5"
+               x5-video-orientation="landscape" poster="/uploads/{{ item.cover_image_url }}">
+            <!--<source src="/uploads/{{ item.video_source }}">-->
+        </video>
+    </div>
+    {% if compet %}
+        <div class="gallery-area bg6 sp">
+            <div class="container">
+                {% if LANGUAGE_CODE == 'en' %}
+                    <div class="section-title" data-margin="0 0 40px">
+                        <h2>{{ compet.en_title}}</h2>
+                        <div class="section-title-bg">
+                            <div class="section-title-bg-box" style=""></div>
+                        </div>
+                        <div class="sub-title">
+                            <hr class="hr-2">
+                            <span>The public competition</span>
+                            <hr class="hr-2">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 single-gallery text-center">
+                            <div class="outter-hover">
+                                {{ compet.en_content|safe }}
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="section-title" data-margin="0 0 40px">
+                        <h2>{{ compet.title}}</h2>
+                        <div class="section-title-bg">
+                            <div class="section-title-bg-box" style=""></div>
+                        </div>
+                        <div class="sub-title">
+                            <hr class="hr-2">
+                            <span>Vegetarian public competition</span>
+                            <hr class="hr-2">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 single-gallery text-center">
+                            <div class="outter-hover">
+                                {{ compet.content|safe }}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+
+    <!--<div class="page-bottom-title sp page-bottom-bg">
+        <div class="container text-center">
+            <h2 class="banner-h3" style="color:rgb(255,255,255,0.8);">
+                {% trans "愿景规划" %}
+            </h2>
+            <h4 class="banner-h4">
+                <hr class="hr-1">
+                <span>VISION</span>
+                <hr class="hr-1">
+            </h4>
+            <p style="color:rgb(255,255,255,0.8); letter-spacing:1px;">{% trans '"秦食皇"希望把中国农副产品和民间特色美食，以品牌的形式展示到境外华人的视野，意图通过境外宣传与销售通道，改变海外华人对中国美食的认知。实现我们"一口国土味，入胃解乡愁"的夙愿，让老百姓"送的安心，吃的放心"。' %}</p>
+        </div>
+    </div>-->
+
+    <div class="faq-area-2 sp bg5">
+        <div class="container">
+            <div class="section-title">
+                <h2>{% trans "素食公益大赛视频" %}
+                </h2>
+                <div class="section-title-bg">
+                    <div class="section-title-bg-box" style=""></div>
+                </div>
+                <div class="sub-title">
+                    <hr class="hr-2">
+                    <span style="color: #000;">Public welfare competition video switching to a vegetarian diet</span>
+                    <hr class="hr-2">
+                </div>
+            </div>
+            <div class="row bg5 compet-video-list">
+                {% if LANGUAGE_CODE == 'en' %}
+                    {% for item in compet.data %}
+                        <div class="col-md-12 list-last-box" style="background-color: #fee97c; border-bottom: 10px solid #fbdf50;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="about-img">
+                                        <video id="video" style="width:275px;height:170px;" type="video/mp4" volume="0.3" preload="none" controls x5-video-player-type="h5"
+                                               x5-video-orientation="landscape" poster="/uploads/{{ item.cover_image_url }}">
+                                            <source src="/uploads/{{ item.video_source }}">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="about-content" style="margin-top:0;">
+                                        <h3 style="margin: 5px 0;">
+                                            {{ item.en_title|truncate_point:'64' }}
+                                        </h3>
+                                        <div>{{ item.en_brief|truncate_point:'300' }}</div>
+                                    </div>
+
+                                    <div class="about-content" style="margin-top:0; text-align: left;">
+                                        <div>{{ item.create_time|date:'Y年m月d日 H:i:s' }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {% for item in compet.data %}
+                        <div class="col-md-12 list-last-box" style="background-color: #fee97c; border-bottom: 10px solid #fbdf50;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="about-img">
+                                        <video id="video" style="width:275px;height:170px;" type="video/mp4" volume="0.3" preload="none" controls x5-video-player-type="h5"
+                                               x5-video-orientation="landscape" poster="/uploads/{{ item.cover_image_url }}">
+                                            <source src="/uploads/{{ item.video_source }}">
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="about-content" style="margin-top:0;text-align: left;">
+                                        <h3 style="margin: 5px 0;">
+                                            <!--<a href="/compet_detail/{{ item.id }}?banner={{ banner }}">{{ item.title|truncate_point:'64' }}</a>-->
+                                            {{ item.title|truncate_point:'64' }}
+                                        </h3>
+                                        <div>{{ item.brief|truncate_point:'300' }}</div>
+                                    </div>
+
+                                    <div class="about-content" style="margin-top:0;">
+                                        <div>{{ item.create_time|date:'Y年m月d日 H:i:s' }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            {% include "pager.html" with page_list=compet.data %}
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+        <script>
+            $(function(){
+                $(window).scroll(function(){
+                    var scrollTop = $(this).scrollTop();  // 滚动条距离顶部的高度
+                    console.log("滚动条距离顶部的高度-->" + scrollTop);
+
+                    var scrollHeight = $(document).height(); // 当前页面的总高度
+                    console.log("当前页面的总高度-->" + scrollHeight);
+
+                    var clientHeight = $(this).height(); // 当前可视的页面高度
+                    console.log("当前可视的页面高度-->" + clientHeight);
+
+                    if (scrollTop + clientHeight >= scrollHeight) { // 距离顶部高度+可视高度 >= 文档总高度 即代表滑动到底部
+                        // alert('已经到底了！');
+                        // 异步获取数据加载到页面
+                        <!--$.get('compet_video', function(result){
+                            $(".compet-video-list").html(result);
+                        }, 'json');-->
+                    } else if (scrollTop <= 0) {
+                        // alert('已经到顶了！');
+                    }
+
+                });
+            });
+
+            <!--$('#content-zone').scroll(function(){
+                if (this.scrollTop+$(this).height()+4>this.scrollHeight){
+                    var  page = parseInt($('#page').val());
+                    var  page_num = parseInt($('#page_num').val());
+                    if(page<page_num){
+                        get_message(page+1);
+                    }
+                }
+            });
+
+            //第二行的+4是padding和magin的距离-->
+        </script>
+    {% endblock %}
+{% endblock %}

@@ -99,9 +99,12 @@ body {
 .simpleui-table tr {
   height: 35px;
 }
+.simpleui-table tr:hover th,
+.simpleui-table tr:hover td {
+  background-color: inherit !important;
+}
 .simpleui-table tr th {
   text-align: right;
-  width: 60px;
   border-bottom: #eaeef5 1px solid;
 }
 .simpleui-table tr td {
@@ -176,6 +179,10 @@ body {
   margin: 10px 0px;
   float: none;
   width: 100%;
+}
+#home .upgrade {
+  color: #1db393;
+  font-size: 16px;
 }
 .el-breadcrumb__item .fas {
   margin-right: 5px;
@@ -308,6 +315,13 @@ body {
   margin: 10px;
   border: #FFF 1px solid;
 }
+.quick-wrap .card-name {
+  height: 25px;
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .quick-wrap .icon {
   display: block;
   text-align: center;
@@ -330,7 +344,7 @@ body {
   min-height: 250px;
 }
 .menu {
-  overflow-x: hidden ;
+  overflow-x: hidden;
   /*滚动条样式*/
 }
 .menu .el-icon-arrow-right {
@@ -348,5 +362,9 @@ body {
   -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 0;
   background: rgba(0, 0, 0, 0.1);
+}
+.lite-menus .el-submenu__title:hover,
+.lite-menus .is-opened .el-submenu__title {
+  color: white !important;
 }
 /*# sourceMappingURL=index.css.map */

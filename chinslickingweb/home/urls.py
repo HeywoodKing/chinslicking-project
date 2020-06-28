@@ -29,8 +29,8 @@ urlpatterns = [
     url(r'^news_list', views.news_list, name='news_list'),
     url(r'^news_detail/(?P<id>\d+)', views.news_detail, name='news_detail'),
 
-    # url(r'^resp_list', views.resp_list, name='resp_list'),
-    # url(r'^resp_detail/(?P<id>\d+)', views.resp_detail, name='resp_detail'),
+    url(r'^compet_list/(?P<id>\d+)', views.compet_list, name='compet_list'),
+    url(r'^compet_enroll', views.compet_enroll, name='compet_enroll'),
 
     url('', views.index, name='index'),
     url(r'^index', views.index, name='index'),
