@@ -56,7 +56,7 @@
                                             {% if item.url %}
                                                 <a href="{{ item.url }}?banner={{ item.code }}">{{ item.en_name }}</a>
                                             {% else %}
-                                                {{ item.en_name }}
+                                                <a href="javascript::void();">{{ item.en_name }}</a>
                                             {% endif %}
                                             <ul class="sub-menu">
                                                 {% for child in item.children.all %}
@@ -74,7 +74,7 @@
                                                         {{ item.en_name }}
                                                     </a>
                                                 {% else %}
-                                                    {{ item.en_name }}
+                                                    <a href="javascript::void();">{{ item.en_name }}</a>
                                                 {% endif %}
                                             </li>
                                         {% endif %}
@@ -87,7 +87,7 @@
                                             {% if item.url %}
                                                 <a href="{{ item.url }}?banner={{ item.code }}">{{ item.name }}</a>
                                             {% else %}
-                                                {{ item.name }}
+                                                <a href="javascript::void();">{{ item.name }}</a>
                                             {% endif %}
                                             <ul class="sub-menu">
                                                 {% for child in item.children.all %}
@@ -105,7 +105,7 @@
                                                         {{ item.name }}
                                                     </a>
                                                 {% else %}
-                                                    {{ item.name }}
+                                                    <a href="javascript::void();">{{ item.name }}</a>
                                                 {% endif %}
                                             </li>
                                         {% endif %}

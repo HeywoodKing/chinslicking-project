@@ -1322,8 +1322,8 @@
                 position: absolute;
                 top: 15%;
                 right: 0;
-                width: 65px;
-                height: 43px;
+                width: 80px;
+                height: 50px;
                 background: url({% static "images/water_btn.png" %}) no-repeat;
                 background-size: 58%;
                 z-index: 1;
@@ -1773,7 +1773,7 @@
                                             {% if item.url %}
                                                 <a href="{{ item.url }}?banner={{ item.code }}">{{ item.en_name }}</a>
                                             {% else %}
-                                                {{ item.en_name }}
+                                                <a href="javascript::void();">{{ item.en_name }}</a>
                                             {% endif %}
                                             <ul class="sub-menu">
                                                 {% for child in item.children.all %}
@@ -1791,7 +1791,7 @@
                                                         {{ item.en_name }}
                                                     </a>
                                                 {% else %}
-                                                    {{ item.en_name }}
+                                                    <a href="javascript::void();">{{ item.en_name }}</a>
                                                 {% endif %}
                                             </li>
                                         {% endif %}
@@ -1804,7 +1804,7 @@
                                             {% if item.url %}
                                                 <a href="{{ item.url }}?banner={{ item.code }}">{{ item.name }}</a>
                                             {% else %}
-                                                {{ item.name }}
+                                                <a href="javascript::void();">{{ item.name }}</a>
                                             {% endif %}
                                             <ul class="sub-menu">
                                                 {% for child in item.children.all %}
@@ -1822,7 +1822,7 @@
                                                         {{ item.name }}
                                                     </a>
                                                 {% else %}
-                                                    {{ item.name }}
+                                                    <a href="javascript::void();">{{ item.name }}</a>
                                                 {% endif %}
                                             </li>
                                         {% endif %}

@@ -1053,6 +1053,8 @@ class ChinCompet(BaseModel):
     en_title = models.CharField(_('标题(英文)'), max_length=100, default='', null=True, blank=True)
     slug = models.SlugField('Slug', max_length=255, unique=True, null=True, blank=True,
                             help_text=_('根据title生成的，用于生成页面URL，必须唯一'))
+    sub_title = models.CharField(_('视频标题(中文)'), max_length=100, default='', null=True, blank=True)
+    en_sub_title = models.CharField(_('视频标题(英文)'), max_length=200, default='', null=True, blank=True)
     content = models.TextField(_('描述(中文)'), default='', null=True, blank=True)
     en_content = models.TextField(_('描述(英文)'), default='', null=True, blank=True)
     sort = models.IntegerField(_('排序'), default=0)

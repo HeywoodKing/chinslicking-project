@@ -534,11 +534,11 @@ class ChinKeywordsAdmin(admin.ModelAdmin):
 
 @admin.register(models.ChinCompet)
 class ChinCompetAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'en_title', 'profile', 'en_profile', 'is_enable', 'sort', 'operate_time')
-    list_display_links = ('id', 'title', 'en_title', 'profile', 'en_profile', )
+    list_display = ('id', 'title', 'en_title', 'sub_title', 'en_sub_title', 'profile', 'en_profile', 'is_enable', 'sort', 'operate_time')
+    list_display_links = ('id', 'title', 'en_title', 'sub_title', 'en_sub_title', 'profile', 'en_profile', )
     list_filter = (IsEnableFilter, )
     list_per_page = 30
-    search_fields = ('title', 'en_title', 'profile', 'en_profile', )
+    search_fields = ('title', 'en_title', 'sub_title', 'en_sub_title', 'profile', 'en_profile', )
     exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username',)
 
     class Media:

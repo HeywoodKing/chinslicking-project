@@ -40,7 +40,7 @@
             <div class="container">
                 {% if LANGUAGE_CODE == 'en' %}
                     <div class="section-title" data-margin="0 0 40px">
-                        <h2>{{ compet.en_title}}</h2>
+                        <h2>{{ compet.en_title }}</h2>
                         <div class="section-title-bg">
                             <div class="section-title-bg-box" style=""></div>
                         </div>
@@ -97,20 +97,19 @@
 
     <div class="faq-area-2 sp bg1">
         <div class="container">
-            <div class="section-title">
-                <h2>{% trans "素食公益大赛视频" %}
-                </h2>
-                <div class="section-title-bg">
-                    <div class="section-title-bg-box" style=""></div>
+            {% if LANGUAGE_CODE == 'en' %}
+                <div class="section-title">
+                    <h2>{{ compet.en_sub_title }}</h2>
+                    <div class="section-title-bg">
+                        <div class="section-title-bg-box" style=""></div>
+                    </div>
+                    <div class="sub-title">
+                        <hr class="hr-2">
+                        <span style="color: #000;">Public welfare competition video switching to a vegetarian diet</span>
+                        <hr class="hr-2">
+                    </div>
                 </div>
-                <div class="sub-title">
-                    <hr class="hr-2">
-                    <span style="color: #000;">Public welfare competition video switching to a vegetarian diet</span>
-                    <hr class="hr-2">
-                </div>
-            </div>
-            <div class="row bg2 compet-video-list">
-                {% if LANGUAGE_CODE == 'en' %}
+                <div class="row bg2 compet-video-list">
                     {% for item in compet.data %}
                         <div class="col-md-12 list-last-box" style="border-bottom: 10px solid #fbdf50;">
                             <div class="row">
@@ -137,7 +136,20 @@
                             </div>
                         </div>
                     {% endfor %}
-                {% else %}
+                </div>
+            {% else %}
+                <div class="section-title">
+                    <h2>{{ compet.sub_title }}</h2>
+                    <div class="section-title-bg">
+                        <div class="section-title-bg-box" style=""></div>
+                    </div>
+                    <div class="sub-title">
+                        <hr class="hr-2">
+                        <span style="color: #000;">Public welfare competition video switching to a vegetarian diet</span>
+                        <hr class="hr-2">
+                    </div>
+                </div>
+                <div class="row bg2 compet-video-list">
                     {% for item in compet.data %}
                         <div class="col-md-12 list-last-box" style="border-bottom: 10px solid #fbdf50;">
                             <div class="row">
@@ -165,8 +177,8 @@
                             </div>
                         </div>
                     {% endfor %}
-                {% endif %}
-            </div>
+                </div>
+            {% endif %}
 
             {% include "pager.html" with page_list=compet.data %}
         </div>
